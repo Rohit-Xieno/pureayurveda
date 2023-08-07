@@ -422,3 +422,46 @@ body .\!max-w-screen-md{
 body .owl-carousel .owl-nav button{
   @apply bg-[url('../assets/images/arrow-right-nav.png')] bg-no-repeat w-[50px] h-[50px] bg-[100%] opacity-[0.4];
 }
+
+
+
+.single-post article h2{
+  @apply text-[22px] font-semibold;
+}
+.single-post .social-post-sidebar{
+  @apply border-t border-b border-[#c8c8c8]
+}
+.single-post .social-post-sidebar span{
+  @apply mr-5;
+}
+
+.single-post .social-post-sidebar .wp-block-social-links .wp-block-social-link{
+  @apply bg-transparent text-[#aa90a4] 
+}
+/* .single-post .social-post-sidebar .wp-block-social-links:not(.is-style-logos-only) .wp-social-link-facebook{
+  @apply bg-transparent text-[#aa90a4] 
+} */
+.single-post .social-post-sidebar .widget_block{
+  @apply mb-0
+}
+.single-post-sidebar label{
+  @apply hidden
+}
+.single-post-sidebar h2{
+  @apply text-[22px] text-[#96225d] tracking-[2.2px] mb-[15px] uppercase mt-12;
+}
+.single-post-sidebar input[type="search"]{
+  @apply border-t-0 border-l-0 border-r-0 border-b border-[#241822] focus:outline-none;
+}
+.single-post-sidebar .wp-block-search__inside-wrapper{
+  @apply relative 
+} 
+.single-post-sidebar .wp-block-search__inside-wrapper [type="submit"]{
+  @apply absolute bg-[url(../assets/images/search-icon.svg)] bg-no-repeat p-0 w-[24px] h-[24px] bg-contain text-[0] right-0 top-[7px]; 
+}
+.single-post-sidebar .popular-posts ul li{
+  @apply relative;
+  &:before{
+    @apply absolute left-0 top-[9px];
+  }
+}

@@ -122,6 +122,26 @@
   </div>
 </section>
 <!-- Testimonial sectin end -->
+<div class="popular-post">
+  <?php
+  $popularpost  = array(
+    'posts_per_page' => 5,
+    'post_type' => 'posts',
+    // 'meta_key' => 'wpb_post_views_count',
+    // 'orderby' => 'meta_value_num', 
+    'order' => 'DESC'
+);
+$query = new WP_Query( $popularpost );
+
+// The Loop
+while ( $query->have_posts() ) : $query->the_post(); 
+        print the_title(); 
+        the_excerpt(); 
+    endwhile;
+/* Restore original Post Data */
+wp_reset_postdata();
+?>
+  </div>
 </main>
 
 <?php get_footer(); ?>

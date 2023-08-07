@@ -914,6 +914,85 @@ body .owl-carousel .owl-nav button {
     background-repeat: no-repeat;
     opacity: 0.4;
 }
+
+
+
+.single-post article h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+.single-post .social-post-sidebar {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(200 200 200 / var(--tw-border-opacity));
+}
+.single-post .social-post-sidebar span {
+    margin-right: 1.25rem;
+}
+
+.single-post .social-post-sidebar .wp-block-social-links .wp-block-social-link {
+    background-color: transparent;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+/* .single-post .social-post-sidebar .wp-block-social-links:not(.is-style-logos-only) .wp-social-link-facebook{
+  @apply bg-transparent text-[#aa90a4] 
+} */
+.single-post .social-post-sidebar .widget_block {
+    margin-bottom: 0px;
+}
+.single-post-sidebar label {
+  display: none;
+}
+.single-post-sidebar h2 {
+    margin-bottom: 15px;
+    margin-top: 3rem;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    --tw-text-opacity: 1;
+    color: rgb(150 34 93 / var(--tw-text-opacity));
+}
+.single-post-sidebar input[type="search"] {
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(36 24 34 / var(--tw-border-opacity));
+}
+.single-post-sidebar input[type="search"]:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.single-post-sidebar .wp-block-search__inside-wrapper {
+    position: relative;
+} 
+.single-post-sidebar .wp-block-search__inside-wrapper [type="submit"] {
+    position: absolute;
+    right: 0px;
+    top: 7px;
+    height: 24px;
+    width: 24px;
+    background-image: url(../assets/images/search-icon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 0px;
+    font-size: 0;
+}
+.single-post-sidebar .popular-posts ul li {
+    position: relative;
+  &:before {
+        position: absolute;
+    }
+  &:before {
+        left: 0px;
+    }
+  &:before {
+        top: 9px;
+    }
+}
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
@@ -1523,6 +1602,12 @@ video {
 .mt-\[80px\]{
   margin-top: 80px;
 }
+.mb-8{
+  margin-bottom: 2rem;
+}
+.mt-12{
+  margin-top: 3rem;
+}
 .block{
   display: block;
 }
@@ -1615,6 +1700,15 @@ video {
 }
 .w-full{
   width: 100%;
+}
+.w-\[\]{
+  width: ;
+}
+.w-\[60\%\]{
+  width: 60%;
+}
+.w-\[40\%\]{
+  width: 40%;
 }
 .\!max-w-screen-md{
   max-width: 768px !important;
@@ -1789,6 +1883,10 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
+.border-\[\#c8c8c8\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(200 200 200 / var(--tw-border-opacity));
+}
 .bg-\[\#241822\]{
   --tw-bg-opacity: 1;
   background-color: rgb(36 24 34 / var(--tw-bg-opacity));
@@ -1959,6 +2057,10 @@ video {
 .py-\[95px\]{
   padding-top: 95px;
   padding-bottom: 95px;
+}
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 .pb-12{
   padding-bottom: 3rem;
@@ -2157,6 +2259,9 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-\[\]{
+  color: ;
 }
 .underline{
   text-decoration-line: underline;

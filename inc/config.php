@@ -132,3 +132,7 @@ function add_additional_class_on_a($classes, $item, $args)
 }
 
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
+
+// comment form (box)
+
+	
