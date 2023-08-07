@@ -459,9 +459,9 @@ body .owl-carousel .owl-nav button{
 .single-post-sidebar .wp-block-search__inside-wrapper [type="submit"]{
   @apply absolute bg-[url(../assets/images/search-icon.svg)] bg-no-repeat p-0 w-[24px] h-[24px] bg-contain text-[0] right-0 top-[7px]; 
 }
-.single-post-sidebar .popular-posts ul li{
-  @apply relative;
-  &:before{
-    @apply absolute left-0 top-[9px];
-  }
+.single-post-sidebar .popular-posts ul.wpp-list li{
+  @apply relative pl-[20px];
+}
+.single-post-sidebar .popular-posts ul.wpp-list li:before{
+  @apply content-[''] absolute left-0 top-[9px] w-[8px] h-[8px] rounded-none rounded-tl-[3px] bg-[#96225d];
 }

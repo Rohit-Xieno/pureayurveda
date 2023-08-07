@@ -7,6 +7,8 @@
         <h1 class="text-[46px] text-[#241822] font-light mb-[54px] tracking-[1.35px] uppercase relative before:w-[2px] before:h-[30px] before:bg-[#96225D] before:absolute before:top-[-40px] before:left-[50%] before:translate-x-[-50%]"><?php wp_title(''); ?></h1>
       </div>
       <?php woocommerce_breadcrumb(); ?>
+      
+
       <?php
       $blog = array(
         'posts_per_page' => -1,
@@ -14,27 +16,26 @@
       );
       $blog_query = new WP_Query($blog);
       ?>
-      <div class="home-blog-row grid grid-cols-3 gap-x-[40px]">
-        <?php
-        if ($blog_query->have_posts()) :
-          while ($blog_query->have_posts()) : $blog_query->the_post();
-        ?>
-            <div class="home-blog-col mb-[40px]">
+      <?php $i=1; ?>
+      <?php if ($blog_query->have_posts()) : ?>
+        <div class="home-blog-row grid grid-cols-12 gap-x-[40px]">
+      <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
+            <div class="home-blog-col  <?php if ($i == 1) echo 'col-span-12'; else echo 'col-span-4'; ?> mb-[40px]">
               <?php $blog_img = wp_get_attachment_image_src(get_post_thumbnail_id($blog_query->ID), 'single-post-thumbnail'); ?>
-              <a href="<?php the_permalink(); ?>"><img src="<?php echo $blog_img[0]; ?>" alt="" class="w-[100%]"></a>
+              <a href="<?php the_permalink(); ?>"><img src="<?php echo $blog_img[0]; ?>" alt="" class="w-[100%] h-[255px] rounded-none object-cover"></a>
               <a href="<?php the_permalink(); ?>">
                 <h4 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><?php the_title(); ?></h4>
               </a>
               <p class="mb-[27px] mt-[26px]"><?php echo wp_trim_words(get_the_excerpt(), 22); ?></p>
               <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline">Read More</a>
             </div>
-        <?php
-          endwhile;
-        endif;
-        ?>
-        <?php wp_reset_query(); ?>
-      </div>
-    </div>
+          <!-- </div> -->
+          <?php $i++; ?>
+          <?php endwhile;?>
+        </div>
+          <?php endif; ?>
+          <?php wp_reset_query(); ?>
+        </div>
     <img src="<?php echo get_template_directory_uri() . '/assets/images/wooden-spoon.png' ?>" alt="" class="absolute bottom-0 right-0 z-0">
   </section>
 
@@ -135,6 +136,12 @@
             'posts_per_page' => -1,
           );
           $shop_query = new WP_Query($shop_product);?>
+          <div class="shop-slider">
+            <?php 
+              $shop_heading = get_field('blog_shop_now_heading', 'option');
+            ?>
+          <h2 class="text-4xl text-center mb-12"><?php echo $shop_heading; ?></h2>
+          
           <div id="owl-shop" class="owl-carousel owl-theme">
           <?php
           if ($shop_query->have_posts()) :
@@ -168,6 +175,7 @@
               </div>
               <?php endwhile;?>
               <?php endif; ?>
+            </div>
             </div>
             <?php wp_reset_query(); ?>
         

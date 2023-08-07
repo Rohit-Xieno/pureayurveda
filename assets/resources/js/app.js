@@ -20,7 +20,7 @@ $('#owl-shop').owlCarousel({
     items:1,
     nav:false,
     dots: true,
-    margin:0,
+    margin:40,
     responsiveClass:true,
     responsive:{
         0:{
