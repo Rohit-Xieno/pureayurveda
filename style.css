@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/*
+Theme Name: Pure Ayurveda
+Theme URI: https://xieno.com
+Author: the WordPress team
+Author URI: https://xieno.com/
+Description: 
+Requires at least: 5.3
+Tested up to: 6.2
+Requires PHP: 5.6
+Version: 1.8
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: pureayurveda
+
+*/
+
+
+
+.woocommerce-mini-cart-item a img.attachment-woocommerce_thumbnail{
+  width: 100%; max-width: 140px; height: 140px; object-fit: cover; border-top-left-radius: 30px; margin-right: 20px;
+}
+.woocommerce-mini-cart-item{display: flex; align-items: center; position: relative; border-bottom: 1px solid #C8C8C8; margin-bottom: 40px; padding-bottom: 40px;}
+.mini-product-name{
+  font-size: 22px; font-weight: 500; margin-bottom: 10px; line-height: 1.1;
+}
+.remove_from_cart_button{position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: #fff; font-size: 18px; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: red;}
+
+.woocommerce-mini-cart-item:last-child{border-bottom: 0;}
+.woocommerce-mini-cart{max-height: 400px; overflow-y: auto;}
+.star-rating{float: none !important; margin-bottom: 15px !important;}
+.star-rating:before{color: #AA90A4 !important;}
+.star-rating span:before{color: #AA90A4 !important;}
+.minicart-close span{font-size: 30px;}
