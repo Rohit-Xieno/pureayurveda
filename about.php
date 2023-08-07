@@ -85,10 +85,14 @@
 
   <!-- Testimonial sectin start -->
 <section class="testimonial-section py-[90px]">
+  <?php 
+    $testimonial_sub_title = get_field('testimonial_sub_title', 'option');
+    $testimonial_title = get_field('testimonial_title', 'option');
+  ?>
   <div class="container">
     <div class="text-center">
-      <h3 class="heading-h3 uppercase"><?php echo get_field('testimonial_sub_title') ?></h3>
-      <h2 class="heading-h2"><?php echo get_field('testimonial_title') ?></h2>
+      <h3 class="heading-h3 uppercase"><?php echo $testimonial_sub_title ?></h3>
+      <h2 class="heading-h2"><?php echo $testimonial_title ?></h2>
     </div>
     <div class="testimonial-carousel relative">
       <?php
