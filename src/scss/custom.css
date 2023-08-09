@@ -280,7 +280,7 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
 }
 
 html, body{
-  @apply overflow-x-hidden;
+  overflow-x: unset !important;
 }
 
 
@@ -522,7 +522,7 @@ body.woocommerce.woocommerce-shop h1.entry-title{
 
 /* cart page css */
 .cart-page .product-thumbnail img{
-  @apply rounded-tl-[50px]
+  @apply rounded-tl-[30px]
 }
 .cart-page .product-quantity{
   @apply flex items-center 
@@ -542,12 +542,34 @@ body.woocommerce.woocommerce-shop h1.entry-title{
 .woocommerce a.remove:hover{
   @apply bg-[url(../assets/images/Icon_material-delete.svg)] bg-no-repeat text-[0] w-[20px] h-[20px] bg-contain rounded-none bg-transparent
 }
-.pa-cart-page-2 .woocommerce-cart-form{
+/* .pa-cart-page-2 .woocommerce-cart-form .inner-cart-form{
   @apply max-h-[850px] overflow-y-auto
-}
+} */
 .pa-cart-page-2 .cart-page:last-child{
   @apply border-b-0
 }
 .pa-cart-page-2 .screen-reader-text.coupon-code-label{
-  @apply w-auto h-auto overflow-auto m-auto
+  @apply w-auto h-auto overflow-auto m-auto top-0 left-0 text-lg text-[#241822];
+  clip-path: unset;
+  clip: unset;  
+}
+.woocommerce .ced h2{
+  @apply hidden
+}
+.recently-viewed-section ul.products{
+  @apply flex gap-10
+}
+.recently-viewed-section ul.products li.product {
+  @apply float-none !mr-0 !w-full
+}
+
+.recently-viewed-section ul.products::before, .recently-viewed-section ul.products::after{
+  @apply hidden
+}
+.inverse::before{
+  @apply bg-[#F9F8F9]
+}
+.full-bleed::before{
+  box-shadow: 0 0 0 100vmax #F9F8F9;
+  clip-path: inset(0 -100vmax);
 }

@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_cart' );
 <div class="pa-cart-page-2 flex gap-36">
 <form class="woocommerce-cart-form w-[65%]" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
-
+<div class="inner-cart-form">
 	<!-- <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
 			<tr>
@@ -191,6 +191,7 @@ do_action( 'woocommerce_before_cart' );
 		<!-- </tbody> -->
 	<!-- </table> -->
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
+	</div>
 </form>
 
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
@@ -199,8 +200,8 @@ do_action( 'woocommerce_before_cart' );
 	<div class="bg-[#F9F8F9] p-[40px]">
 <div class="actions mb-5">
 <?php if ( wc_coupons_enabled() ) { ?>
-	<div class="coupon flex justify-end">
-		<label for="coupon_code" class="screen-reader-text coupon-code-label"><?php esc_html_e( 'Add a discount code', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text w-full" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
+	<div class="coupon flex justify-end relative pt-[35px]">
+		<label for="coupon_code" class="screen-reader-text coupon-code-label"><?php esc_html_e( 'Add a discount code', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text w-full h-[55px] bg-transparent border-2 border-[#AA90A4] p-2" id="coupon_code" value="" /> <button type="submit" class="!px-7 !bg-transparent !border-2 !border-solid !border-[#AA90A4] !ml-[18px] !rounded-none button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Add', 'woocommerce' ); ?></button>
 		<?php do_action( 'woocommerce_cart_coupon' ); ?>
 	</div>
 <?php } ?>

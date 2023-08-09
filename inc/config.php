@@ -5,10 +5,50 @@ $theme_data = wp_get_theme();
 // options page
 if( function_exists('acf_add_options_page') ) {
     
-	acf_add_options_page('Header');
-	acf_add_options_page('Footer');
-	acf_add_options_page('Testimonial Options');
-	acf_add_options_page('Blog');
+	acf_add_options_page();
+	acf_add_options_sub_page('Header');
+	acf_add_options_sub_page('Footer');
+	acf_add_options_sub_page('Testimonial');
+	acf_add_options_sub_page('Blog');
+	acf_add_options_sub_page('Shop');
+    
+	acf_add_options_page(array(
+			'page_title'    => 'Theme General Settings',
+			'menu_title'    => 'Theme Settings',
+			'menu_slug'     => 'theme-general-settings',
+			'capability'    => 'edit_posts',
+			'redirect'      => false
+	));
+	
+	acf_add_options_sub_page(array(
+			'page_title'    => 'Theme Header Settings',
+			'menu_title'    => 'Header',
+			'parent_slug'   => 'theme-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+			'page_title'    => 'Theme Footer Settings',
+			'menu_title'    => 'Footer',
+			'parent_slug'   => 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+			'page_title'    => 'Theme Testimonial Settings',
+			'menu_title'    => 'Testimonial',
+			'parent_slug'   => 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+			'page_title'    => 'Theme Blog Settings',
+			'menu_title'    => 'Blog',
+			'parent_slug'   => 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+			'page_title'    => 'Theme Shop Settings',
+			'menu_title'    => 'Shop',
+			'parent_slug'   => 'theme-general-settings',
+	));
 	
 }
 
@@ -174,77 +214,30 @@ remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_prod
 add_action( 'woocommerce_before_shop_loop', 'woocommerce_breadcrumb' );
 
 
-// recently view products
-function rc_woocommerce_recently_viewed_products( $atts, $content = null ) {
-
-	// Get shortcode parameters
-	extract(shortcode_atts(array(
-		"per_page" => '5'
-	), $atts));
-
-	// Get WooCommerce Global
-	global $woocommerce;
-
-	// Get recently viewed product cookies data
-	$viewed_products = ! empty( $_COOKIE['woocommerce_recently_viewed'] ) ? (array) explode( '|', $_COOKIE['woocommerce_recently_viewed'] ) : array();
-	$viewed_products = array_filter( array_map( 'absint', $viewed_products ) );
-
-	// If no data, quit
-	if ( empty( $viewed_products ) )
-		return __( 'You have not viewed any product yet!', 'rc_wc_rvp' );
-
-	// Create the object
-	ob_start();
-
-	// Get products per page
-	if( !isset( $per_page ) ? $number = 5 : $number = $per_page )
-
-	// Create query arguments array
-    $query_args = array(
-    				'posts_per_page' => $number, 
-    				'no_found_rows'  => 1, 
-    				'post_status'    => 'publish', 
-    				'post_type'      => 'product', 
-    				'post__in'       => $viewed_products, 
-    				'orderby'        => 'rand'
-    				);
-
-	// Add meta_query to query args
-	$query_args['meta_query'] = array();
-
-    // Check products stock status
-    $query_args['meta_query'][] = $woocommerce->query->stock_status_meta_query();
-
-	// Create a new query
-	$r = new WP_Query($query_args);
-
-	// If query return results
-	if ( $r->have_posts() ) {
-
-		$content = '<ul class="rc_wc_rvp_product_list_widget">';
-
-		// Start the loop
-		while ( $r->have_posts()) {
-			$r->the_post();
-			global $product;
-
-			$content .= '<li>
-				<a href="' . get_permalink() . '">
-					' . ( has_post_thumbnail() ? get_the_post_thumbnail( $r->post->ID, 'shop_thumbnail' ) : woocommerce_placeholder_img( 'shop_thumbnail' ) ) . ' ' . get_the_title() . '
-				</a> ' . $product->get_price_html() . '
-			</li>';
-		}
-
-		$content .= '</ul>';
-
-	}
-
-	// Get clean object
-	$content .= ob_get_clean();
+// recently viewed products on shop-page
+function wrvp_recently_viewed(){
+	$recent_sub_title = get_field('recent_sub_title','option');
+	$recent_title = get_field('recent_title','option');
+	echo '<div class="recently-viewed-section inverse full-bleed flex gap-10 bg-white relative before:absolute before:w-[100%] before:h-[209px] before:bg-[#F9F8F9] before:left-0 before:right-0 before:top-5 before:z-[-1]">';
+	echo '<div class="recently-viewed-title w-[25%] bg-[#F9F8F9] mt-5 pt-7 h-[209px]">';
+	echo '<h3 class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]">';
+	echo $recent_sub_title;
+	echo '</h3>'; 
+	echo '<h2 class="heading-h2 pl-[18px] leading-[1.2em] border-l border-[#96225D]">';
+	echo $recent_title;
+	echo '</h2>';  
+	echo '</div>';
+	echo do_shortcode('[wrvp_recently_viewed_products number_of_products_in_row="2" posts_per_page="2"]');
+	echo '<div class="grey-box bg-[#F9F8F9] w-[25%] h-[209px] mt-5">';
+	echo '</div>';
+	echo '</div>';
 	
-	// Return whole content
-	return $content;
 }
+add_action( 'woocommerce_after_shop_loop', 'wrvp_recently_viewed' );
 
-// Register the shortcode
-add_shortcode("woocommerce_recently_viewed_products", "rc_woocommerce_recently_viewed_products");
+function custom_text(){
+	wc_get_template('templates/shop/recently-viewed.php');
+}
+add_action( 'woocommerce_after_shop_loop', 'custom_text' );
+
+
