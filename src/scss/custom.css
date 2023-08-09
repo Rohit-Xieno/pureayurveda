@@ -465,3 +465,89 @@ body .owl-carousel .owl-nav button{
 .single-post-sidebar .popular-posts ul.wpp-list li:before{
   @apply content-[''] absolute left-0 top-[9px] w-[8px] h-[8px] rounded-none rounded-tl-[3px] bg-[#96225d];
 }
+.full-width-blog .blog-content{
+  @apply absolute bottom-10 left-24
+}
+.full-width-blog .blog-content p{
+  @apply hidden
+}
+.full-width-blog img{
+  @apply rounded-tl-[100px] rounded-tr-[100px] h-[360px] 
+}
+.full-width-blog .post-feature-img{
+  @apply relative before:absolute before:bg-[url('../assets/images/bg-overlay.png')] before:bg-cover before:w-full before:h-full
+}
+.full-width-blog .blog-content h4{
+  @apply text-white mb-10
+}
+.full-width-blog .read-more{
+  @apply bg-[#96225D] text-sm text-white px-8 py-3 no-underline
+}
+.woocommerce-breadcrumb{
+  @apply text-[#AA90A4]
+}
+.woocommerce-breadcrumb a{
+  @apply text-[#E8E1E6] 
+}
+
+/* shop page css */
+body.woocommerce.woocommerce-shop .products .product .add_to_cart_button{
+  @apply absolute top-[200px] left-[50%] translate-x-[-50%] hidden text-sm text-white py-3 px-4 max-w-[220px] w-full bg-[rgba(150,34,93,0.8)] text-center rounded-none
+}
+body.woocommerce.woocommerce-shop .products .product:hover .add_to_cart_button{
+  @apply block
+}
+body.woocommerce.woocommerce-shop ul.products li.product .woocommerce-loop-product__title{
+  @apply text-[22px] text-[#96225D] uppercase tracking-[2.2px] font-normal
+}
+body.woocommerce.woocommerce-shop ul.products li.product .price{
+  @apply flex flex-row-reverse justify-end
+}
+body.woocommerce.woocommerce-shop ul.products li.product .price del span{
+  @apply text-[18px] text-[#AA90A4] font-normal
+}
+body.woocommerce.woocommerce-shop ul.products li.product .price ins span{
+  @apply text-[18px] text-[#47203E] no-underline font-normal
+}
+body.woocommerce.woocommerce-shop ul.products li.product .price ins{
+  @apply mr-[10px]
+}
+body.woocommerce.woocommerce-shop #primary{
+  @apply pt-48
+}
+body.woocommerce.woocommerce-shop h1.entry-title{
+  @apply  relative mt-40 before:absolute before:left-[50%] before:top-[-40px] before:w-[2px] before:h-[30px] before:translate-x-[-50%] before:bg-[#96225D]
+}
+
+
+/* cart page css */
+.cart-page .product-thumbnail img{
+  @apply rounded-tl-[50px]
+}
+.cart-page .product-quantity{
+  @apply flex items-center 
+}
+.cart-page .quantity{
+  @apply border border-[#AA90A4] px-4 py-2 ml-3
+}
+.woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals{
+  @apply w-full
+}
+.woocommerce table.shop_table{
+  @apply border-none
+}
+.woocommerce a.remove{
+  @apply bg-[url(../assets/images/Icon_material-delete.svg)] bg-no-repeat text-[0] w-[20px] h-[20px] bg-contain rounded-none
+}
+.woocommerce a.remove:hover{
+  @apply bg-[url(../assets/images/Icon_material-delete.svg)] bg-no-repeat text-[0] w-[20px] h-[20px] bg-contain rounded-none bg-transparent
+}
+.pa-cart-page-2 .woocommerce-cart-form{
+  @apply max-h-[850px] overflow-y-auto
+}
+.pa-cart-page-2 .cart-page:last-child{
+  @apply border-b-0
+}
+.pa-cart-page-2 .screen-reader-text.coupon-code-label{
+  @apply w-auto h-auto overflow-auto m-auto
+}

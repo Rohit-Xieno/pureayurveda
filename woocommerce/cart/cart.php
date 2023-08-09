@@ -20,8 +20,8 @@ do_action( 'woocommerce_before_cart' );
 
 ?>
 <?php woocommerce_breadcrumb(); ?>
-<div class="pa-cart-page-2 flex">
-<form class="woocommerce-cart-form w-3/5" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+<div class="pa-cart-page-2 flex gap-36">
+<form class="woocommerce-cart-form w-[65%]" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
 	<!-- <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
@@ -56,7 +56,7 @@ do_action( 'woocommerce_before_cart' );
 					<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
 						
-						<div class="cart-page flex">
+						<div class="cart-page flex border-b border-[#C8C8C8] mb-14 pb-14">
 						<div class="product-thumbnail">
 						<?php
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
@@ -73,7 +73,7 @@ do_action( 'woocommerce_before_cart' );
 
 
 						
-					<div class="cart-page-detail">
+					<div class="cart-page-detail pl-10 flex flex-col gap-2">
 						<h4 class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
 						<?php
 						if ( ! $product_permalink ) {
@@ -110,12 +110,16 @@ do_action( 'woocommerce_before_cart' );
 
 						<div class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
 							<?php
+							$price_text = "Price";
+							echo $price_text;
 								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
 						</div>
 
 						<div class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
 						<?php
+						$product_quantity_txt = "Quantity :";
+						echo $product_quantity_txt;
 						if ( $_product->is_sold_individually() ) {
 							$min_quantity = 1;
 							$max_quantity = 1;
@@ -139,6 +143,13 @@ do_action( 'woocommerce_before_cart' );
 						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
 						?>
 						</div>
+						<div class="product-subtotal hidden" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
+
+							<?php
+							
+								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+							?>
+						</div>
 						</div>
 						<div class="product-remove ml-auto">
 							<?php
@@ -158,11 +169,14 @@ do_action( 'woocommerce_before_cart' );
 						</div>
 						</div>
 
+						<?php /*
 						<div class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
 						</div>
+						*/
+						?>
 					</tr>
 					<?php
 				}
@@ -181,12 +195,12 @@ do_action( 'woocommerce_before_cart' );
 
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
-<div class="cart-collaterals !w-2/5 bg-[#F9F8F9] p-[40px]">
-<div class="actions">
-
+<div class="cart-collaterals !w-[35%]">
+	<div class="bg-[#F9F8F9] p-[40px]">
+<div class="actions mb-5">
 <?php if ( wc_coupons_enabled() ) { ?>
 	<div class="coupon flex justify-end">
-		<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
+		<label for="coupon_code" class="screen-reader-text coupon-code-label"><?php esc_html_e( 'Add a discount code', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text w-full" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
 		<?php do_action( 'woocommerce_cart_coupon' ); ?>
 	</div>
 <?php } ?>
@@ -197,6 +211,7 @@ do_action( 'woocommerce_before_cart' );
 
 <?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
 </div>
+
 	<?php
 		/**
 		 * Cart collaterals hook.
@@ -206,6 +221,17 @@ do_action( 'woocommerce_before_cart' );
 		 */
 		do_action( 'woocommerce_cart_collaterals' );
 	?>
+	<div class="card-accept">
+	<h3>We accept</h3>
+	<div class="payment-cards flex items-center justify-between">
+		<h4>Cash on Delivery</h4>
+		<div class="cards">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Credit-Card-Icons.svg" alt="">
+		</div>
+	</div>
+	<p class="text-sm pt-5">Prices and delivery costs are not confirmed until you've reached the checkout.</p> <p class="text-sm pt-5">30 days withdrawal and free returns. Read more about <a href="#">return and refund policy</a></p>
+</div>
+</div>
 </div>
 </div>
 <?php do_action( 'woocommerce_after_cart' ); ?>

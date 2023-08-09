@@ -112,7 +112,8 @@
 				</div>
 				<p class="mb-[40px] border-y border-[#C8C8C8] py-[15px]">Your are eligible for free shipping!</p>
 				<div class="product-list">
-					<?php woocommerce_mini_cart(); ?>
+					<?php /* woocommerce_mini_cart(); */ ?>
+					<?php echo do_shortcode('[quadlayers-mini-cart]'); ?>
 				</div>
 			<!-- </div> -->
 		</div>

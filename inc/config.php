@@ -135,5 +135,116 @@ function add_additional_class_on_a($classes, $item, $args)
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
 
 // comment form (box)
-
+function custom_mini_cart() {
+	echo '<a href="#" class="dropdown-back" data-toggle="dropdown"> ';
+	echo '<i class="fa fa-shopping-cart" aria-hidden="true"></i>';
+	echo '<div class="basket-item-count" style="display: inline;">';
+	echo '<span class="cart-items-count count">';
+	echo WC()->cart->get_cart_contents_count();
+	echo '</span>';
+	echo '</div>';
+	echo '</a>';
+	echo '<ul class="dropdown-menu dropdown-menu-mini-cart">';
+	echo '<li> <div class="widget_shopping_cart_content">';
+	woocommerce_mini_cart();
+	echo '</div></li></ul>';
 	
+	}
+	add_shortcode( 'quadlayers-mini-cart', 'custom_mini_cart' );
+
+
+	// buy now on shop page
+	// custom single product button on shop archive page
+function add_a_custom_button()
+{
+	global $product;
+
+	// Not for variable and grouped products that doesn't have an "add to cart" button
+	if ($product->is_type('variable') || $product->is_type('grouped')) return;
+
+	// Output the custom button linked to the product
+	echo '<div style="margin-bottom:10px;">
+        <a class="button custom-button" href="' . esc_attr($product->get_permalink()) . '">' . __('Buy Now') . '</a>
+    </div>';
+}
+add_action('woocommerce_after_shop_loop_item', 'add_a_custom_button', 5);
+// remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+add_action( 'woocommerce_before_shop_loop', 'woocommerce_breadcrumb' );
+
+
+// recently view products
+function rc_woocommerce_recently_viewed_products( $atts, $content = null ) {
+
+	// Get shortcode parameters
+	extract(shortcode_atts(array(
+		"per_page" => '5'
+	), $atts));
+
+	// Get WooCommerce Global
+	global $woocommerce;
+
+	// Get recently viewed product cookies data
+	$viewed_products = ! empty( $_COOKIE['woocommerce_recently_viewed'] ) ? (array) explode( '|', $_COOKIE['woocommerce_recently_viewed'] ) : array();
+	$viewed_products = array_filter( array_map( 'absint', $viewed_products ) );
+
+	// If no data, quit
+	if ( empty( $viewed_products ) )
+		return __( 'You have not viewed any product yet!', 'rc_wc_rvp' );
+
+	// Create the object
+	ob_start();
+
+	// Get products per page
+	if( !isset( $per_page ) ? $number = 5 : $number = $per_page )
+
+	// Create query arguments array
+    $query_args = array(
+    				'posts_per_page' => $number, 
+    				'no_found_rows'  => 1, 
+    				'post_status'    => 'publish', 
+    				'post_type'      => 'product', 
+    				'post__in'       => $viewed_products, 
+    				'orderby'        => 'rand'
+    				);
+
+	// Add meta_query to query args
+	$query_args['meta_query'] = array();
+
+    // Check products stock status
+    $query_args['meta_query'][] = $woocommerce->query->stock_status_meta_query();
+
+	// Create a new query
+	$r = new WP_Query($query_args);
+
+	// If query return results
+	if ( $r->have_posts() ) {
+
+		$content = '<ul class="rc_wc_rvp_product_list_widget">';
+
+		// Start the loop
+		while ( $r->have_posts()) {
+			$r->the_post();
+			global $product;
+
+			$content .= '<li>
+				<a href="' . get_permalink() . '">
+					' . ( has_post_thumbnail() ? get_the_post_thumbnail( $r->post->ID, 'shop_thumbnail' ) : woocommerce_placeholder_img( 'shop_thumbnail' ) ) . ' ' . get_the_title() . '
+				</a> ' . $product->get_price_html() . '
+			</li>';
+		}
+
+		$content .= '</ul>';
+
+	}
+
+	// Get clean object
+	$content .= ob_get_clean();
+	
+	// Return whole content
+	return $content;
+}
+
+// Register the shortcode
+add_shortcode("woocommerce_recently_viewed_products", "rc_woocommerce_recently_viewed_products");
