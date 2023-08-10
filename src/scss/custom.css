@@ -419,9 +419,7 @@ body .\!max-w-screen-md{
   }
 } */
 
-body .owl-carousel .owl-nav button{
-  @apply bg-[url('../assets/images/arrow-right-nav.png')] bg-no-repeat w-[50px] h-[50px] bg-[100%] opacity-[0.4];
-}
+
 
 
 
@@ -572,4 +570,31 @@ body.woocommerce.woocommerce-shop h1.entry-title{
 .full-bleed::before{
   box-shadow: 0 0 0 100vmax #F9F8F9;
   clip-path: inset(0 -100vmax);
+}
+.woocommerce .testimonial-carousel .item img{
+  @apply w-[60px] h-[60px]
+}
+/* body .owl-carousel .owl-nav button{background: url(../assets/images/arrow-right-nav.png) no-repeat !important; width: 50px; height: 50px; background-size: 100% !important; opacity: 0.4;} */
+
+body .owl-carousel .owl-nav button{
+  @apply !bg-[url('../assets/images/arrow-right-nav.png')] bg-no-repeat w-[50px] h-[50px] bg-[100%] opacity-[0.4];
+}
+body.woocommerce div.product form.cart div.quantity{
+  @apply float-none
+}
+.heateor_sss_svg{
+  background: none !important;
+  @apply !bg-transparent !rounded-none !bg-no-repeat !w-[23px] !h-[16px] !bg-contain !flex items-center justify-center
+}
+.heateor_sss_svg svg{
+  @apply !hidden
+}
+.heateor_sss_facebook .heateor_sss_svg{
+  @apply !bg-[url(../assets/images/Icon_awesome-facebook-f.svg)]  
+}
+.heateor_sss_button_instagram .heateor_sss_svg{
+  @apply !bg-[url(../assets/images/Icon_ionic-logo-instagram.svg)]
+}
+.heateor_sss_button_twitter .heateor_sss_svg{
+  @apply !bg-[url(../assets/images/Icon_ionic-logo-twitter.svg)]
 }

@@ -1,7 +1,7 @@
 <?php
 // custom single product button on shop archive page
-add_action('woocommerce_after_shop_loop_item', 'add_a_custom_button', 5);
-function add_a_custom_button()
+add_action('woocommerce_after_shop_loop_item', 'add_a_buy_now_btn', 5);
+function add_a_buy_now_btn()
 {
 	global $product;
 
@@ -14,8 +14,10 @@ function add_a_custom_button()
     </div>';
 }
 ?>
-
 <?php
+add_action('woocommerce_after_add_to_cart_form', 'add_content_after_addtocart', 8);
+add_action('woocommerce_after_add_to_cart_form', 'add_a_buy_now_btn', 9);
+add_action('woocommerce_after_add_to_cart_form', 'single_product_accordion', 10);
 // buy now button on single product page
 
 function add_content_after_addtocart()
@@ -24,11 +26,15 @@ function add_content_after_addtocart()
 	$product = wc_get_product($current_product_id);
 	$checkout_url = wc_get_checkout_url();
 	if ($product->is_type('simple')) {
-		echo '<a href="' . $checkout_url . '?add-to-cart=' . $current_product_id . '" class="buy-now button">Buy Now</a>';
+		echo '<a href="' . $checkout_url . '?add-to-cart=' . $current_product_id . '" class="buy-now button">Add to Cart</a>';
 	}
+	
+}
 ?>
-
-	<div class="single-product-accordion">
+<?php
+function single_product_accordion(){
+?>
+<div class="single-product-accordion">
 		<div class="row">
 			<div class="col">
 				<div class="tabs">
@@ -57,7 +63,8 @@ function add_content_after_addtocart()
 			</div>
 		</div>
 	</div>
-
 <?php
 }
-add_action('woocommerce_after_add_to_cart_form', 'add_content_after_addtocart');
+	
+
+do_shortcode('[Sassy_Social_Share]');

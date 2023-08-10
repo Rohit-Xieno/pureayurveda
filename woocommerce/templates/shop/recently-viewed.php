@@ -16,7 +16,7 @@
  */
 ?>
 
-<section class="shop-product-review-section">
+<section class="shop-product-review-section pb-80">
   <h2>Product Review</h2>
   <?php
     $params = array(
@@ -36,7 +36,7 @@
               <div class="full-product relative">
                 <a href="<?php the_permalink(); ?>">
                   <?php $full_product_img = wp_get_attachment_image_src(get_post_thumbnail_id($post_query->ID), 'single-post-thumbnail'); ?>
-                  <img class="img-fluid w-[100%] !h-[350px] rounded-none object-cover" src="<?php echo $full_product_img[0]; ?> ">
+                  <img class="img-fluid w-[100%] !max-w-[412px] !h-[350px] rounded-none object-cover" src="<?php echo $full_product_img[0]; ?> ">
                 </a>
               </div>
             </div>
@@ -56,12 +56,12 @@
 <section class="home-newsletter-section">
   <div class="container">
     <?php
-      $newsletter_image = get_field('newsletter_image');
+      $newsletter_image = get_field('newsletter_image', 'option');
     ?>
-    <div style="background-image: url('<?php echo esc_url($newsletter_image['url']); ?>');" class="home-newsletter-row mt-[-250px] relative pt-[200px] pb-[80px] bg-[#47203E] overflow-hidden bg-repeat-x ">
+    <div style="background-image: url('<?php echo esc_url($newsletter_image['url']); ?>');" class="home-newsletter-row mt-[-250px] relative pt-[200px] pb-[80px] bg-[#47203E] overflow-hidden bg-repeat-x">
       <div class="text-center">
-        <h3 class="heading-h3 uppercase text-[#AA90A4] after:bg-[#AA90A4]"><?php the_field('newsletter_sub_title'); ?></h3>
-        <h2 class="heading-h2 text-white mb-[25px]"><?php the_field('newsletter_title'); ?></h2>
+        <h3 class="heading-h3 uppercase text-[#AA90A4] after:bg-[#AA90A4]"><?php the_field('newsletter_sub_title', 'option'); ?></h3>
+        <h2 class="heading-h2 text-white mb-[25px]"><?php the_field('newsletter_title', 'option'); ?></h2>
       </div>
       <form action="" class="subscribe-form">
         <input type="text" placeholder="type your email here..." class="subscribe-field">

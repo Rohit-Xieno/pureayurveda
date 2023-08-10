@@ -13,8 +13,8 @@ include_once(TEMPLATEPATH . '/inc/enqueue.php');
 include_once(TEMPLATEPATH . '/inc/widgets.php');
 
 // Theme setup
-// include_once(TEMPLATEPATH . '/inc/setup.php');
+include_once(TEMPLATEPATH . '/inc/setup.php');
 
 // single product elements
-// include_once(TEMPLATEPATH . '/inc/single-product_elements.php');
+include_once(TEMPLATEPATH . '/inc/single-product_elements.php');
 
