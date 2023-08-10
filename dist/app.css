@@ -1233,6 +1233,7 @@ body.woocommerce div.product form.cart div.quantity {
   border-radius: 0px !important;
   background-color: transparent !important;
   background-size: contain !important;
+  background-position: center !important;
   background-repeat: no-repeat !important}
 .heateor_sss_svg svg {
     display: none !important;
@@ -1245,6 +1246,27 @@ body.woocommerce div.product form.cart div.quantity {
 }
 .heateor_sss_button_twitter .heateor_sss_svg {
     background-image: url(../assets/images/Icon_ionic-logo-twitter.svg) !important;
+}
+.heateor_sss_sharing_container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(200 200 200 / var(--tw-border-opacity));
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.heateor_sss_sharing_title {
+    font-weight: 300 !important;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+.heateor_sss_sharing_ul {
+    display: flex;
+    gap: 1.5rem;
 }
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com

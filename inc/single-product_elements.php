@@ -18,6 +18,7 @@ function add_a_buy_now_btn()
 add_action('woocommerce_after_add_to_cart_form', 'add_content_after_addtocart', 8);
 add_action('woocommerce_after_add_to_cart_form', 'add_a_buy_now_btn', 9);
 add_action('woocommerce_after_add_to_cart_form', 'single_product_accordion', 10);
+
 // buy now button on single product page
 
 function add_content_after_addtocart()
@@ -68,3 +69,10 @@ function single_product_accordion(){
 	
 
 do_shortcode('[Sassy_Social_Share]');
+
+
+
+function tonerbadge(){
+	wc_get_template('templates/single-product/custom-elements.php');
+}
+add_action('woocommerce_after_add_to_cart_form', 'tonerbadge', 11);

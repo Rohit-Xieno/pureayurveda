@@ -584,7 +584,7 @@ body.woocommerce div.product form.cart div.quantity{
 }
 .heateor_sss_svg{
   background: none !important;
-  @apply !bg-transparent !rounded-none !bg-no-repeat !w-[23px] !h-[16px] !bg-contain !flex items-center justify-center
+  @apply !bg-transparent !bg-center !rounded-none !bg-no-repeat !w-[23px] !h-[16px] !bg-contain !flex items-center justify-center
 }
 .heateor_sss_svg svg{
   @apply !hidden
@@ -597,4 +597,13 @@ body.woocommerce div.product form.cart div.quantity{
 }
 .heateor_sss_button_twitter .heateor_sss_svg{
   @apply !bg-[url(../assets/images/Icon_ionic-logo-twitter.svg)]
+}
+.heateor_sss_sharing_container{
+  @apply flex items-center gap-5 py-3 border-y border-[#C8C8C8] mt-8
+}
+.heateor_sss_sharing_title{
+  @apply text-[#AA90A4] !font-light
+}
+.heateor_sss_sharing_ul{
+  @apply flex gap-6
 }
