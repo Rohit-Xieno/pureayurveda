@@ -633,7 +633,7 @@ body.single-product.woocommerce .cart{
   @apply mt-9
 }
 body.single-product.woocommerce .woocommerce-product-rating{
-  @apply flex gap-[10px]
+  @apply flex gap-[10px] ml-[-10px]
 }
 body.single-product.woocommerce .woocommerce-product-rating .woocommerce-review-link{
   @apply border-l-2 border-[#AA90A4] leading-[1em] pl-[10px]
@@ -693,8 +693,20 @@ body.single-product.woocommerce .price del span{
 }
 
 .single-product div.product.type-product{
-  @apply flex justify-between gap-10
+  @apply flex justify-between gap-10 pt-12 pb-24
+}
+.single-product div.product.type-product .onsale{
+  @apply hidden
 }
 .single-product .summary.entry-summary{
   @apply !float-none !w-[40%]
+}
+.single-product main.site-main .woocommerce-breadcrumb{
+  @apply container
+}
+.single-product .product_meta{
+  @apply hidden
+}
+.outer-breadcrumb .woocommerce{
+  @apply hidden
 }

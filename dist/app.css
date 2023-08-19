@@ -1328,6 +1328,7 @@ body.single-product.woocommerce .cart {
     margin-top: 2.25rem;
 }
 body.single-product.woocommerce .woocommerce-product-rating {
+    margin-left: -10px;
     display: flex;
     gap: 10px;
 }
@@ -1438,10 +1439,56 @@ body.single-product.woocommerce .price del span {
     display: flex;
     justify-content: space-between;
     gap: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+.single-product div.product.type-product .onsale {
+  display: none;
 }
 .single-product .summary.entry-summary {
     float: none !important;
     width: 40% !important;
+}
+.single-product main.site-main .woocommerce-breadcrumb {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 18px;
+    padding-left: 18px;
+}
+@media (min-width: 640px) {
+    .single-product main.site-main .woocommerce-breadcrumb {
+        max-width: 640px;
+    }
+}
+@media (min-width: 768px) {
+    .single-product main.site-main .woocommerce-breadcrumb {
+        max-width: 768px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .single-product main.site-main .woocommerce-breadcrumb {
+        max-width: 1024px;
+    }
+}
+@media (min-width: 1198px) {
+    .single-product main.site-main .woocommerce-breadcrumb {
+        max-width: 1198px;
+    }
+}
+.single-product main.site-main .woocommerce-breadcrumb {
+    max-width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px}
+.single-product .product_meta {
+  display: none;
+}
+.outer-breadcrumb .woocommerce {
+  display: none;
 }
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
@@ -2389,6 +2436,9 @@ video {
 .border-l{
   border-left-width: 1px;
 }
+.border-l-\[3px\]{
+  border-left-width: 3px;
+}
 .\!border-solid{
   border-style: solid !important;
 }
@@ -2422,6 +2472,9 @@ video {
 .border-\[\#c8c8c8\]{
   --tw-border-opacity: 1;
   border-color: rgb(200 200 200 / var(--tw-border-opacity));
+}
+.border-l-\[\]{
+  border-left-color: ;
 }
 .\!bg-\[\#96225D\]{
   --tw-bg-opacity: 1 !important;
@@ -2959,6 +3012,14 @@ video {
   content: var(--tw-content);
   top: 95px;
 }
+.before\:top-\[\]::before{
+  content: var(--tw-content);
+  top: ;
+}
+.before\:top-\[96px\]::before{
+  content: var(--tw-content);
+  top: 96px;
+}
 .before\:z-10::before{
   content: var(--tw-content);
   z-index: 10;
@@ -2970,6 +3031,10 @@ video {
 .before\:z-\[9\]::before{
   content: var(--tw-content);
   z-index: 9;
+}
+.before\:z-\[10\]::before{
+  content: var(--tw-content);
+  z-index: 10;
 }
 .before\:m-auto::before{
   content: var(--tw-content);

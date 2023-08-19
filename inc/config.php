@@ -249,6 +249,7 @@ function wrvp_recently_viewed(){
 }
 add_action( 'woocommerce_after_shop_loop', 'wrvp_recently_viewed' );
 
+
 function custom_text(){
 	wc_get_template('templates/shop/recently-viewed.php');
 }

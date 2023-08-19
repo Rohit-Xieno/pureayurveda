@@ -21,7 +21,6 @@ add_action('woocommerce_after_add_to_cart_form', 'add_a_buy_now_btn', 9);
 add_action('woocommerce_after_add_to_cart_form', 'social_share', 10);
 add_action('woocommerce_after_add_to_cart_form', 'single_product_accordion', 11);
 
-
 function social_share(){
 	do_shortcode('[Sassy_Social_Share]');
 }

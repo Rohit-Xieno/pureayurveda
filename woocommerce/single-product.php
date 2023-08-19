@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 }
 
 get_header('shop'); ?>
- <div class="container">
+ <!-- <div class="container"> -->
 <?php
 /**
  * woocommerce_before_main_content hook.
@@ -29,13 +29,23 @@ get_header('shop'); ?>
  * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
  * @hooked woocommerce_breadcrumb - 20
  */
-do_action('woocommerce_before_main_content');
-?>
-	<?php while (have_posts()) : ?>
-		<?php the_post(); ?>
 
-		<?php wc_get_template_part('content', 'single-product'); ?>
+?>
+<div class="outer-breadcrumb">
+	<?php do_action('woocommerce_before_main_content'); ?>
 </div>
+<div class="container">
+	<?php add_action('woocommerce_before_main_content','woocommerce_breadcrumb'); ?>
+</div>
+
+<?php while (have_posts()) : ?>
+	<?php the_post(); ?>
+	<div class="container">
+		<?php
+
+	 wc_get_template_part('content', 'single-product'); ?>
+</div>
+<!-- </div> -->
 <section class="product-ratings-reviews-section bg-[#F9F8F9] py-[100px]">
 	<div class="container flex">
 		<div class="product-ratings-review" style="width: 40%;">
@@ -53,12 +63,12 @@ do_action('woocommerce_before_main_content');
 	</div>
 </section>
 
-<section class="related-product py-24">
+<section class="related-product py-24 bg-white relative before:absolute before:w-[100%] before:h-[209px] before:bg-[#F9F8F9] before:left-0 before:right-0 before:top-[96px] ">
 <div class="container">
 	<div class="row flex">
 		<div class="col-1" style="width: 25%;">
-			<div class="best-seller-title relative pr-[30px] py-[20px]">
-				<h2 class="heading-h2 pl-[18px] pb-[50px] border-l border-[#96225D]">You May<br>  Also Like</h2>
+			<div class="best-seller-title relative pr-[30px] py-[20px] bg-[#F9F8F9]">
+				<h2 class="heading-h2 pl-[18px] border-l-[3px] border-[#96225D]">You May<br>  Also Like</h2>
 			</div>
 		</div>
 		<div class="col-3" style="width: 75%; display: flex;">
