@@ -48,9 +48,11 @@ do_action( 'woocommerce_before_main_content' );
 	?>
 	
 </header>
-<div class="left-sidebar-filter">
-	<?php dynamic_sidebar('shop-page-sidebar'); ?>
-</div>
+<!-- <div class="left-sidebar-filter">
+	<?php /* dynamic_sidebar('shop-page-sidebar'); */ ?>
+</div> -->
+<button type="button" id="column2" style="background-color: green; padding: 10px 20px;">2 column</button>
+<button type="button" id="column4" style="background-color: green; padding: 10px 20px;">4 column</button>
 <div class="special-product-col relative flex justify-end rounded-tr-[80px] rounded-none px-[30px] py-[60px] bg-[#DDE0EF] bg-[url(http://localhost/pureayurveda/wp-content/uploads/2023/06/2-layers.png)] bg-no-repeat bg-cover">
         <div class="special-product-content max-w-[340px] w-[100%] bg-[rgba(255,255,255,0.3)] backdrop-blur-[50px] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 px-[30px] py-[60px]">
           <h3 class="text-[36px] text-[#47203E] text-center mb-[54px] tracking-[1.35px] uppercase relative after:w-[2px] after:h-[30px] after:bg-[#96225D] after:absolute after:top-[calc(100%+1px)] after:left-[50%] after:translate-x-[-50%]"><?php the_field('special_product_heading') ?></h3>
@@ -117,9 +119,9 @@ do_action( 'woocommerce_after_main_content' );
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-do_action( 'woocommerce_sidebar' );
+// do_action( 'woocommerce_sidebar' );
 
-echo do_shortcode("[woocommerce_recently_viewed_products per_page='5']");
+// echo do_shortcode("[woocommerce_recently_viewed_products per_page='5']");
 ?>
 </div>
 <?php

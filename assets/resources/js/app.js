@@ -146,3 +146,12 @@ const hideMiniCartBody = () => {
 miniCartOverlay.addEventListener('click', hideMiniCartBody);
 
 
+// grid and column view on shop page
+const columnTwo = document.getElementById('column2');
+const columnFour = document.getElementById('column4');
+const shopProducts = document.querySelector('.products');
+
+columnTwo.addEventListener('click', function(){
+    shopProducts.style.display = 'none';
+    body.style.display = 'none'
+})
