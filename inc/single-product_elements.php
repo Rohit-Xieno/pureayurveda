@@ -1,6 +1,7 @@
 <?php
 // custom single product button on shop archive page
 add_action('woocommerce_after_shop_loop_item', 'add_a_buy_now_btn', 5);
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
 function add_a_buy_now_btn()
 {
 	global $product;
@@ -10,15 +11,20 @@ function add_a_buy_now_btn()
 
 	// Output the custom button linked to the product
 	echo '<div style="margin-bottom:10px;">
-        <a class="button custom-button" href="' . esc_attr($product->get_permalink()) . '">' . __('Buy Now') . '</a>
+        <a class="button custom-button buy-now" href="' . esc_attr($product->get_permalink()) . '">' . __('Buy Now') . '</a>
     </div>';
 }
 ?>
 <?php
 add_action('woocommerce_after_add_to_cart_form', 'add_content_after_addtocart', 8);
 add_action('woocommerce_after_add_to_cart_form', 'add_a_buy_now_btn', 9);
-add_action('woocommerce_after_add_to_cart_form', 'single_product_accordion', 10);
+add_action('woocommerce_after_add_to_cart_form', 'social_share', 10);
+add_action('woocommerce_after_add_to_cart_form', 'single_product_accordion', 11);
 
+
+function social_share(){
+	do_shortcode('[Sassy_Social_Share]');
+}
 // buy now button on single product page
 
 function add_content_after_addtocart()
@@ -27,7 +33,7 @@ function add_content_after_addtocart()
 	$product = wc_get_product($current_product_id);
 	$checkout_url = wc_get_checkout_url();
 	if ($product->is_type('simple')) {
-		echo '<a href="' . $checkout_url . '?add-to-cart=' . $current_product_id . '" class="buy-now button">Add to Cart</a>';
+		echo '<a href="' . $checkout_url . '?add-to-cart=' . $current_product_id . '" class="add-to-cart button">Add to Cart</a>';
 	}
 	
 }
@@ -68,11 +74,7 @@ function single_product_accordion(){
 }
 	
 
-do_shortcode('[Sassy_Social_Share]');
 
 
 
-function tonerbadge(){
-	wc_get_template('templates/single-product/custom-elements.php');
-}
-add_action('woocommerce_after_add_to_cart_form', 'tonerbadge', 11);
+

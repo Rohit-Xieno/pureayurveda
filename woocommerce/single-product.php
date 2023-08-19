@@ -53,7 +53,7 @@ do_action('woocommerce_before_main_content');
 	</div>
 </section>
 
-<section class="related-product">
+<section class="related-product py-24">
 <div class="container">
 	<div class="row flex">
 		<div class="col-1" style="width: 25%;">

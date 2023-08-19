@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
 
 ?>
-<div class="quantity inline-block border border-[#AA90A4] px-3 py-1">
+<div class="quantity inline-block border border-solid border-[#AA90A4] px-[12px] py-[4px]">
 	<?php
 	/**
 	 * Hook to output something before the quantity input field.

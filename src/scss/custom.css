@@ -551,7 +551,10 @@ body.woocommerce.woocommerce-shop h1.entry-title{
   clip-path: unset;
   clip: unset;  
 }
-.woocommerce .ced h2{
+/* .woocommerce .ced h2{
+  @apply hidden
+} */
+.related.products > h2{
   @apply hidden
 }
 .recently-viewed-section ul.products{
@@ -571,6 +574,15 @@ body.woocommerce.woocommerce-shop h1.entry-title{
   box-shadow: 0 0 0 100vmax #F9F8F9;
   clip-path: inset(0 -100vmax);
 }
+.product-ratings-reviews-section::before{
+  @apply bg-[#F9F8F9]
+}
+.product-ratings-reviews-section::before{
+  content: '';
+  box-shadow: 0 0 0 100vmax #F9F8F9;
+  clip-path: inset(0 -100vmax);
+}
+
 .woocommerce .testimonial-carousel .item img{
   @apply w-[60px] h-[60px]
 }
@@ -606,4 +618,83 @@ body.woocommerce div.product form.cart div.quantity{
 }
 .heateor_sss_sharing_ul{
   @apply flex gap-6
+}
+body.woocommerce div.product form.cart div.quantity{
+  @apply px-3 py-1 ml-5
+}
+body.single-product.woocommerce .add-to-cart.button{
+  @apply text-lg text-[#AA90A4] font-normal text-center w-full rounded-tl-[25px] rounded-none p-3 !border-2 border-solid !border-[#AA90A4] bg-transparent
+}
+
+body.single-product.woocommerce .buy-now{
+  @apply text-lg text-[#FFFFFF] font-normal text-center w-full rounded-tl-[25px] rounded-none p-3 !border-2 border-solid !border-[#96225D] bg-[#96225D] mt-5
+}
+body.single-product.woocommerce .cart{
+  @apply mt-9
+}
+body.single-product.woocommerce .woocommerce-product-rating{
+  @apply flex gap-[10px]
+}
+body.single-product.woocommerce .woocommerce-product-rating .woocommerce-review-link{
+  @apply border-l-2 border-[#AA90A4] leading-[1em] pl-[10px]
+}
+body.single-product.woocommerce .woocommerce-product-rating .star-rating{
+  @apply !m-0
+}
+body.single-product.woocommerce .price{
+  @apply my-5 !flex flex-row-reverse justify-end
+}
+body.single-product.woocommerce .woocommerce-product-details__short-description p{
+  @apply text-[#AA90A4]
+}
+body.single-product.woocommerce .price ins{
+  @apply no-underline
+}
+body.single-product.woocommerce .price ins span{
+  @apply text-[#47203E] text-[22px] font-normal
+}
+body.single-product.woocommerce .price del span{
+  @apply text-[#AA90A4] text-lg ml-[10px] font-normal
+}
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text{
+  @apply bg-white rounded-tl-[50px] rounded-none p-10 pb-3
+}
+
+.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product{
+  @apply m-0
+}
+.related.products ul.products{
+  @apply grid grid-cols-3 gap-10
+}
+#review_form_wrapper{
+  @apply hidden
+}
+.single-product .woo-product-gallery-slider.woocommerce-product-gallery{
+  @apply flex !w-[60%] justify-between gap-10 flex-row-reverse
+}
+.woo-product-gallery-slider.woocommerce-product-gallery img.attachment-shop_single{
+  @apply !h-[500px] object-cover
+}
+.woo-product-gallery-slider.woocommerce-product-gallery img.wpgs-thumb-main-image{
+  @apply !w-[74px] !h-[74px] object-cover rounded-tl-[25px] rounded-none
+}
+.woo-product-gallery-slider.woocommerce-product-gallery img.attachment-thumbnail.size-thumbnail{
+  @apply w-[74px] h-[74px] object-cover rounded-tl-[25px] rounded-none
+}
+.woo-product-gallery-slider.woocommerce-product-gallery .wpgs-for{
+  @apply w-[84%] 
+}
+.woo-product-gallery-slider.woocommerce-product-gallery .wpgs-nav .slick-slide{
+  @apply !w-[74px] h-[74px] rounded-tl-[25px] rounded-none mt-0 mb-12
+}
+.woo-product-gallery-slider.woocommerce-product-gallery .wpgs-nav{
+  @apply w-full max-w-[84px]
+}
+
+.single-product div.product.type-product{
+  @apply flex justify-between gap-10
+}
+.single-product .summary.entry-summary{
+  @apply !float-none !w-[40%]
 }

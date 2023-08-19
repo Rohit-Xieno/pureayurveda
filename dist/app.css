@@ -1181,7 +1181,10 @@ body.woocommerce.woocommerce-shop h1.entry-title::before {
           clip-path: unset;
   clip: unset;
 }
-.woocommerce .ced h2 {
+/* .woocommerce .ced h2{
+  @apply hidden
+} */
+.related.products > h2 {
   display: none;
 }
 .recently-viewed-section ul.products {
@@ -1206,6 +1209,15 @@ body.woocommerce.woocommerce-shop h1.entry-title::before {
   -webkit-clip-path: inset(0 -100vmax);
           clip-path: inset(0 -100vmax);
 }
+.product-ratings-reviews-section::before {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 248 249 / var(--tw-bg-opacity));
+  content: '';
+  box-shadow: 0 0 0 100vmax #F9F8F9;
+  -webkit-clip-path: inset(0 -100vmax);
+          clip-path: inset(0 -100vmax);
+}
+
 .woocommerce .testimonial-carousel .item img {
     height: 60px;
     width: 60px;
@@ -1267,6 +1279,169 @@ body.woocommerce div.product form.cart div.quantity {
 .heateor_sss_sharing_ul {
     display: flex;
     gap: 1.5rem;
+}
+body.woocommerce div.product form.cart div.quantity {
+    margin-left: 1.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+body.single-product.woocommerce .add-to-cart.button {
+    width: 100%;
+    border-radius: 0px;
+    border-top-left-radius: 25px;
+    border-width: 2px !important;
+    border-style: solid;
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(170 144 164 / var(--tw-border-opacity)) !important;
+    background-color: transparent;
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+
+body.single-product.woocommerce .buy-now {
+    margin-top: 1.25rem;
+    width: 100%;
+    border-radius: 0px;
+    border-top-left-radius: 25px;
+    border-width: 2px !important;
+    border-style: solid;
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(150 34 93 / var(--tw-border-opacity)) !important;
+    --tw-bg-opacity: 1;
+    background-color: rgb(150 34 93 / var(--tw-bg-opacity));
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+body.single-product.woocommerce .cart {
+    margin-top: 2.25rem;
+}
+body.single-product.woocommerce .woocommerce-product-rating {
+    display: flex;
+    gap: 10px;
+}
+body.single-product.woocommerce .woocommerce-product-rating .woocommerce-review-link {
+    border-left-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(170 144 164 / var(--tw-border-opacity));
+    padding-left: 10px;
+    line-height: 1em;
+}
+body.single-product.woocommerce .woocommerce-product-rating .star-rating {
+    margin: 0px !important;
+}
+body.single-product.woocommerce .price {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: flex !important;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+body.single-product.woocommerce .woocommerce-product-details__short-description p {
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+body.single-product.woocommerce .price ins {
+    text-decoration-line: none;
+}
+body.single-product.woocommerce .price ins span {
+    font-size: 22px;
+    font-weight: 400;
+    --tw-text-opacity: 1;
+    color: rgb(71 32 62 / var(--tw-text-opacity));
+}
+body.single-product.woocommerce .price del span {
+    margin-left: 10px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text {
+    border-radius: 0px;
+    border-top-left-radius: 50px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    padding: 2.5rem;
+    padding-bottom: 0.75rem;
+}
+
+.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product {
+    margin: 0px;
+}
+.related.products ul.products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+}
+#review_form_wrapper {
+  display: none;
+}
+.single-product .woo-product-gallery-slider.woocommerce-product-gallery {
+    display: flex;
+    width: 60% !important;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+.woo-product-gallery-slider.woocommerce-product-gallery img.attachment-shop_single {
+    height: 500px !important;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.woo-product-gallery-slider.woocommerce-product-gallery img.wpgs-thumb-main-image {
+    height: 74px !important;
+    width: 74px !important;
+    border-radius: 0px;
+    border-top-left-radius: 25px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.woo-product-gallery-slider.woocommerce-product-gallery img.attachment-thumbnail.size-thumbnail {
+    height: 74px;
+    width: 74px;
+    border-radius: 0px;
+    border-top-left-radius: 25px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.woo-product-gallery-slider.woocommerce-product-gallery .wpgs-for {
+    width: 84%;
+}
+.woo-product-gallery-slider.woocommerce-product-gallery .wpgs-nav .slick-slide {
+    margin-top: 0px;
+    margin-bottom: 3rem;
+    height: 74px;
+    width: 74px !important;
+    border-radius: 0px;
+    border-top-left-radius: 25px;
+}
+.woo-product-gallery-slider.woocommerce-product-gallery .wpgs-nav {
+    width: 100%;
+    max-width: 84px;
+}
+
+.single-product div.product.type-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+.single-product .summary.entry-summary {
+    float: none !important;
+    width: 40% !important;
 }
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
@@ -1925,6 +2100,9 @@ video {
 .grid{
   display: grid;
 }
+.\!hidden{
+  display: none !important;
+}
 .hidden{
   display: none;
 }
@@ -1997,9 +2175,6 @@ video {
 .w-\[100\%\]{
   width: 100%;
 }
-.w-\[130px\]{
-  width: 130px;
-}
 .w-\[17px\]{
   width: 17px;
 }
@@ -2029,6 +2204,9 @@ video {
 }
 .w-full{
   width: 100%;
+}
+.\!max-w-\[412px\]{
+  max-width: 412px !important;
 }
 .\!max-w-screen-md{
   max-width: 768px !important;
@@ -2066,9 +2244,6 @@ video {
 .max-w-\[340px\]{
   max-width: 340px;
 }
-.max-w-\[412px\]{
-  max-width: 412px;
-}
 .max-w-\[525px\]{
   max-width: 525px;
 }
@@ -2080,9 +2255,6 @@ video {
 }
 .max-w-screen-md{
   max-width: 768px;
-}
-.\!max-w-\[412px\]{
-  max-width: 412px !important;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -2219,6 +2391,9 @@ video {
 }
 .\!border-solid{
   border-style: solid !important;
+}
+.border-solid{
+  border-style: solid;
 }
 .\!border-\[\#AA90A4\]{
   --tw-border-opacity: 1 !important;
@@ -2379,6 +2554,10 @@ video {
   padding-left: 1.75rem !important;
   padding-right: 1.75rem !important;
 }
+.px-\[12px\]{
+  padding-left: 12px;
+  padding-right: 12px;
+}
 .px-\[15px\]{
   padding-left: 15px;
   padding-right: 15px;
@@ -2407,6 +2586,10 @@ video {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
+.py-\[100px\]{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 .py-\[10px\]{
   padding-top: 10px;
   padding-bottom: 10px;
@@ -2431,6 +2614,10 @@ video {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+.py-\[4px\]{
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
 .py-\[60px\]{
   padding-top: 60px;
   padding-bottom: 60px;
@@ -2442,6 +2629,10 @@ video {
 .py-\[95px\]{
   padding-top: 95px;
   padding-bottom: 95px;
+}
+.py-24{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 .pb-12{
   padding-bottom: 3rem;
@@ -2463,6 +2654,9 @@ video {
 }
 .pb-6{
   padding-bottom: 1.5rem;
+}
+.pb-80{
+  padding-bottom: 20rem;
 }
 .pb-\[180px\]{
   padding-bottom: 180px;
@@ -2541,15 +2735,6 @@ video {
 }
 .pt-\[90px\]{
   padding-top: 90px;
-}
-.pb-80{
-  padding-bottom: 20rem;
-}
-.pb-2{
-  padding-bottom: 0.5rem;
-}
-.pb-20{
-  padding-bottom: 5rem;
 }
 .text-center{
   text-align: center;
@@ -2692,6 +2877,13 @@ video {
   --tw-backdrop-blur: blur(50px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+.transition{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 .transition-\[0\.8s\]{
   transition-property: 0.8s;
