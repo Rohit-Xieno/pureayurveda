@@ -18,6 +18,7 @@ function pureayurveda_one_scripts() {
     wp_enqueue_script( 'pureayurveda-jquery', get_theme_file_uri( '/assets/js/jquery.min.js' ), array(), $theme_version, true );
     wp_enqueue_script( 'pureayurveda-owl-js', get_theme_file_uri( '/assets/js/owl.carousel.min.js' ), array(), $theme_version, true );
     wp_enqueue_script( 'pureayurveda-vendor', get_theme_file_uri( '/assets/js/app.js' ), array(), $theme_version, true );
+    wp_enqueue_script( 'pureayurveda-custom-js', get_theme_file_uri( '/assets/js/custom.js' ), array(), $theme_version, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'pureayurveda_one_scripts' );

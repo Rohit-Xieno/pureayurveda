@@ -1112,6 +1112,9 @@ body .\!max-w-screen-md {
 .container {
   width: 100%;
 }
+
+
+
 @media (min-width: 640px) {
 
   .container {

@@ -51,8 +51,21 @@ do_action( 'woocommerce_before_main_content' );
 <!-- <div class="left-sidebar-filter">
 	<?php /* dynamic_sidebar('shop-page-sidebar'); */ ?>
 </div> -->
-<button type="button" id="column2" style="background-color: green; padding: 10px 20px;">2 column</button>
-<button type="button" id="column4" style="background-color: green; padding: 10px 20px;">4 column</button>
+<div class="pa-products-views flex justify-between items-center border-y border-[#C8C8C8] ">
+	<div class="pa-products-grids border-r border-[#C8C8C8] p-4">
+		<button type="button" id="columnT" class="mr-4 grey-color"><img class="w-[22px] h-[22px]" src="<?php echo get_template_directory_uri(); ?>/assets/images/grid.png" alt=""></button>
+		<button type="button" id="columnF" class="view-button-active grey-color"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/column-4.svg" alt=""></button>
+	</div>
+	<div class="pa-shop-product-search flex-1 border-r border-[#C8C8C8] pr-4">
+		<?php get_product_search_form();?>
+	</div>
+	<div class="pa-shop-product-sorting p-4">
+		<?php do_action( 'woo_custom_catalog_ordering' ); ?>
+	</div>
+</div>
+
+
+
 <div class="special-product-col relative flex justify-end rounded-tr-[80px] rounded-none px-[30px] py-[60px] bg-[#DDE0EF] bg-[url(http://localhost/pureayurveda/wp-content/uploads/2023/06/2-layers.png)] bg-no-repeat bg-cover">
         <div class="special-product-content max-w-[340px] w-[100%] bg-[rgba(255,255,255,0.3)] backdrop-blur-[50px] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 px-[30px] py-[60px]">
           <h3 class="text-[36px] text-[#47203E] text-center mb-[54px] tracking-[1.35px] uppercase relative after:w-[2px] after:h-[30px] after:bg-[#96225D] after:absolute after:top-[calc(100%+1px)] after:left-[50%] after:translate-x-[-50%]"><?php the_field('special_product_heading') ?></h3>
@@ -60,6 +73,7 @@ do_action( 'woocommerce_before_main_content' );
           <a href="<?php the_field('special_product_buy_link'); ?>" class="text-[18px] text-[#96225D] underline block text-center mt-[55px]"><?php the_field('special_product_buy_now'); ?></a>
         </div>
       </div>
+			
 <?php
 if ( woocommerce_product_loop() ) {
 
@@ -72,8 +86,10 @@ if ( woocommerce_product_loop() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop' );
 
+	?>
+	<div class="shop_wc_products">
+		<?php
 	woocommerce_product_loop_start();
-
 	if ( wc_get_loop_prop( 'total' ) ) {
 		while ( have_posts() ) {
 			the_post();
@@ -81,14 +97,17 @@ if ( woocommerce_product_loop() ) {
 			/**
 			 * Hook: woocommerce_shop_loop.
 			 */
-			do_action( 'woocommerce_shop_loop' );
+			// do_action( 'woocommerce_shop_loop' );
 
 			wc_get_template_part( 'content', 'product' );
+			
 		}
 	}
 
 	woocommerce_product_loop_end();
-
+	?>
+	</div>
+	<?php
 	/**
 	 * Hook: woocommerce_after_shop_loop.
 	 *

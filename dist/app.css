@@ -1490,6 +1490,59 @@ body.single-product.woocommerce .price del span {
 .outer-breadcrumb .woocommerce {
   display: none;
 }
+
+.woocommerce-shop .shop_wc_products ul.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
+    row-gap: 2.5rem;
+}
+.woocommerce-shop .shop_wc_products ul.products::before {
+  display: none;
+}
+.woocommerce-shop .shop_wc_products ul.products::after {
+  display: none;
+}
+.woocommerce.woocommerce-shop .shop_wc_products ul.products li.product {
+    margin-right: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+.grey-color{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5946%) hue-rotate(191deg) brightness(71%) contrast(140%);
+}
+/* .black-color{
+  filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(14%) hue-rotate(273deg) brightness(99%) contrast(104%);
+} */
+.view-button-active{
+  filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(14%) hue-rotate(273deg) brightness(99%) contrast(104%);
+}
+
+/* shop page css start*/
+.pa-shop-product-search form {
+    display: flex;
+}
+.pa-shop-product-search form input {
+    height: 60px;
+    width: 100%;
+    padding: 1rem;
+}
+.pa-shop-product-search form input:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.pa-shop-product-search form input::-moz-placeholder {
+    font-size: 0px;
+}
+.pa-shop-product-search form input::placeholder {
+    font-size: 0px;
+}
+.pa-products-views .woocommerce-ordering {
+    margin-bottom: 0px;
+}
+
+/* shop page css end*/
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
@@ -2090,6 +2143,9 @@ video {
 .ml-auto{
   margin-left: auto;
 }
+.mr-4{
+  margin-right: 1rem;
+}
 .mt-12{
   margin-top: 3rem;
 }
@@ -2180,6 +2236,9 @@ video {
 .h-\[209px\]{
   height: 209px;
 }
+.h-\[22px\]{
+  height: 22px;
+}
 .h-\[255px\]{
   height: 255px;
 }
@@ -2227,6 +2286,9 @@ video {
 }
 .w-\[186px\]{
   width: 186px;
+}
+.w-\[22px\]{
+  width: 22px;
 }
 .w-\[25\%\]{
   width: 25%;
@@ -2439,6 +2501,9 @@ video {
 .border-l-\[3px\]{
   border-left-width: 3px;
 }
+.border-r{
+  border-right-width: 1px;
+}
 .\!border-solid{
   border-style: solid !important;
 }
@@ -2472,9 +2537,6 @@ video {
 .border-\[\#c8c8c8\]{
   --tw-border-opacity: 1;
   border-color: rgb(200 200 200 / var(--tw-border-opacity));
-}
-.border-l-\[\]{
-  border-left-color: ;
 }
 .\!bg-\[\#96225D\]{
   --tw-bg-opacity: 1 !important;
@@ -2594,6 +2656,9 @@ video {
 .p-2{
   padding: 0.5rem;
 }
+.p-4{
+  padding: 1rem;
+}
 .p-\[20px\]{
   padding: 20px;
 }
@@ -2634,6 +2699,10 @@ video {
 .px-\[50px\]{
   padding-left: 50px;
   padding-right: 50px;
+}
+.py-24{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 .py-5{
   padding-top: 1.25rem;
@@ -2682,10 +2751,6 @@ video {
 .py-\[95px\]{
   padding-top: 95px;
   padding-bottom: 95px;
-}
-.py-24{
-  padding-top: 6rem;
-  padding-bottom: 6rem;
 }
 .pb-12{
   padding-bottom: 3rem;
@@ -2743,6 +2808,9 @@ video {
 }
 .pl-\[40px\]{
   padding-left: 40px;
+}
+.pr-4{
+  padding-right: 1rem;
 }
 .pr-\[10px\]{
   padding-right: 10px;
@@ -3012,10 +3080,6 @@ video {
   content: var(--tw-content);
   top: 95px;
 }
-.before\:top-\[\]::before{
-  content: var(--tw-content);
-  top: ;
-}
 .before\:top-\[96px\]::before{
   content: var(--tw-content);
   top: 96px;
@@ -3031,10 +3095,6 @@ video {
 .before\:z-\[9\]::before{
   content: var(--tw-content);
   z-index: 9;
-}
-.before\:z-\[10\]::before{
-  content: var(--tw-content);
-  z-index: 10;
 }
 .before\:m-auto::before{
   content: var(--tw-content);

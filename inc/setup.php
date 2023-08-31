@@ -59,6 +59,22 @@ function fetch_data () {
 }
 
 
+/** * This code should be added to functions.php of your theme **/
+// function custom_product_sorting(){
+// add_filter('woocommerce_get_catalog_ordering_args', 'am_woocommerce_catalog_orderby');
+//     function am_woocommerce_catalog_orderby( $args ) {
+//        $args['orderby'] = 'last_modified';
+//        $args['order'] = 'desc'; 
+//        return $args;
+//     }
+// 	}
+
+
+// product sorting
+ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+ add_action( 'woo_custom_catalog_ordering', 'woocommerce_catalog_ordering', 30 ); 
+
+ 
 
 
 // breadcrumb
