@@ -91,32 +91,6 @@ jQuery('#owl-product').owlCarousel({
 
 
 
-// banner section carousel
-jQuery('#owl-demo').owlCarousel({
-  loop:true,
-  items:1,
-  nav:false,
-  dots: true,
-  margin:0,
-  responsiveClass:true,
-  responsive:{
-      0:{
-          items:1,
-          
-      },
-      600:{
-          items:1,
-          
-      },
-      1000:{
-          items:1,
-      }
-  }
-});
-
-
-
-
 // header mini cart
 const miniProductIcon = document.getElementById('miniCartIcon');
 const miniCart = document.getElementById('miniCartBox');

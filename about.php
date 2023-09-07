@@ -1,6 +1,6 @@
 <?php /* Template Name: About */?>
 <?php get_header(); ?>
-<main class="pt-48">
+
   <section class="about-header-section pt-28">
     <?php
     $about_heading = get_field('about_heading');
@@ -14,7 +14,7 @@
           <?php echo $about_heading; ?>
         </h1>
       </div>
-      <div class="breadcrumbs pb-16" typeof="BreadcrumbList" vocab="https://schema.org/">
+      <div class="breadcrumbs pb-16">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
         } ?>
@@ -142,6 +142,6 @@ while ( $query->have_posts() ) : $query->the_post();
 wp_reset_postdata();
 ?>
   </div>
-</main>
+
 
 <?php get_footer(); ?>

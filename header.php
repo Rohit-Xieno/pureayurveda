@@ -11,7 +11,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="header" class="absolute backdrop-blur-[20px] z-[999] left-0 right-0">
+	<header id="header" class="backdrop-blur-[20px] z-[999] left-0 right-0">
 		<div class="pa-topbar bg-[#241822] py-[10px]">
 			<div class="container">
 				<ul class="grid grid-cols-3">
@@ -28,12 +28,12 @@
 								</select>
 							</li>
 							<li class="pl-[10px] border-l border-[#FFFFFF]">
-								<select class="form-select bg-transparent text-white" aria-label="Default select example">
-									<!-- <option selected class="text-black">Open this select menu</option> -->
+								<?php echo do_shortcode('[gtranslate]'); ?>
+								<!-- <select class="form-select bg-transparent text-white" aria-label="Default select example">
 									<option value="english" class="text-black">English</option>
 									<option value="french" class="text-black">French</option>
 									<option value="hindi" class="text-black">Hindi</option>
-								</select>
+								</select> -->
 							</li>
 						</ul>
 					</li>

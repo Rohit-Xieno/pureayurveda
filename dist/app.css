@@ -341,6 +341,7 @@ body{
 body .owl-carousel .owl-nav button:focus{opacity: 1;}
 
 .subscribe-btn {
+    position: relative;
     margin-left: -22px;
     display: inline-block;
     width: 100%;
@@ -383,9 +384,20 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
     outline-offset: 2px;
 }
 
-.subscribe-form {
-    display: flex;
-    justify-content: center;
+/* .subscribe-form{
+    @apply flex justify-center
+} */
+
+.subscribe-form .wpcf7-form-control-wrap {
+    width: 100%;
+    max-width: 395px;
+}
+.pa-shop-product-search button[type="submit"] {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-image: url('../assets/images/search-icon-svg.svg');
+    background-repeat: no-repeat;
+    font-size: 0px;
 }
 
 .testimonial-section .testimonial-carousel{
@@ -750,6 +762,12 @@ ins {
 
 html, body{
   overflow-x: unset !important;
+  /* min-height: 100vh; */
+  height: 100%;
+}
+footer{
+  position: sticky;
+  top: 100vh;
 }
 
 
@@ -859,9 +877,9 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-.related.products ul.products {
-    display: flex;
-}
+/* .related.products ul.products{
+  @apply flex
+} */
 
 
 
@@ -1096,9 +1114,9 @@ body.woocommerce.woocommerce-shop ul.products li.product .price ins span {
 body.woocommerce.woocommerce-shop ul.products li.product .price ins {
     margin-right: 10px;
 }
-body.woocommerce.woocommerce-shop #primary {
-    padding-top: 12rem;
-}
+/* body.woocommerce.woocommerce-shop #primary{
+  @apply pt-48
+} */
 body.woocommerce.woocommerce-shop h1.entry-title {
     position: relative;
     margin-top: 10rem;
@@ -1187,6 +1205,9 @@ body.woocommerce.woocommerce-shop h1.entry-title::before {
 .related.products > h2 {
   display: none;
 }
+.recently-viewed-section {
+    margin-bottom: 13rem;
+}
 .recently-viewed-section ul.products {
     display: flex;
     gap: 2.5rem;
@@ -1195,6 +1216,9 @@ body.woocommerce.woocommerce-shop h1.entry-title::before {
     float: none;
     margin-right: 0px !important;
     width: 100% !important;
+}
+.recently-viewed-section .ced > h2 {
+  display: none;
 }
 
 .recently-viewed-section ul.products::before, .recently-viewed-section ul.products::after {
@@ -1388,6 +1412,13 @@ body.single-product.woocommerce .price del span {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2.5rem;
 }
+.related.products ul.products li.product {
+    margin: 0px;
+    width: 100%;
+}
+.related.products ul.products::before, .related.products ul.products::after {
+  display: none;
+}
 #review_form_wrapper {
   display: none;
 }
@@ -1522,6 +1553,7 @@ body.single-product.woocommerce .price del span {
 /* shop page css start*/
 .pa-shop-product-search form {
     display: flex;
+    align-items: center;
 }
 .pa-shop-product-search form input {
     height: 60px;
@@ -1541,8 +1573,118 @@ body.single-product.woocommerce .price del span {
 .pa-products-views .woocommerce-ordering {
     margin-bottom: 0px;
 }
+.trending-product-section ul.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+}
+.trending-product-section ul.products::after {
+  display: none;
+}
+.trending-product-section ul.products::before {
+  display: none;
+}
+.trending-product-section ul.products li.product {
+    margin: 0px !important;
+    width: 100% !important;
+}
+.trending-product-section .woocommerce .ced > h2 {
+  display: none;
+}
+.woocommerce-pagination {
+    margin-bottom: 5rem;
+}
+.woocommerce-shop .woocommerce-products-header__title.page-title {
+  display: none;
+}
 
 /* shop page css end*/
+
+
+/* contact page css */
+.contact-form .form-group-row {
+    display: flex;
+    gap: 2.5rem;
+}
+.contact-form .form-group-row .form-group {
+    margin-bottom: 1.25rem;
+    width: 50%;
+}
+.contact-form .form-control {
+    height: 55px;
+    width: 100%;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(170 144 164 / var(--tw-border-opacity));
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.contact-form .form-control::-moz-placeholder {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+.contact-form .form-control::placeholder {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+}
+.contact-form .textarea-control {
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem;
+    height: 150px;
+    width: 100%;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(170 144 164 / var(--tw-border-opacity));
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.contact-form .submit-btn {
+    width: 100%;
+    cursor: pointer;
+    border-top-left-radius: 25px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(150 34 93 / var(--tw-bg-opacity));
+    padding: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+/* gt translate css */
+.gt_selector {
+    --tw-bg-opacity: 1;
+    background-color: rgb(36 24 34 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.gt_selector:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.gt_selector option[selected] {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.gt_selector option {
+    --tw-text-opacity: 1 !important;
+    color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+/* my account page css */
+.woocommerce form .show-password-input::after, .woocommerce-page form .show-password-input::after{
+  content: 'Show';
+}
+.home header {
+    position: absolute;
+}
+
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
@@ -2000,6 +2142,9 @@ video {
 .relative{
   position: relative;
 }
+.-bottom-12{
+  bottom: -3rem;
+}
 .bottom-0{
   bottom: 0px;
 }
@@ -2047,6 +2192,9 @@ video {
 }
 .z-10{
   z-index: 10;
+}
+.z-20{
+  z-index: 20;
 }
 .z-\[99999\]{
   z-index: 99999;
@@ -2146,6 +2294,9 @@ video {
 .mr-4{
   margin-right: 1rem;
 }
+.mt-10{
+  margin-top: 2.5rem;
+}
 .mt-12{
   margin-top: 3rem;
 }
@@ -2166,6 +2317,9 @@ video {
 }
 .mt-\[20px\]{
   margin-top: 20px;
+}
+.mt-\[25px\]{
+  margin-top: 25px;
 }
 .mt-\[26px\]{
   margin-top: 26px;
@@ -2293,6 +2447,9 @@ video {
 .w-\[25\%\]{
   width: 25%;
 }
+.w-\[30\%\]{
+  width: 30%;
+}
 .w-\[35\%\]{
   width: 35%;
 }
@@ -2310,6 +2467,9 @@ video {
 }
 .w-\[65\%\]{
   width: 65%;
+}
+.w-\[70\%\]{
+  width: 70%;
 }
 .w-full{
   width: 100%;
@@ -2458,6 +2618,14 @@ video {
 .rounded-none{
   border-radius: 0px;
 }
+.rounded-b-none{
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.rounded-t-\[80px\]{
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
 .\!rounded-tl-\[25px\]{
   border-top-left-radius: 25px !important;
 }
@@ -2538,6 +2706,10 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(200 200 200 / var(--tw-border-opacity));
 }
+.border-\[\#ccc\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+}
 .\!bg-\[\#96225D\]{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(150 34 93 / var(--tw-bg-opacity)) !important;
@@ -2592,9 +2764,6 @@ video {
 }
 .bg-\[url\(\.\.\/assets\/images\/leaves-bg-1\.png\)\]{
   background-image: url(../assets/images/leaves-bg-1.png);
-}
-.bg-\[url\(http\:\/\/localhost\/pureayurveda\/wp-content\/uploads\/2023\/06\/2-layers\.png\)\]{
-  background-image: url(http://localhost/pureayurveda/wp-content/uploads/2023/06/2-layers.png);
 }
 .bg-gradient-to-br{
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
@@ -2708,6 +2877,10 @@ video {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .py-\[100px\]{
   padding-top: 100px;
   padding-bottom: 100px;
@@ -2752,6 +2925,9 @@ video {
   padding-top: 95px;
   padding-bottom: 95px;
 }
+.\!pb-10{
+  padding-bottom: 2.5rem !important;
+}
 .pb-12{
   padding-bottom: 3rem;
 }
@@ -2764,11 +2940,17 @@ video {
 .pb-24{
   padding-bottom: 6rem;
 }
+.pb-28{
+  padding-bottom: 7rem;
+}
 .pb-3{
   padding-bottom: 0.75rem;
 }
 .pb-40{
   padding-bottom: 10rem;
+}
+.pb-5{
+  padding-bottom: 1.25rem;
 }
 .pb-6{
   padding-bottom: 1.5rem;
@@ -2830,9 +3012,6 @@ video {
 .pt-28{
   padding-top: 7rem;
 }
-.pt-48{
-  padding-top: 12rem;
-}
 .pt-5{
   padding-top: 1.25rem;
 }
@@ -2844,6 +3023,9 @@ video {
 }
 .pt-\[200px\]{
   padding-top: 200px;
+}
+.pt-\[30px\]{
+  padding-top: 30px;
 }
 .pt-\[340px\]{
   padding-top: 340px;
@@ -2875,6 +3057,9 @@ video {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-\[100px\]{
+  font-size: 100px;
+}
 .text-\[10px\]{
   font-size: 10px;
 }
@@ -2901,6 +3086,10 @@ video {
 }
 .text-\[46px\]{
   font-size: 46px;
+}
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-sm{
   font-size: 0.875rem;
@@ -2938,6 +3127,9 @@ video {
 }
 .tracking-\[1\.65px\]{
   letter-spacing: 1.65px;
+}
+.tracking-\[2\.2px\]{
+  letter-spacing: 2.2px;
 }
 .text-\[\#241822\]{
   --tw-text-opacity: 1;
@@ -3132,6 +3324,10 @@ video {
   content: var(--tw-content);
   height: calc(100% + 64px);
 }
+.before\:h-full::before{
+  content: var(--tw-content);
+  height: 100%;
+}
 .before\:w-\[100\%\]::before{
   content: var(--tw-content);
   width: 100%;
@@ -3156,6 +3352,10 @@ video {
   content: var(--tw-content);
   width: calc(100% + 40px);
 }
+.before\:w-full::before{
+  content: var(--tw-content);
+  width: 100%;
+}
 .before\:max-w-\[1170px\]::before{
   content: var(--tw-content);
   max-width: 1170px;
@@ -3173,6 +3373,16 @@ video {
 .before\:rounded-none::before{
   content: var(--tw-content);
   border-radius: 0px;
+}
+.before\:rounded-b-none::before{
+  content: var(--tw-content);
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.before\:rounded-t-\[80px\]::before{
+  content: var(--tw-content);
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
 }
 .before\:rounded-br-\[100px\]::before{
   content: var(--tw-content);
@@ -3219,6 +3429,11 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(249 248 249 / var(--tw-bg-opacity));
 }
+.before\:bg-\[\#aa90a4\]::before{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(170 144 164 / var(--tw-bg-opacity));
+}
 .before\:bg-gradient-to-tr::before{
   content: var(--tw-content);
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
@@ -3240,6 +3455,10 @@ video {
 .before\:to-50\%::before{
   content: var(--tw-content);
   --tw-gradient-to-position: 50%;
+}
+.before\:opacity-50::before{
+  content: var(--tw-content);
+  opacity: 0.5;
 }
 .after\:absolute::after{
   content: var(--tw-content);
@@ -3328,13 +3547,13 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(170 144 164 / var(--tw-bg-opacity));
 }
-.after\:bg-\[url\(http\:\/\/localhost\/pureayurveda\/wp-content\/uploads\/2023\/06\/footer-leaf\.png\)\]::after{
-  content: var(--tw-content);
-  background-image: url(http://localhost/pureayurveda/wp-content/uploads/2023/06/footer-leaf.png);
-}
 .after\:bg-\[url\(http\:\/\/localhost\/pureayurveda\/wp-content\/uploads\/2023\/06\/leaf-patterns\.png\)\]::after{
   content: var(--tw-content);
   background-image: url(http://localhost/pureayurveda/wp-content/uploads/2023/06/leaf-patterns.png);
+}
+.after\:bg-\[url\(http\:\/\/pureayurveda\.loc\/wp-content\/uploads\/2023\/06\/footer-leaf\.png\)\]::after{
+  content: var(--tw-content);
+  background-image: url(http://pureayurveda.loc/wp-content/uploads/2023/06/footer-leaf.png);
 }
 .after\:bg-contain::after{
   content: var(--tw-content);

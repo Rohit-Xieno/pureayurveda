@@ -14,6 +14,7 @@ function pureayurveda_one_scripts() {
     wp_enqueue_style('pureayurveda-base2', get_template_directory_uri() . '/dist/app.css', null, $theme_version);
     // wp_enqueue_style('pureayurveda-base3', get_template_directory_uri() . '/resources/css/app.css', null, $theme_version);
     wp_enqueue_style('pureayurveda-base', get_template_directory_uri() . '/assets/css/app.css', null, $theme_version);
+    wp_enqueue_style('pureayurveda-res', get_template_directory_uri() . '/assets/resources/css/app.css', null, $theme_version);
 
     wp_enqueue_script( 'pureayurveda-jquery', get_theme_file_uri( '/assets/js/jquery.min.js' ), array(), $theme_version, true );
     wp_enqueue_script( 'pureayurveda-owl-js', get_theme_file_uri( '/assets/js/owl.carousel.min.js' ), array(), $theme_version, true );

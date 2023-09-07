@@ -41,10 +41,8 @@ get_header('shop'); ?>
 <?php while (have_posts()) : ?>
 	<?php the_post(); ?>
 	<div class="container">
-		<?php
-
-	 wc_get_template_part('content', 'single-product'); ?>
-</div>
+		<?php wc_get_template_part('content', 'single-product'); ?>
+	</div>
 <!-- </div> -->
 <section class="product-ratings-reviews-section bg-[#F9F8F9] py-[100px]">
 	<div class="container flex">
@@ -99,6 +97,8 @@ get_header('shop'); ?>
 </div>
 </div>
 </section>
+
+
 
 <?php endwhile; // end of the loop. 
 ?>

@@ -50,11 +50,14 @@
         </ul> -->
       </div>
       <div class="w-2/5 px-[15px]">
-        <form action="" class="subscribe-form mt-[80px] relative before:w-[30px] before:h-[2px] before:bg-[#AA90A4] before:absolute before:top-[-30px] before:left-0">
+        <!-- <form action="" class="subscribe-form mt-[80px] relative before:w-[30px] before:h-[2px] before:bg-[#AA90A4] before:absolute before:top-[-30px] before:left-0">
           <input type="text" placeholder="type your email here..." class="subscribe-field bg-[#5B5259] placeholder:text-[#F9F8F9]">
           <button type="button" class="subscribe-btn max-w-[194px]">Subscribe</button>
-        </form>
-        <p class="pa-footer-leaf relative text-[14px] text-[#AA90A4] mt-[20px] after:block after:absolute after:bg-[url(http://localhost/pureayurveda/wp-content/uploads/2023/06/footer-leaf.png)] after:bg-no-repeat after:w-[76px] after:h-[80px] after:bg-contain after:right-[-30px] after:top-[30px]">For Newsletter Updates. Enter your email to stay in the loop on new collections, pop-up shows and more.</p>
+        </form> -->
+        <div class="subscribe-form">
+          <?php echo do_shortcode('[contact-form-7 id="02d1e37" title="Subscribe Form"]'); ?>
+        </div>
+        <p class="pa-footer-leaf relative text-[14px] text-[#AA90A4] mt-[20px] after:block after:absolute after:bg-[url(http://pureayurveda.loc/wp-content/uploads/2023/06/footer-leaf.png)] after:bg-no-repeat after:w-[76px] after:h-[80px] after:bg-contain after:right-[-30px] after:top-[30px]">For Newsletter Updates. Enter your email to stay in the loop on new collections, pop-up shows and more.</p>
       </div>
     </div>
   </div>

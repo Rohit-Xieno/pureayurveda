@@ -149,14 +149,21 @@ body{
 body .owl-carousel .owl-nav button:focus{opacity: 1;}
 
 .subscribe-btn{
-    @apply bg-[#96225D] rounded-tl-[25px] rounded-none text-white text-[18px] p-[14px] max-w-[240px] w-[100%] transition-all inline-block border-0 ml-[-22px] font-[300] hover:rounded-br-[25px] hover:rounded-none
+    @apply bg-[#96225D] rounded-tl-[25px] rounded-none text-white text-[18px] p-[14px] max-w-[240px] w-[100%] transition-all inline-block border-0 ml-[-22px] font-[300] hover:rounded-br-[25px] hover:rounded-none relative
 }
 .subscribe-field{
     @apply h-[55px] bg-[#603C57] rounded-none border-0 p-[20px] max-w-[395px] w-[100%] text-[14px] text-[#ffffff] font-[300] focus:outline-none
 }
 
-.subscribe-form{
+/* .subscribe-form{
     @apply flex justify-center
+} */
+
+.subscribe-form .wpcf7-form-control-wrap{
+  @apply w-full max-w-[395px]
+}
+.pa-shop-product-search button[type="submit"]{
+  @apply text-[0px] bg-[url('../assets/images/search-icon-svg.svg')] bg-no-repeat w-6 h-6;
 }
 
 .testimonial-section .testimonial-carousel{
@@ -281,6 +288,12 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
 
 html, body{
   overflow-x: unset !important;
+  /* min-height: 100vh; */
+  height: 100%;
+}
+footer{
+  position: sticky;
+  top: 100vh;
 }
 
 
@@ -379,9 +392,9 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-.related.products ul.products{
+/* .related.products ul.products{
   @apply flex
-}
+} */
 
 
 
@@ -510,9 +523,9 @@ body.woocommerce.woocommerce-shop ul.products li.product .price ins span{
 body.woocommerce.woocommerce-shop ul.products li.product .price ins{
   @apply mr-[10px]
 }
-body.woocommerce.woocommerce-shop #primary{
+/* body.woocommerce.woocommerce-shop #primary{
   @apply pt-48
-}
+} */
 body.woocommerce.woocommerce-shop h1.entry-title{
   @apply  relative mt-40 before:absolute before:left-[50%] before:top-[-40px] before:w-[2px] before:h-[30px] before:translate-x-[-50%] before:bg-[#96225D]
 }
@@ -557,11 +570,17 @@ body.woocommerce.woocommerce-shop h1.entry-title{
 .related.products > h2{
   @apply hidden
 }
+.recently-viewed-section{
+  @apply mb-52
+}
 .recently-viewed-section ul.products{
   @apply flex gap-10
 }
 .recently-viewed-section ul.products li.product {
   @apply float-none !mr-0 !w-full
+}
+.recently-viewed-section .ced > h2{
+  @apply hidden
 }
 
 .recently-viewed-section ul.products::before, .recently-viewed-section ul.products::after{
@@ -667,6 +686,12 @@ body.single-product.woocommerce .price del span{
 .related.products ul.products{
   @apply grid grid-cols-3 gap-10
 }
+.related.products ul.products li.product{
+  @apply w-full m-0
+}
+.related.products ul.products::before, .related.products ul.products::after{
+  @apply hidden
+}
 #review_form_wrapper{
   @apply hidden
 }
@@ -735,7 +760,7 @@ body.single-product.woocommerce .price del span{
 
 /* shop page css start*/
 .pa-shop-product-search form{
-  @apply flex
+  @apply flex items-center
 }
 .pa-shop-product-search form input{
   @apply w-full h-[60px] focus:outline-none p-4
@@ -746,5 +771,69 @@ body.single-product.woocommerce .price del span{
 .pa-products-views .woocommerce-ordering{
   @apply mb-0
 }
+.trending-product-section ul.products{
+  @apply grid grid-cols-4 gap-10
+}
+.trending-product-section ul.products::after{
+  @apply hidden
+}
+.trending-product-section ul.products::before{
+  @apply hidden
+}
+.trending-product-section ul.products li.product{
+  @apply !w-full !m-0
+}
+.trending-product-section .woocommerce .ced > h2{
+  @apply hidden
+}
+.woocommerce-pagination{
+  @apply mb-20
+}
+.woocommerce-shop .woocommerce-products-header__title.page-title{
+  @apply hidden
+}
 
 /* shop page css end*/
+
+
+/* contact page css */
+.contact-form .form-group-row{
+  @apply flex gap-10
+}
+.contact-form .form-group-row .form-group{
+  @apply w-[50%] mb-5
+}
+.contact-form .form-control{
+  @apply w-full h-[55px] border-2 border-[#AA90A4] px-5 py-3
+}
+.contact-form .form-control::placeholder{
+  @apply text-sm text-[#AA90A4]
+}
+.contact-form .textarea-control{
+  @apply h-[150px] w-full mt-5 mb-10 border-2 border-[#AA90A4] px-5 py-3
+}
+.contact-form .submit-btn{
+  @apply w-full p-4 bg-[#96225D] rounded-tl-[25px] text-white cursor-pointer
+}
+
+/* gt translate css */
+.gt_selector{
+  @apply bg-[#241822] text-white
+}
+.gt_selector:focus{
+  @apply outline-none
+}
+.gt_selector option[selected]{
+  @apply text-white
+}
+.gt_selector option{
+  @apply !text-[#fff]
+}
+
+/* my account page css */
+.woocommerce form .show-password-input::after, .woocommerce-page form .show-password-input::after{
+  content: 'Show';
+}
+.home header{
+  @apply absolute
+}

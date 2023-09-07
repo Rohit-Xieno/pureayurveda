@@ -5,6 +5,10 @@ $('#owl-shop').owlCarousel({
   nav: false,
   dots: true,
   margin: 0,
+  autoplay:true,
+  autoplayTimeout:3500,
+  autoplaySpeed: 1500,
+  autoplayHoverPause:true,
   responsiveClass: true,
   responsive: {
     0: {
@@ -22,13 +26,21 @@ $('#latestProducts').owlCarousel({
   loop: true,
   margin: 10,
   nav: true,
-  items: 1
+  items: 1,
+  autoplay:true,
+  autoplayTimeout:3500,
+  autoplayHoverPause:true,
+  autoplaySpeed: 1500,
 });
 
 // testimonial carousel
 jQuery('#testimonial-carousel').owlCarousel({
   loop: true,
   margin: 40,
+  autoplay:true,
+  autoplayTimeout:3500,
+  autoplaySpeed: 1500,
+  autoplayHoverPause:true,
   responsiveClass: true,
   responsive: {
     0: {
@@ -52,6 +64,10 @@ jQuery('#owl-product').owlCarousel({
   items: 1,
   nav: true,
   margin: 2,
+  autoplay:true,
+  autoplayTimeout:3500,
+  autoplaySpeed: 1500,
+  autoplayHoverPause:true,
   responsiveClass: true,
   responsive: {
     0: {
@@ -73,6 +89,10 @@ jQuery('#owl-demo').owlCarousel({
   nav: false,
   dots: true,
   margin: 0,
+  autoplay:true,
+  autoplayTimeout:3500,
+  autoplaySpeed: 1500,
+  autoplayHoverPause:true,
   responsiveClass: true,
   responsive: {
     0: {
@@ -130,3 +150,8 @@ columnFour.addEventListener('click', function(){
   columnFour.classList.add('view-button-active')
   columnTwo.classList.remove('view-button-active')
 });
+
+
+
+
+document.querySelector('[value="menu_order"]').innerHTML = "Sort";

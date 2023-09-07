@@ -62,8 +62,8 @@
                 <h4 class="heading-h4"><?php the_title(); ?></h4>
                 <?php the_excerpt(); ?>
                 <div class="product-price mt-[12px]">
-                  <span class="text-[22px] text-[#47203E]"><?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></span>
-                  <del class="text-[18px] text-[#AA90A4] ml-[10px]"><?php echo get_post_meta(get_the_ID(), '_sale_price', true); ?></del>
+                  <span class="text-[22px] text-[#47203E]">$<?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></span>
+                  <del class="text-[18px] text-[#AA90A4] ml-[10px]">$<?php echo get_post_meta(get_the_ID(), '_sale_price', true); ?></del>
                 </div>
                 <a href="<?php the_permalink(); ?>" class="pa-button mt-[20px] max-w-[300px] w-[100%] text-center">View Product</a>
               </div>
@@ -121,7 +121,7 @@
               </ul>
             </div>
             <div class="pa-product-price">
-              <span class="text-[22px] text-[#47203E]"><?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></span><del class="text-[18px] text-[#AA90A4] ml-[10px]"><?php echo get_post_meta(get_the_ID(), '_sale_price', true); ?></del>
+              <span class="text-[22px] text-[#47203E]">$<?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></span><del class="text-[18px] text-[#AA90A4] ml-[10px]">$<?php echo get_post_meta(get_the_ID(), '_sale_price', true); ?></del>
             </div>
             <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline">Buy Now</a>
           </div>
@@ -173,6 +173,7 @@ $special_product_image_two = get_field('special_product_image_two');
           $product_slider = array(
             'posts_per_page' => 3, //No of product to be fetched
             'post_type' => 'product',
+            'product_cat'    => 'facial-oils'
           );
           $post_query_slider = new WP_Query($product_slider);
           ?>
@@ -247,47 +248,7 @@ $special_product_image_two = get_field('special_product_image_two');
       <h3 class="heading-h3 uppercase"><?php the_field('trending_product_sub_title'); ?></h3>
       <h2 class="heading-h2"><?php the_field('trending_product_title'); ?></h2>
     </div>
-    <?php
-    $trending_product = array(
-      'posts_per_page' => 4,
-      'post_type' => 'product',
-    );
-    $trending_query = new WP_Query($trending_product);
-
-    ?>
-    <div class="grid grid-cols-4 gap-x-[40px]">
-      <?php if ($trending_query->have_posts()) : ?>
-        <?php while ($trending_query->have_posts()) : $trending_query->the_post(); ?>
-          <div class="trending-product-col group">
-            <div class="best-product-thumbnail relative">
-              <div class="favourite-icon bg-dark-purple-rgba w-[50px] h-[50px] justify-center items-center cursor-pointer hidden group-hover:flex absolute top-0 right-0 group-hover:transition-all hover:transition-all">
-                <?php echo do_shortcode('[ti_wishlists_addtowishlist loop=yes]'); ?>
-              </div>
-              <?php $trending_img = wp_get_attachment_image_src(get_post_thumbnail_id($trending_query->ID)); ?>
-
-              <a href="<?php the_permalink(); ?>"><img src="<?php echo $trending_img[0] ?>" alt="" class="w-[100%] max-w-[100%] h-[300px] object-cover rounded-tl-[45px]"></a>
-              <div class="hidden group-hover:flex absolute left-[50%] translate-x-[-50%] bottom-[40px]"><?php echo do_shortcode('[add_to_cart id=' . $id . ']') ?></div>
-            </div>
-            <h4 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-            <div class="star-review">
-              <ul class="woocommerce">
-                <li>
-                  <?php if ($average = $product->get_average_rating()) : ?>
-                    <?php echo '<div class="star-rating" title="' . sprintf(__('Rated %s out of 5', 'woocommerce'), $average) . '"><span style="width:' . (($average / 5) * 100) . '%"><strong itemprop="ratingValue" class="rating">' . $average . '</strong> ' . __('out of 5', 'woocommerce') . '</span></div>'; ?>
-                  <?php endif; ?>
-                </li>
-              </ul>
-            </div>
-            <div class="pa-product-price">
-              <span class="text-[22px] text-[#47203E]"><?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></span>
-              <del class="text-[18px] text-[#AA90A4] ml-[10px]"><?php echo get_post_meta(get_the_ID(), '_sale_price', true); ?></del>
-            </div>
-            <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline">Buy Now</a>
-          </div>
-        <?php endwhile; ?>
-      <?php endif; ?>
-      <?php wp_reset_query(); ?>
-    </div>
+    <?php echo do_shortcode('[wmvp_most_viewed_products number_of_products_in_row="4" posts_per_page="4"]') ?>
   </div>
 </section>
 <!-- Trending Products section end -->
@@ -313,7 +274,15 @@ $special_product_image_two = get_field('special_product_image_two');
       ?>
           <div class="home-blog-col mt-[40px]">
             <?php $blog_img = wp_get_attachment_image_src(get_post_thumbnail_id($blog_query->ID), 'single-post-thumbnail'); ?>
-            <img src="<?php echo $blog_img[0]; ?>" alt="" class="w-[100%] h-56 rounded-none object-cover">
+            <?php 
+              if ($blog_img) { ?>
+                <img src="<?php echo $blog_img[0]; ?>" alt="" class="w-[100%] h-56 rounded-none object-cover">
+              <?php }
+              else{ ?>
+                <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" class="w-[100%] h-56 rounded-none object-cover">
+              <?php }
+            ?>
+            
             <h4 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><?php the_title(); ?></h4>
             <p class="mb-[27px] mt-[26px]"><?php echo wp_trim_words(get_the_excerpt(), 22); ?></p>
             <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline">Read More</a>
@@ -324,65 +293,18 @@ $special_product_image_two = get_field('special_product_image_two');
       ?>
       <?php wp_reset_query(); ?>
     </div>
+    <div class="text-center">
+      <a href="<?php echo site_url('/blog'); ?>" class="pa-button mt-10">View More</a>
+    </div>
   </div>
   <img src="<?php echo get_template_directory_uri() . '/assets/images/wooden-spoon.png' ?>" alt="" class="absolute bottom-0 right-0 z-0">
 </section>
 <!-- Blog section end -->
 
-<!-- newsletter section start -->
-<section class="home-newsletter-section">
-  <div class="container">
-    <?php
-      $newsletter_image = get_field('newsletter_image');
-    ?>
-    <div style="background-image: url('<?php echo esc_url($newsletter_image['url']); ?>');" class="home-newsletter-row mt-[-250px] relative pt-[200px] pb-[80px] bg-[#47203E] overflow-hidden bg-repeat-x ">
-      <div class="text-center">
-        <h3 class="heading-h3 uppercase text-[#AA90A4] after:bg-[#AA90A4]"><?php the_field('newsletter_sub_title'); ?></h3>
-        <h2 class="heading-h2 text-white mb-[25px]"><?php the_field('newsletter_title'); ?></h2>
-      </div>
-      <form action="" class="subscribe-form">
-        <input type="text" placeholder="type your email here..." class="subscribe-field">
-        <button type="button" class="subscribe-btn">Subscribe Now</button>
-      </form>
-    </div>
-  </div>
-</section>
-<!-- newsletter section end -->
+<!-- Newsletter section -->
+<?php get_template_part( 'partials/modules/module', 'newsletter' ); ?>
 
-<!-- Testimonial sectin start -->
-<section class="testimonial-section py-[90px]">
-  <div class="container">
-    <div class="text-center">
-      <h3 class="heading-h3 uppercase"><?php the_field('testimonial_sub_title') ?></h3>
-      <h2 class="heading-h2"><?php the_field('testimonial_title') ?></h2>
-    </div>
-    <div class="testimonial-carousel relative">
-      <?php
-
-      $testimonial = array(
-        'posts_per_page' => -1,
-        'post_type' => 'testimonial'
-      );
-      $testimonial_query = new WP_Query($testimonial);
-      if ($testimonial_query->have_posts()) :
-      ?>
-        <div class="owl-carousel owl-theme px-[180px]" id="testimonial-carousel">
-          <?php while ($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
-            <div class="item">
-              <?php $testimonial_img = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_query->ID)); ?>
-              <img src="<?php echo $testimonial_img[0] ?>" alt="customer" class="w-[60px] h-[60px] m-auto rounded-full">
-              <h4><?php the_title(); ?></h4>
-              <h6><?php the_field('designation') ?></h6>
-              <!-- <p></p> -->
-              <?php the_content(); ?>
-            </div>
-          <?php endwhile; ?>
-        </div>
-      <?php endif; ?>
-      <?php wp_reset_query(); ?>
-    </div>
-  </div>
-</section>
-<!-- Testimonial sectin end -->
+<!-- Testimonials Section -->
+<?php get_template_part( 'partials/modules/module', 'testimonial' ); ?>
 
 <?php get_footer(); ?>
