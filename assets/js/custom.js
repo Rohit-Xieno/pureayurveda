@@ -152,6 +152,5 @@ columnFour.addEventListener('click', function(){
 });
 
 
-
-
 document.querySelector('[value="menu_order"]').innerHTML = "Sort";
+

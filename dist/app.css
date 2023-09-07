@@ -485,6 +485,21 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
 }
 
 .footer{background-size: 500px;}
+footer .subscribe-btn {
+    max-width: 194px;
+}
+footer input[type="email"] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(91 82 89 / var(--tw-bg-opacity));
+}
+footer input[type="email"]::-moz-placeholder {
+    --tw-text-opacity: 1;
+    color: rgb(249 248 249 / var(--tw-text-opacity));
+}
+footer input[type="email"]::placeholder {
+    --tw-text-opacity: 1;
+    color: rgb(249 248 249 / var(--tw-text-opacity));
+}
 .product-carousel .owl-carousel{
   .owl-stage-outer {
         height: 100%;
@@ -1683,6 +1698,71 @@ body.single-product.woocommerce .price del span {
 }
 .home header {
     position: absolute;
+}
+.woocommerce-account .entry-header {
+  display: none;
+}
+.col2-set {
+    max-width: 864px;
+}
+
+.woocommerce-account .woocommerce-Input{
+  
+    height: 55px;
+    width: 100%;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(170 144 164 / var(--tw-border-opacity));
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+
+}
+body.woocommerce-account .woocommerce-form-login__submit {
+    margin-top: 1.25rem;
+    width: 100%;
+    border-radius: 0px;
+    border-top-left-radius: 25px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(150 34 93 / var(--tw-bg-opacity));
+    padding: 0.75rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 300;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+body.woocommerce-account .woocommerce-LostPassword {
+    text-align: right;
+}
+body.woocommerce-account .woocommerce-LostPassword a {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(170 144 164 / var(--tw-text-opacity));
+    text-decoration-line: underline;
+}
+body.woocommerce-account .woocommerce-form-register, body.woocommerce-account .woocommerce-form-login {
+    margin: 0px;
+    border-width: 0px;
+    padding: 0px;
+}
+body.woocommerce-account .woocommerce-form-register label, body.woocommerce-account .woocommerce-form-login label {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+}
+#newAccountBtn {
+    padding: 0.75rem;
+}
+.new-member {
+    padding: 2.5rem;
+}
+.new-member p {
+    margin-bottom: 1rem;
+}
+.new-member ul li {
+    margin-bottom: 0.25rem;
 }
 
 /*

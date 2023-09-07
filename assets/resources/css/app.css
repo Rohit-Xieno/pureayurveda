@@ -3,10 +3,10 @@
 @tailwind components;
 @tailwind utilities; */
 
-body{
+/* body{
   border: 10px solid red;
 }
 
 .pa-latest-products-section{
   background-image: url(../../images/pureayurveda-banner.png);
-}
+} */

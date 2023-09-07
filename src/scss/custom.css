@@ -190,6 +190,12 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
 }
 
 .footer{background-size: 500px;}
+footer .subscribe-btn{
+  @apply max-w-[194px]
+}
+footer input[type="email"]{
+  @apply bg-[#5B5259] placeholder:text-[#F9F8F9]
+}
 .product-carousel .owl-carousel{
   .owl-stage-outer{
     @apply h-[100%]
@@ -836,4 +842,51 @@ body.single-product.woocommerce .price del span{
 }
 .home header{
   @apply absolute
+}
+.woocommerce-account .entry-header{
+  @apply hidden
+}
+.col2-set{
+  @apply max-w-[864px]
+}
+
+.woocommerce-account .woocommerce-Input{
+  
+    height: 55px;
+    width: 100%;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(170 144 164 / var(--tw-border-opacity));
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+
+}
+body.woocommerce-account .woocommerce-form-login__submit{
+  @apply bg-[#96225D] rounded-none rounded-tl-[25px] w-full p-3 text-lg text-white font-light mt-5
+}
+body.woocommerce-account .woocommerce-LostPassword{
+  @apply text-right 
+}
+body.woocommerce-account .woocommerce-LostPassword a{
+  @apply text-sm text-[#AA90A4] underline
+}
+body.woocommerce-account .woocommerce-form-register, body.woocommerce-account .woocommerce-form-login{
+  @apply border-0 p-0 m-0
+}
+body.woocommerce-account .woocommerce-form-register label, body.woocommerce-account .woocommerce-form-login label{
+  @apply !text-lg
+}
+#newAccountBtn{
+  @apply p-3
+}
+.new-member{
+  @apply p-10
+}
+.new-member p{
+  @apply mb-4
+}
+.new-member ul li{
+  @apply mb-1
 }
