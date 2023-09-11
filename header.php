@@ -20,6 +20,7 @@
 					<li>
 						<ul class="flex justify-end">
 							<li class="pr-[10px]">
+								<?php echo do_shortcode('[woocs sd=1]'); ?>
 								<select class="form-select bg-transparent text-white" aria-label="Default select example">
 									<!-- <option selected class="text-black">Open this select menu</option> -->
 									<option value="1" class="text-black">USD - US Dollor</option>
@@ -87,7 +88,13 @@
 							</div>
 						</li>
 					</ul>
-					<a href="#" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a>
+					 		
+					<?php if ( is_user_logged_in() ) { ?>
+							<a href="<?php echo wp_logout_url(); ?>" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Logout</a>
+					<?php } else { ?>
+							<a href="/wp-login.php" title="Login or Register" rel="home" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a>
+					<?php } ?>
+					<!-- <a href="#" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a> -->
 				</div>
 			</div>
 		</div>
