@@ -154,3 +154,23 @@ columnFour.addEventListener('click', function(){
 
 document.querySelector('[value="menu_order"]').innerHTML = "Sort";
 
+
+function check() {
+  var userEmail = document.querySelector('.wpcf7-email').value;
+  // var usrPw = document.getElementById('userPw').value;
+
+  let stored_users = JSON.parse(localStorage.getItem('users'))
+  if(stored_users) {
+      for (let u = 0; u < stored_users.length; u++){
+          if (userEmail == stored_users[u].name) {
+              alert('You are logged in ' + userEmail);
+              return location.replace("./index.html");
+
+           }
+      }
+  } else {
+      localStorage.setItem('users', '[]');
+  }
+
+  return alert('Access denied. Valid username and password is required.');
+}

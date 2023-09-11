@@ -11,6 +11,7 @@
     } ?>
   </div>
   <div class="single-product-accordion">
+		<div class="faq-search-bar text-center"><input class='input mb-5' type="search" id="searchbox" placeholder="Live search keyword.."></div>
 		<div class="row">
 			<div class="col">
         <?php if(have_rows('faq_repeater')) : ?>
@@ -28,23 +29,42 @@
           <?php $var++; endwhile; ?>
         </div>
         <?php endif; ?>
-					<!-- <div class="tab">
-						<input type="radio" id="rd2" name="rd">
-						<label class="tab-label" for="rd2">Shipping & Returns</label>
-						<div class="tab-content">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, aut.
-						</div>
-					</div>
-					<div class="tab">
-						<input type="radio" id="rd3" name="rd">
-						<label class="tab-label" for="rd3">More Info</label>
-						<div class="tab-content">
-						It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-						</div>
-					</div> -->
 				</div>
 			</div>
+			<!-- <div class="no-results hidden">no match found</div> -->
 		</div>
 	</div>
 	</div>
 <?php get_footer(); ?>
+
+<script>
+	// faq searches
+let cards = document.querySelectorAll('.tab');
+// let noResults = document.querySelector('.no-results');
+    
+		function liveSearch() {
+				let search_query = document.getElementById("searchbox").value;
+				
+				//Use innerText if all contents are visible
+				//Use textContent for including hidden elements
+				for (var i = 0; i < cards.length; i++) {
+						if(cards[i].textContent.toLowerCase().includes(search_query.toLowerCase())) {
+								cards[i].classList.remove("is-hidden");
+								// noResults.classList.remove('hidden');
+						} else {
+								cards[i].classList.add("is-hidden");
+								// noResults.classList.add('hidden');
+						}
+				}
+		}
+		
+		//A little delay
+		let typingTimer;               
+		let typeInterval = 500;  
+		let searchInput = document.getElementById('searchbox');
+		
+		searchInput.addEventListener('keyup', () => {
+				clearTimeout(typingTimer);
+				typingTimer = setTimeout(liveSearch, typeInterval);
+		});
+</script>

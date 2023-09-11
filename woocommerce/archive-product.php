@@ -88,6 +88,12 @@ $special_product_image_two = get_field('special_product_image_two', 'option');
         </div>
 				<h4 class="text-[100px] text-white uppercase absolute -bottom-12 left-0">NEW LAUNCH</h4>
       </section>
+
+			<div class="price-filter">
+
+				<?php echo do_shortcode('[woof_front_builder]'); ?>
+				<?php dynamic_sidebar('products-page-sidebar'); ?>
+			</div>
 			
 <?php
 if ( woocommerce_product_loop() ) {

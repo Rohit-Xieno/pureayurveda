@@ -791,7 +791,7 @@ footer{
 
 
 
-.single-product-accordion input {
+.single-product-accordion input[type="radio"] {
     position: absolute;
     z-index: -1;
     opacity: 0;
@@ -862,14 +862,31 @@ footer{
 /* .single-product-accordion input:checked + .tab-label {
   background: #1a252f;
 } */
-.single-product-accordion input:checked + .tab-label::after {
+.single-product-accordion input[type="radio"]:checked + .tab-label::after {
   transform: rotate(90deg);
 }
-.single-product-accordion input:checked ~ .tab-content {
+.single-product-accordion input[type="radio"]:checked ~ .tab-content {
   max-height: 100vh;
   padding: 1em;
 }
-
+.single-product-accordion input[type="search"] {
+    position: static;
+    z-index: 0;
+    width: 100%;
+    max-width: 32rem;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(204 204 204 / var(--tw-border-opacity));
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    opacity: 1;
+}
+.single-product-accordion input[type="search"]:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
 
 
 
@@ -1766,6 +1783,26 @@ body.woocommerce-account .woocommerce-form-register label, body.woocommerce-acco
     margin-bottom: 0.25rem;
 }
 
+
+/* currency swithcer */
+.selectron23 {
+    width: 100% !important;
+}
+.selectron23-option img {
+  display: none;
+}
+.selectron23-option {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(36 24 34 / var(--tw-bg-opacity)) !important;
+}
+.selectron23-option div {
+    display: flex;
+    justify-content: space-between;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.is-hidden { display: none; }
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
@@ -2213,6 +2250,9 @@ video {
   .container{
     max-width: 1198px;
   }
+}
+.static{
+  position: static;
 }
 .fixed{
   position: fixed;

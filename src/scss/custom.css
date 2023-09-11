@@ -308,7 +308,7 @@ footer{
 
 
 
-.single-product-accordion input {
+.single-product-accordion input[type="radio"] {
   @apply absolute opacity-0 z-[-1]
   
 }
@@ -368,14 +368,16 @@ footer{
 /* .single-product-accordion input:checked + .tab-label {
   background: #1a252f;
 } */
-.single-product-accordion input:checked + .tab-label::after {
+.single-product-accordion input[type="radio"]:checked + .tab-label::after {
   transform: rotate(90deg);
 }
-.single-product-accordion input:checked ~ .tab-content {
+.single-product-accordion input[type="radio"]:checked ~ .tab-content {
   max-height: 100vh;
   padding: 1em;
 }
-
+.single-product-accordion input[type="search"]{
+  @apply  border border-[#ccc] px-4 py-3 static z-0 opacity-100 focus:outline-none max-w-lg w-full
+}
 
 
 
@@ -891,3 +893,20 @@ body.woocommerce-account .woocommerce-form-register label, body.woocommerce-acco
 .new-member ul li{
   @apply mb-1
 }
+
+
+/* currency swithcer */
+.selectron23{
+  @apply !w-full
+}
+.selectron23-option img{
+  @apply hidden
+}
+.selectron23-option{
+  @apply !bg-[#241822]
+}
+.selectron23-option div{
+  @apply flex justify-between text-white
+}
+
+.is-hidden { display: none; }

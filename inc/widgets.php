@@ -75,5 +75,15 @@ if (function_exists('register_sidebar')) {
         'before_title'  => '<h4 class="widget-title text-3xl flex items-center mb-4 relative"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">',
         'after_title'   => '</span><span class="flex-auto h-0.5 ml-3.5 bg-gradient-to-r to-emerald-600 from-sky-400"></span></h4>',
     ));
- 
+
+
+    register_sidebar(array(
+        'name'          => __( 'Products Page Sidebar', 'pureayurveda' ),
+        'id'            => 'products-page-sidebar',
+        'description'   => __( 'Add widgets here to appear in your sidebar.', 'pureayurveda' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s mb-6">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title text-3xl flex items-center mb-4 relative"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">',
+        'after_title'   => '</span><span class="flex-auto h-0.5 ml-3.5 bg-gradient-to-r to-emerald-600 from-sky-400"></span></h4>',
+    ));
 }

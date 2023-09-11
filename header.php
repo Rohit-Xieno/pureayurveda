@@ -22,7 +22,7 @@
 							<li class="pr-[10px]">
 								<?php echo do_shortcode('[woocs sd=1]'); ?>
 								<select class="form-select bg-transparent text-white" aria-label="Default select example">
-									<!-- <option selected class="text-black">Open this select menu</option> -->
+									<option selected class="text-black">Open this select menu</option>
 									<option value="1" class="text-black">USD - US Dollor</option>
 									<option value="2" class="text-black">INR - Indian Rupees</option>
 									<option value="3" class="text-black">Euro</option>
