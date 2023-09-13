@@ -7,7 +7,7 @@
           $footer_text = get_field('f_text', 'option');
           $footer_copyright = get_field('f_copyright', 'option');
         ?>
-        <img src="<?php echo esc_url( $footer_logo['url']) ?>" alt="">
+        <a href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( $footer_logo['url']) ?>" alt=""></a>
         <p class="text-[14px] text-[#AA90A4] mt-[30px]"><?php echo $footer_text ?></p>
         <p class="text-[14px] text-[#AA90A4]"><?php echo $footer_copyright ?></p>
         <?php 

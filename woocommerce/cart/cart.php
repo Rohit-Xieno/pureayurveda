@@ -199,6 +199,7 @@ do_action( 'woocommerce_before_cart' );
 <div class="cart-collaterals !w-[35%]">
 	<div class="bg-[#F9F8F9] p-[40px]">
 <div class="actions mb-5">
+	<form method="post">
 <?php if ( wc_coupons_enabled() ) { ?>
 	<div class="coupon flex justify-end relative pt-[35px]">
 		<label for="coupon_code" class="screen-reader-text coupon-code-label"><?php esc_html_e( 'Add a discount code', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text w-full h-[55px] bg-transparent border-2 border-[#AA90A4] p-2" id="coupon_code" value="" /> <button type="submit" class="!px-7 !bg-transparent !border-2 !border-solid !border-[#AA90A4] !ml-[18px] !rounded-none button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Add', 'woocommerce' ); ?></button>
@@ -207,7 +208,7 @@ do_action( 'woocommerce_before_cart' );
 <?php } ?>
 
 <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
-
+</form>
 <?php do_action( 'woocommerce_cart_actions' ); ?>
 
 <?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
@@ -230,7 +231,7 @@ do_action( 'woocommerce_before_cart' );
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Credit-Card-Icons.svg" alt="">
 		</div>
 	</div>
-	<p class="text-sm pt-5">Prices and delivery costs are not confirmed until you've reached the checkout.</p> <p class="text-sm pt-5">30 days withdrawal and free returns. Read more about <a href="#">return and refund policy</a></p>
+	<p class="text-sm pt-5">Prices and delivery costs are not confirmed until you've reached the checkout.</p> <p class="text-sm pt-5">30 days withdrawal and free returns. Read more about <a href="#" class="underline">return and refund policy</a></p>
 </div>
 </div>
 </div>

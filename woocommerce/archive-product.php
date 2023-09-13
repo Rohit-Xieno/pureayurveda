@@ -89,11 +89,7 @@ $special_product_image_two = get_field('special_product_image_two', 'option');
 				<h4 class="text-[100px] text-white uppercase absolute -bottom-12 left-0">NEW LAUNCH</h4>
       </section>
 
-			<div class="price-filter">
-
-				<?php echo do_shortcode('[woof_front_builder]'); ?>
-				<?php dynamic_sidebar('products-page-sidebar'); ?>
-			</div>
+			
 			
 <?php
 if ( woocommerce_product_loop() ) {
@@ -108,7 +104,8 @@ if ( woocommerce_product_loop() ) {
 	do_action( 'woocommerce_before_shop_loop' );
 
 	?>
-	<div class="shop_wc_products">
+			<div class="products-with-filtes flex w-full gap-12">
+	<div class="shop_wc_products w-[75%]">
 		<?php
 	woocommerce_product_loop_start();
 	if ( wc_get_loop_prop( 'total' ) ) {
@@ -128,6 +125,10 @@ if ( woocommerce_product_loop() ) {
 	woocommerce_product_loop_end();
 	?>
 	</div>
+	<div class="price-filter w-[25%]">
+				<?php echo do_shortcode('[fe_widget]') ?>
+			</div>
+			</div>
 	<?php
 	/**
 	 * Hook: woocommerce_after_shop_loop.

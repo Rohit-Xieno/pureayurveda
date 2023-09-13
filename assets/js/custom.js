@@ -1,10 +1,10 @@
 // blog page shop product owl carousel js
 $('#owl-shop').owlCarousel({
   loop: true,
-  items: 1,
-  nav: false,
-  dots: true,
-  margin: 0,
+  items: 3,
+  nav: true,
+  dots: false,
+  margin: 40,
   autoplay:true,
   autoplayTimeout:3500,
   autoplaySpeed: 1500,
@@ -15,13 +15,14 @@ $('#owl-shop').owlCarousel({
       items: 2
     },
     600: {
-      items: 2
+      items: 3
     },
     1000: {
-      items: 2
+      items: 3
     }
   }
 });
+
 $('#latestProducts').owlCarousel({
   loop: true,
   margin: 10,
@@ -140,19 +141,24 @@ const columnTwo = document.getElementById('columnT');
 const columnFour = document.getElementById('columnF');
 const shopProducts = document.querySelector('.products');
 
-columnTwo.addEventListener('click', function(){
-  shopProducts.style.gridTemplateColumns = '1fr 1fr';
-  columnTwo.classList.add('view-button-active')
-  columnFour.classList.remove('view-button-active')
-});
+if (columnTwo) {
+  columnTwo.addEventListener('click', function(){
+    shopProducts.style.gridTemplateColumns = '1fr 1fr';
+    columnTwo.classList.add('view-button-active')
+    columnFour.classList.remove('view-button-active')
+  });  
+}
+if (columnFour) {
 columnFour.addEventListener('click', function(){
   shopProducts.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
   columnFour.classList.add('view-button-active')
   columnTwo.classList.remove('view-button-active')
 });
+}
 
-
-document.querySelector('[value="menu_order"]').innerHTML = "Sort";
+// if (is_shop()) {
+//   document.querySelector('[value="menu_order"]').innerHTML = "Sort";
+// }
 
 
 function check() {
@@ -174,3 +180,35 @@ function check() {
 
   return alert('Access denied. Valid username and password is required.');
 }
+
+
+
+// load more blog
+$(function () {
+  $(".blog-page-col").slice(0, 7).show();
+  $("body").on('click touchstart', '.load-more', function (e) {
+    e.preventDefault();
+    $(".blog-page-col:hidden").slice(0, 7).slideDown();
+    if ($(".blog-page-col:hidden").length == 0) {
+      $(".load-more-wrapper").css('visibility', 'hidden');
+    }
+    $('html,body').animate({
+      scrollTop: offset().top
+    }, 1000);
+  });
+});
+
+
+// all product category show
+let allProductCategory = document.getElementById('allCategory');
+let categoryWrap = document.querySelector('.all-category-wrapper');
+let bodyTag = document.querySelector('body');
+
+allProductCategory.addEventListener('click', function(){
+  categoryWrap.classList.toggle('category-show');
+  // miniCartOverlay.classList.add('mini-cart-active')
+});
+
+// bodyTag.addEventListener('click', function(){
+//   miniCartOverlay.classList.add('mini-cart-active');
+// })

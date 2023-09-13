@@ -21,12 +21,12 @@
 						<ul class="flex justify-end">
 							<li class="pr-[10px]">
 								<?php echo do_shortcode('[woocs sd=1]'); ?>
-								<select class="form-select bg-transparent text-white" aria-label="Default select example">
+								<!-- <select class="form-select bg-transparent text-white" aria-label="Default select example">
 									<option selected class="text-black">Open this select menu</option>
 									<option value="1" class="text-black">USD - US Dollor</option>
 									<option value="2" class="text-black">INR - Indian Rupees</option>
 									<option value="3" class="text-black">Euro</option>
-								</select>
+								</select> -->
 							</li>
 							<li class="pl-[10px] border-l border-[#FFFFFF]">
 								<?php echo do_shortcode('[gtranslate]'); ?>
@@ -43,8 +43,30 @@
 		</div>
 		<div class="container">
 			<div class="navbar grid grid-cols-3 py-[25px]">
-				<ul class="flex items-center border-b border-[#241822]">
-					<li class="flex items-center pr-[15px]"><img src="<?php echo get_template_directory_uri() . '/assets/images/menu-grid.png' ?>" alt=""><span class="ml-[10px]">All Categories</span></li>
+				<ul class="flex items-center border-b border-[#241822] relative">
+					<li class="flex items-center pr-[15px] cursor-pointer" id="allCategory"><img src="<?php echo get_template_directory_uri() . '/assets/images/menu-grid.png' ?>" alt=""><span class="ml-[10px]">All Categories</span>
+					<div class="all-category-wrapper hidden absolute bg-white p-7 shadow-md z-[50]">
+					<?php
+						$cat = get_categories(array(
+							'taxonomy' => 'product_cat'
+						)); ?>
+						<div class="row grid grid-cols-2 gap-7">
+						<?php foreach ($cat as $catdata) {
+							$cat_thumbnail = get_woocommerce_term_meta($catdata->term_id, 'thumbnail_id', true);
+							$cat_img = wp_get_attachment_url($cat_thumbnail);
+						 ?>
+						<div class="col">
+							<a href="<?php echo get_category_link($catdata->term_id); ?>">
+								<div class="thumbnail h-[170px] overflow-hidden rounded-tl-3xl"><img src="<?php echo $cat_img; ?>" alt="" class="w-full h-full object-cover"></div>
+								<div class="content mt-1">
+									<h3><?php echo $catdata->name; ?></h3>
+								</div>
+							</a>
+						</div>
+						<?php } ?>
+					</div>
+					</div>
+					</li>
 					<li class="flex flex-1 items-center relative pl-[15px] before:absolute before:w-[1px] before:h-[15px] before:bg-[#AA90A4] before:left-[2px]">
 						<!-- <form action="">
 							<input type="text" placeholder="search your product here..." class="bg-transparent focus:outline-none"><img src="</?php echo get_template_directory_uri() . '/assets/images/search.png' ?>" alt="" class="ml-auto">
@@ -73,6 +95,7 @@
 						</div>
 					</li>
 				</ul>
+				
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="pa-header-logo"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-black-2.png' ?>" alt="" class="m-auto"></a>
 				<div class="pa-mini-cart flex items-center justify-end">
 					<ul class="flex gap-x-[25px]">
@@ -92,7 +115,7 @@
 					<?php if ( is_user_logged_in() ) { ?>
 							<a href="<?php echo wp_logout_url(); ?>" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Logout</a>
 					<?php } else { ?>
-							<a href="/wp-login.php" title="Login or Register" rel="home" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a>
+							<a href="<?php the_permalink('27') ?>" title="Login or Register" rel="home" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a>
 					<?php } ?>
 					<!-- <a href="#" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a> -->
 				</div>
@@ -115,7 +138,7 @@
 			<div class="mini-cart transition-[0.8s] bg-white max-w-[714px] w-[100%] fixed top-0 right-[-714px] left-auto p-[60px] z-[99999]" id="miniCartBox">
 				<div class="mini-cart-heading mb-[40px] flex justify-between items-center">
 					<h3 class="text-[38px] font-[300]">Cart (3)</h3>
-					<button type="button" class="minicart-close"><span class="text-[20px] text-[#AA90A4]">X</span></button>
+					<button type="button" class="minicart-close"><span class="text-[20px] text-[#AA90A4] w-[35px] h-[35px] block"><img src="<?php echo get_template_directory_uri().'/assets/images/close-md-svgrepo-com.svg'?>" alt=""></span></button>
 				</div>
 				<p class="mb-[40px] border-y border-[#C8C8C8] py-[15px]">Your are eligible for free shipping!</p>
 				<div class="product-list">

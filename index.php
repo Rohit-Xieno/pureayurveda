@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <main>
   <!-- Blog section start -->
-  <section class="home-blog-section relative pt-[30px] ">
+  <section class="home-blog-section blog-page-section relative pt-[30px] ">
     <div class="container relative z-10">
       <div class="text-center">
         <h1 class="text-[46px] text-[#241822] font-light pb-[54px] mb-[10px] tracking-[1.35px] uppercase border-b border-[#C8C8C8] relative before:w-[2px] before:h-[30px] before:bg-[#96225D] before:absolute before:top-[-40px] before:left-[50%] before:translate-x-[-50%]"><?php wp_title(''); ?></h1>
@@ -18,7 +18,7 @@
       <?php if ($blog_query->have_posts()) : ?>
         <div class="home-blog-row grid grid-cols-12 gap-x-[40px]">
           <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
-            <div class="home-blog-col <?php if ($i == 1) echo 'col-span-12 full-width-blog pt-16 relative'; else echo 'col-span-4'; ?> mb-[40px]">
+            <div class="home-blog-col blog-page-col <?php if ($i == 1) echo 'col-span-12 full-width-blog pt-16 relative'; else echo 'col-span-4'; ?> mb-[40px]">
               <?php $blog_img = wp_get_attachment_image_src(get_post_thumbnail_id($blog_query->ID), 'single-post-thumbnail'); ?>
               <?php 
                 if ($blog_img) { ?>
@@ -41,14 +41,15 @@
         </div>
           <?php endif; ?>
           <?php wp_reset_query(); ?>
-          
-    <img src="<?php echo get_template_directory_uri() . '/assets/images/wooden-spoon.png' ?>" alt="" class="absolute bottom-0 right-0 z-0">
+          <div class="load-more-wrapper text-center relative w-full h-[1px] bg-[#ccc] my-28">
+            <a href="" class="load-more absolute top-[-12px] left-[50%] translate-x-[-50%] bg-white px-7">Load More</a>
+          </div>
   </section>
 
 
   <!-- Blog section end -->
   <div class="main-blog">
-    <div class="blog-filter">
+    <!-- <div class="blog-filter">
       <div class="container">
         <div class="inner-blog">
           <div class="blog-heading">
@@ -56,7 +57,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 <?php /*
     <div class="portfolio section">
@@ -133,9 +134,9 @@
     </div>
 */ ?>
 
-    <section class="show-now-product">
+    <section class="show-now-product pb-24">
       <div class="container">
-        <div class="best-seller-product relative bg-white grid grid-cols-2 gap-x-[40px] p-[40px]">
+        <div class="best-seller-product relative bg-white p-[40px]">
           <?php
           $shop_product = array(
             'post_type' => 'product',
@@ -148,7 +149,7 @@
             ?>
           <h2 class="text-4xl text-center mb-12"><?php echo $shop_heading; ?></h2>
           
-          <div id="owl-shop" class="owl-carousel owl-theme">
+          <div class="owl-carousel owl-theme px-[150px]" id="owl-shop">
           <?php
           if ($shop_query->have_posts()) :
              while ($shop_query->have_posts()) : $shop_query->the_post();
@@ -160,7 +161,7 @@
                 <?php echo do_shortcode('[ti_wishlists_addtowishlist]'); ?>
               </div>
               <?php $best_seller_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-              <a href="<?php the_permalink(); ?>"><img src="<?php echo $best_seller_img[0] ?>" alt="" class="max-w-[300px] h-[300px] w-[100%] object-cover rounded-tl-[50px]"></a>
+              <a href="<?php the_permalink(); ?>"><img src="<?php echo $best_seller_img[0] ?>" alt="" class="h-[300px] w-[100%] object-cover rounded-tl-[50px]"></a>
               <div class="hidden group-hover:flex absolute left-[50%] translate-x-[-50%] bottom-[40px]"><?php echo do_shortcode('[add_to_cart id=' . $id . ']') ?></div>
             </div>
             <h4 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
@@ -186,7 +187,7 @@
             <?php wp_reset_query(); ?>
         
         <!-- Testimonial sectin start -->
-<div class="testimonial-section py-[90px]">
+<div class="testimonial-section py-[90px] hidden">
   
     <div class="text-center">
       <h3 class="heading-h3 uppercase"><?php the_field('testimonial_sub_title') ?></h3>

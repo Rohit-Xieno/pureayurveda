@@ -1,5 +1,6 @@
 <?php /* Template Name: FrontPage */ ?>
 <?php get_header(); ?>
+
 <!-- hero section start -->
 
 <section class="hero-section">
@@ -21,6 +22,8 @@
     </div>
   <?php endif; ?>
 </section>
+
+
 
 <!-- hero section end -->
 
@@ -64,8 +67,6 @@
                 <div class="product-price mt-[12px]">
                   <span class="text-[22px] text-[#47203E]"><?php echo get_woocommerce_currency_symbol().$product->get_regular_price(); ?></span>
                   <del class="text-[18px] text-[#AA90A4] ml-[10px]"><?php echo get_woocommerce_currency_symbol().$product->get_sale_price(); ?></del>
-                  
-                  
                 </div>
                 <a href="<?php the_permalink(); ?>" class="pa-button mt-[20px] max-w-[300px] w-[100%] text-center">View Product</a>
               </div>
