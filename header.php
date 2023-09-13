@@ -11,7 +11,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="header" class="backdrop-blur-[20px] z-[999] left-0 right-0">
+	<header id="header" class="backdrop-blur-[20px] z-[999] left-0 right-0 relative">
 		<div class="pa-topbar bg-[#241822] py-[10px]">
 			<div class="container">
 				<ul class="grid grid-cols-3">
@@ -57,7 +57,7 @@
 						 ?>
 						<div class="col">
 							<a href="<?php echo get_category_link($catdata->term_id); ?>">
-								<div class="thumbnail h-[170px] overflow-hidden rounded-tl-3xl"><img src="<?php echo $cat_img; ?>" alt="" class="w-full h-full object-cover"></div>
+								<div class="thumbnail h-[170px] overflow-hidden rounded-tl-3xl"><img src="<?php echo $cat_img; ?>" alt="" class="!w-full !h-full object-cover"></div>
 								<div class="content mt-1">
 									<h3><?php echo $catdata->name; ?></h3>
 								</div>
@@ -73,7 +73,7 @@
 						</form> -->
 						<div id="product-search-0" class="product-search floating w-[100%]">
 							<div class="product-search-form w-[100%]">
-								<form id="product-search-form-0" class="product-search-form show-submit-button flex" action="http://localhost/pureayurveda/" method="get">
+								<form id="product-search-form-0" class="product-search-form show-submit-button flex" action="http://pureayurveda.loc/" method="get">
 									<input id="product-search-field-0" name="s" type="text" class="product-search-field bg-transparent focus:outline-none w-[100%]" placeholder="search your product here..." autocomplete="off">
 									<input type="hidden" name="post_type" value="product">
 									<input type="hidden" name="title" value="1">

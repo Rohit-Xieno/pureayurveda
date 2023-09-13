@@ -2757,6 +2757,9 @@ video {
 .h-\[35px\]{
   height: 35px;
 }
+.\!h-full{
+  height: 100% !important;
+}
 .\!w-\[35\%\]{
   width: 35% !important;
 }
@@ -2825,6 +2828,9 @@ video {
 }
 .w-\[35px\]{
   width: 35px;
+}
+.\!w-full{
+  width: 100% !important;
 }
 .\!max-w-\[412px\]{
   max-width: 412px !important;
