@@ -12,6 +12,7 @@
 
 <body <?php body_class(); ?>>
 	<header id="header" class="backdrop-blur-[20px] z-[999] left-0 right-0 relative">
+		<div class="desktop-header">
 		<div class="pa-topbar bg-[#241822] py-[10px]">
 			<div class="container">
 				<ul class="grid grid-cols-3">
@@ -132,7 +133,91 @@
 				?>
 			</div>
 		</nav>
-		
+		</div>
+		<div class="mobile-header lg:hidden">
+		<div class="pa-topbar bg-[#241822] py-[10px]">
+			<div class="container">
+				<ul class="grid grid-cols-2">
+					<li><a href="tel:(+01)-2345-6789" class="text-[#E5E5E5] hover:text-[#AA90A4] flex items-center mt-1"><img src="<?php echo get_template_directory_uri().'/assets/images/phone-icon.png' ?>" alt=""></a></li>
+					<!-- <li class="text-[#AA90A4] text-center"><?php /* dynamic_sidebar('topbar-text-sidebar'); */ ?></li> -->
+					<li>
+						<ul class="flex justify-end">
+							<li class="pr-[10px]">
+								<?php echo do_shortcode('[woocs sd=1]'); ?>
+							</li>
+							<li class="pl-[10px] border-l border-[#FFFFFF]">
+								<?php echo do_shortcode('[gtranslate]'); ?>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-mobile-bar bg-[#96225D] py-[10px]">
+			<div class="container relative">
+				<div class="logo-bar flex justify-between items-center">
+					<a href="<?php echo esc_url(home_url('/')); ?>" class="pa-header-logo max-w-[140px]"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-black-2.png' ?>" alt="" class="m-auto"></a>
+					<div class="account-bar flex items-center">
+						<div class="mobile-search-icon w-[30px] h-[30px]"><img src="<?php echo get_template_directory_uri().'/assets/images/search-alt-1-svgrepo-com.svg' ?>" alt=""></div>
+						<div class="pa-mini-cart flex items-center justify-end ml-3">
+						<ul class="flex gap-x-[25px] hidden">
+							<li>
+								<div class="relative inline-block">
+									<?php echo do_shortcode('[ti_wishlist_products_counter]'); ?>
+								</div>
+							</li>
+							<li class="relative">
+								<div class="relative inline-block" id="miniCartIcon">
+									<img src="<?php echo get_template_directory_uri() . '/assets/images/bag.png' ?>" alt="">
+									<span class="absolute top-[-7px] right-[-7px] w-[17px] h-[17px] rounded-full bg-[#96225D] text-[10px] text-white flex justify-center items-center"><?php echo count(WC()->cart->get_cart()) ?></span>
+								</div>
+							</li>
+						</ul>
+								
+						<?php if ( is_user_logged_in() ) { ?>
+								<a href="<?php echo wp_logout_url(); ?>" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Logout</a>
+						<?php } else { ?>
+								<a href="<?php the_permalink('27') ?>" title="Login or Register" rel="home" class="w-[30px] h-[30px]"><img src="<?php echo get_template_directory_uri(). '/assets/images/user-alt-1-svgrepo-com.svg' ?>" alt=""></a>
+						<?php } ?>
+						</div>
+						<div class="mobile-menu-icon w-10 h-10 ml-3" id="mobileMenuIcon"><img src="<?php echo get_template_directory_uri()."/assets/images/menu-alt-1-svgrepo-com.svg" ?>" alt=""></div>
+					</div>
+				</div>
+				<div id="product-search-0" class="product-search floating w-[100%] mobile-product-search absolute left-0 right-0 bottom-[-64px] bg-white hidden">
+							<div class="product-search-form w-[100%]">
+								<form id="product-search-form-0" class="product-search-form show-submit-button flex" action="http://pureayurveda.loc/" method="get">
+									<input id="product-search-field-0" name="s" type="text" class="product-search-field bg-transparent focus:outline-none w-[100%] py-[10px] px-[15px] h-[55px]" placeholder="search your product here..." autocomplete="off">
+									<input type="hidden" name="post_type" value="product">
+									<input type="hidden" name="title" value="1">
+									<input type="hidden" name="excerpt" value="1">
+									<input type="hidden" name="content" value="1">
+									<input type="hidden" name="categories" value="1">
+									<input type="hidden" name="attributes" value="1">
+									<input type="hidden" name="tags" value="1">
+									<input type="hidden" name="sku" value="1">
+									<input type="hidden" name="orderby" value="date-DESC">
+									<input type="hidden" name="ixwps" value="1">
+									<span title="Clear" class="product-search-field-clear" style="display:none"></span>
+									<!-- <button type="submit" class="ml-auto"><img src="<?php echo get_template_directory_uri() . '/assets/images/search.png' ?>" alt="" class="ml-auto"></button> -->
+								</form>
+							</div>
+							<div id="product-search-results-0" class="product-search-results">
+								<div id="product-search-results-content-0" class="product-search-results-content" style="display: none;"></div>
+							</div>
+						</div>
+			</div>
+			</div>
+				<div id="mobile-menu" class="hidden">
+					<!-- <div id="menu-close"><img src="<?php /* echo get_template_directory_uri().'/assets/images/close-md-svgrepo-com.svg' */ ?>" alt=""></div> -->
+					<?php
+					wp_nav_menu(array(
+						'menu' => 'Main Menu',
+						'theme_location' => 'Primary Menu',
+						'menu_class' => 'flex justify-center flex-col items-center gap-x-[80px] text-white text-[18px] relative',
+					));
+					?>
+				</div>
+		</div>
 	</header>
 	<div class="mini-cart-overlay" id="miniOverlay"></div>
 			<div class="mini-cart transition-[0.8s] bg-white max-w-[714px] w-[100%] fixed top-0 right-[-714px] left-auto p-[60px] z-[99999]" id="miniCartBox">

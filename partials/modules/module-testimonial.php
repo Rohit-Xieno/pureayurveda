@@ -15,7 +15,7 @@
       $testimonial_query = new WP_Query($testimonial);
       if ($testimonial_query->have_posts()) :
       ?>
-        <div class="owl-carousel owl-theme px-[180px]" id="testimonial-carousel">
+        <div class="owl-carousel owl-theme lg:px-[180px] md:px-[100px] px-[40px]" id="testimonial-carousel">
           <?php while ($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
             <div class="item">
               <?php $testimonial_img = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_query->ID)); ?>

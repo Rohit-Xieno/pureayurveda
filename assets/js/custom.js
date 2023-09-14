@@ -49,7 +49,7 @@ jQuery('#testimonial-carousel').owlCarousel({
       nav: true
     },
     600: {
-      items: 2,
+      items: 1,
       nav: false
     },
     1000: {
@@ -212,3 +212,25 @@ allProductCategory.addEventListener('click', function(){
 // bodyTag.addEventListener('click', function(){
 //   miniCartOverlay.classList.add('mini-cart-active');
 // })
+
+
+// mobile menu
+let mobileMenuIcon = document.getElementById('mobileMenuIcon');
+let mobileMenu = document.getElementById('mobile-menu');
+let menuClose = document.getElementById('menu-close');
+
+mobileMenuIcon.addEventListener('click', function(){
+  mobileMenu.classList.toggle('show-menu');
+})
+// menuClose.addEventListener('click', function(){
+//   mobileMenu.classList.add('hide-menu');
+// })
+
+
+// mobile search bar
+let mobileSearchProductIcon = document.querySelector('.mobile-search-icon');
+let mobileSearchProductBar = document.querySelector('.mobile-product-search');
+
+mobileSearchProductIcon.addEventListener('click', function(){
+  mobileSearchProductBar.classList.toggle('search-show');
+})

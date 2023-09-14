@@ -48,7 +48,7 @@
           $post_query->the_post();
       ?>
           <div class="item flex gap-x-[40px]">
-            <div class="w-3/5">
+            <div class="w-3/5 product-img-wrap">
               <div class="full-product relative">
                 <a href="#" class="px-[35px] py-[13px] text-[18px] text-white bg-dark-purple-rgba inline-block rounded-br-[25px] rounded-none absolute left-0 top-0">Best Seller</a>
                 <a href="<?php the_permalink(); ?>">
@@ -58,7 +58,7 @@
                 </a>
               </div>
             </div>
-            <div class="w-2/5">
+            <div class="w-2/5 latest-product-full-width">
               <div class="product-details">
                 <?php $latest_product_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
                 <img src="<?php echo $latest_product_img[0] ?>" alt="" class="max-w-[300px] h-[300px] object-cover rounded-tl-[50px]">
@@ -88,7 +88,7 @@
       <h2 class="heading-h2 pl-[18px] pb-[50px] border-l border-[#96225D]"><?php the_field('best_seller_title'); ?></h2>
     </div>
 
-    <div class="best-seller-product relative bg-white grid grid-cols-3 gap-x-[40px] p-[40px]">
+    <div class="best-seller-product relative bg-white grid grid-cols-3 gap-x-[40px] gap-y-0 p-[40px]">
       <?php
       $best_seller = array(
         'posts_per_page' => 3, //No of product to be fetched
@@ -199,7 +199,7 @@ $special_product_image_two = get_field('special_product_image_two');
           <?php wp_reset_query(); ?>
         </div>
         <!-- <div class="product-space"></div> -->
-        <div class="w-3/5 pl-[40px]">
+        <div class="product-slider-content-wrap w-3/5 pl-[40px]">
           <div class="product-content-wrap relative z-10 pt-[35px] pb-[50px]">
             <?php 
               $product_slider_title = get_field('product_slider_title');
