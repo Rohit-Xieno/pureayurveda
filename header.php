@@ -11,7 +11,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="header" class="backdrop-blur-[20px] z-[999] left-0 right-0 relative">
+	<header id="header" class="backdrop-blur-[20px] z-[999] left-0 right-0 relative bg-[rgba(255,255,255,0.7)]">
 		<div class="desktop-header">
 		<div class="pa-topbar bg-[#241822] py-[10px]">
 			<div class="container">
@@ -114,7 +114,7 @@
 					</ul>
 					 		
 					<?php if ( is_user_logged_in() ) { ?>
-							<a href="<?php echo wp_logout_url(); ?>" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Logout</a>
+							<a href="<?php echo wp_logout_url(); ?>" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[42px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Logout</a>
 					<?php } else { ?>
 							<a href="<?php the_permalink('27') ?>" title="Login or Register" rel="home" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a>
 					<?php } ?>
