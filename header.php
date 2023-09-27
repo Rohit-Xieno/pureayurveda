@@ -19,8 +19,8 @@
 					<li><a href="tel:(+01)-2345-6789" class="text-[#E5E5E5] hover:text-[#AA90A4] flex items-center"><?php dynamic_sidebar('topbar-sidebar-phone'); ?></a></li>
 					<li class="text-[#AA90A4] text-center"><?php dynamic_sidebar('topbar-text-sidebar'); ?></li>
 					<li>
-						<ul class="flex justify-end">
-							<li class="pr-[10px]">
+						<ul class="flex justify-end pr-[calc(100%-342px)] relative">
+							<li class="pr-[10px] relative after:absolute after:w-[1px] after:h-[16px] after:top-[6px] after:right-0 after:bg-white">
 								<?php echo do_shortcode('[woocs sd=1]'); ?>
 								<!-- <select class="form-select bg-transparent text-white" aria-label="Default select example">
 									<option selected class="text-black">Open this select menu</option>
@@ -29,7 +29,7 @@
 									<option value="3" class="text-black">Euro</option>
 								</select> -->
 							</li>
-							<li class="pl-[10px] border-l border-[#FFFFFF]">
+							<li class="pl-[10px]">
 								<?php echo do_shortcode('[gtranslate]'); ?>
 								<!-- <select class="form-select bg-transparent text-white" aria-label="Default select example">
 									<option value="english" class="text-black">English</option>
@@ -99,7 +99,7 @@
 				
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="pa-header-logo"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-black-2.png' ?>" alt="" class="m-auto"></a>
 				<div class="pa-mini-cart flex items-center justify-end">
-					<ul class="flex gap-x-[25px]">
+					<ul class="flex gap-x-[25px] mt-[12px]">
 						<li>
 							<div class="relative inline-block">
 								<?php echo do_shortcode('[ti_wishlist_products_counter]'); ?>

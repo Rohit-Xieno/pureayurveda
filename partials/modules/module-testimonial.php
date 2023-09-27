@@ -2,7 +2,7 @@
 <section class="testimonial-section py-[90px]">
   <div class="container">
     <div class="text-center">
-      <h3 class="heading-h3 uppercase"><?php the_field('testimonial_sub_title', 'option'); ?></h3>
+      <p class="heading-h3 uppercase"><?php the_field('testimonial_sub_title', 'option'); ?></p>
       <h2 class="heading-h2"><?php the_field('testimonial_title', 'option'); ?></h2>
     </div>
     <div class="testimonial-carousel relative">
@@ -20,7 +20,7 @@
             <div class="item">
               <?php $testimonial_img = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_query->ID)); ?>
               <img src="<?php echo $testimonial_img[0] ?>" alt="customer" class="w-[60px] h-[60px] m-auto rounded-full">
-              <h4><?php the_title(); ?></h4>
+              <h4 class="text-[22px]"><?php the_title(); ?></h4>
               <h6><?php the_field('designation') ?></h6>
               <!-- <p></p> -->
               <?php the_content(); ?>

@@ -8,6 +8,28 @@ body {
     }
 }
 
+.menu-heading-h3 {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.35px;
+    --tw-text-opacity: 1;
+    color: rgb(150 34 93 / var(--tw-text-opacity));
+}
+
+.menu-heading-h3::after {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    height: 2px;
+    width: 30px;
+    content: var(--tw-content);
+    --tw-bg-opacity: 1;
+    background-color: rgb(150 34 93 / var(--tw-bg-opacity));
+}
+
 nav.menu-navbar{background-color: rgba(71, 32, 62, 0.80);}
 .container {
     max-width: 1350px !important;
@@ -73,12 +95,27 @@ p.topbar-text {
     --tw-text-opacity: 1;
     color: rgb(36 24 34 / var(--tw-text-opacity));
 }
-.menu-main-menu-container li.has-mega-menu > .sub-menu {
+.menu-main-menu-container li.has-mega-menu > ul.sub-menu {
     border-bottom-right-radius: 100px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color) !important;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+}
+.menu-main-menu-container li.has-mega-menu > ul.sub-menu li.menu-item-has-children {
+    border-left-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(221 221 221 / var(--tw-border-opacity));
+    padding-left: 1.75rem;
+  &:first-child {
+        border-left-width: 0px;
+    }
+  &:first-child {
+        padding-left: 0px;
+    }
 }
 .wishlist_products_counter {
     position: relative;
@@ -1889,7 +1926,7 @@ body.woocommerce-account .woocommerce-MyAccount-content h3 {
 
 /* currency swithcer */
 .selectron23 {
-    width: 160px !important;
+    width: 106px !important;
 }
 .selectron23-option img {
   display: none;
@@ -1919,11 +1956,15 @@ body .selectron23-container[data-opened="0"] > span {
     height: 1rem;
     width: 1rem;
     border-width: 0px;
-    background-image: url('../assets/images/chevron-down-svgrepo.svg');
-  background-size: 100%;
+    background-image: url('../assets/images/down.svg');
+    background-repeat: no-repeat;
+  background-size: 7px; background-position: center center;
 }
 body .selectron23-container[data-opened="1"] > span {
     border-width: 0px;
+}
+.selectron23-container > span {
+    right: 0px !important;
 }
 
 .is-hidden { display: none; }
@@ -1991,7 +2032,35 @@ body.woocommerce-checkout .form-row {
     width: 100%;
 } 
 
-
+.gtranslate_wrapper {
+    position: absolute;
+    top: 6px;
+}
+.gt_switcher {
+    width: 106px !important;
+  .gt_selected a {
+        width: 106px !important;
+    }
+  .gt_selected a {
+        border-width: 0px !important;
+    }
+  .gt_selected a {
+        padding: 0px !important;
+    }
+ .gt_option a {
+        font-size: 0.875rem !important;
+        line-height: 1.25rem !important;
+    }
+ .gt_option a{
+  &:hover {
+            --tw-text-opacity: 1 !important;
+            color: rgb(36 24 34 / var(--tw-text-opacity)) !important;
+        }
+}
+}
+/* .gt_switcher .gt_option a:hover{
+  @apply !text-[#241822];
+} */
 
 /* mobile menu css */
 #mobile-menu.show-menu {
@@ -2935,6 +3004,9 @@ video {
 .mt-\[80px\]{
   margin-top: 80px;
 }
+.mt-\[\]{
+  margin-top: ;
+}
 .block{
   display: block;
 }
@@ -3034,6 +3106,12 @@ video {
 .h-\[684px\]{
   height: 684px;
 }
+.h-\[\]{
+  height: ;
+}
+.h-\[15px\]{
+  height: 15px;
+}
 .\!w-\[35\%\]{
   width: 35% !important;
 }
@@ -3102,6 +3180,9 @@ video {
 }
 .w-full{
   width: 100%;
+}
+.w-\[1px\]{
+  width: 1px;
 }
 .\!max-w-\[412px\]{
   max-width: 412px !important;
@@ -3725,6 +3806,24 @@ video {
 .pt-\[90px\]{
   padding-top: 90px;
 }
+.pr-\[\]{
+  padding-right: ;
+}
+.pr-\[calc\]{
+  padding-right: calc;
+}
+.pr-\[calc\(\)\]{
+  padding-right: calc();
+}
+.pr-\[calc\(100\%\)\]{
+  padding-right: calc(100%);
+}
+.pr-\[calc\(100\%-267px\)\]{
+  padding-right: calc(100% - 267px);
+}
+.pr-\[calc\(100\%-342px\)\]{
+  padding-right: calc(100% - 342px);
+}
 .text-center{
   text-align: center;
 }
@@ -3863,6 +3962,9 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-\[\]{
+  color: ;
 }
 .underline{
   text-decoration-line: underline;
@@ -4125,6 +4227,11 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(170 144 164 / var(--tw-bg-opacity));
 }
+.before\:bg-white::before{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .before\:bg-gradient-to-tr::before{
   content: var(--tw-content);
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
@@ -4183,6 +4290,22 @@ video {
   content: var(--tw-content);
   top: calc(100% + 20px);
 }
+.after\:top-\[\]::after{
+  content: var(--tw-content);
+  top: ;
+}
+.after\:top-\[6\]::after{
+  content: var(--tw-content);
+  top: 6;
+}
+.after\:top-\[6px\]::after{
+  content: var(--tw-content);
+  top: 6px;
+}
+.after\:right-0::after{
+  content: var(--tw-content);
+  right: 0px;
+}
 .after\:block::after{
   content: var(--tw-content);
   display: block;
@@ -4203,6 +4326,14 @@ video {
   content: var(--tw-content);
   height: 80px;
 }
+.after\:h-\[15px\]::after{
+  content: var(--tw-content);
+  height: 15px;
+}
+.after\:h-\[16px\]::after{
+  content: var(--tw-content);
+  height: 16px;
+}
 .after\:w-\[240px\]::after{
   content: var(--tw-content);
   width: 240px;
@@ -4219,6 +4350,10 @@ video {
   content: var(--tw-content);
   width: 76px;
 }
+.after\:w-\[1px\]::after{
+  content: var(--tw-content);
+  width: 1px;
+}
 .after\:translate-x-\[-50\%\]::after{
   content: var(--tw-content);
   --tw-translate-x: -50%;
@@ -4233,6 +4368,11 @@ video {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(170 144 164 / var(--tw-bg-opacity));
+}
+.after\:bg-white::after{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .after\:bg-\[url\(http\:\/\/localhost\/pureayurveda\/wp-content\/uploads\/2023\/06\/leaf-patterns\.png\)\]::after{
   content: var(--tw-content);

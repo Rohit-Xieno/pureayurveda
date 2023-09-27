@@ -12,8 +12,8 @@
         <div style="background-image: url('<?php echo esc_url($hero_slider_img['url']); ?>')" class="item item1 bg-no-repeat bg-cover pt-[340px] pb-[180px]">
           <div class="container">
             <div class="pa-hero-content-col relative px-[35px] py-[60px] max-w-[525px] w-[100%] before:absolute before:w-[100%] before:h-[100%] before:border before:border-[#96225D] before:z-[-1] before:right-[-8px] before:bottom-[-8px] before:rounded-tl-[183px] before:rounded-none">
-              <h2 class="text-[22px] text-white tracking-[1.65px] mb-[20px]"><?php the_sub_field('hero_sub_title') ?></h2>
-              <h1 class="text-[46px] text-[#241822] leading-[1.2em] mb-[40px]"><?php the_sub_field('hero_title') ?></h1>
+              <span class="text-[22px] text-white tracking-[1.65px] mb-[20px] block"><?php the_sub_field('hero_sub_title') ?></span>
+              <p class="text-[46px] text-[#241822] leading-[1.2em] mb-[40px]"><?php the_sub_field('hero_title') ?></p>
               <a href="<?php the_sub_field('hero_button_link') ?>" class="pa-button"><?php the_sub_field('hero_button_text') ?></a>
             </div>
           </div>
@@ -31,7 +31,7 @@
 <section class="pa-latest-products-section py-[95px] bg-white">
   <div class="container">
     <div class="text-center">
-      <h3 class="heading-h3"><?php the_field('latest_product_sub_title'); ?></h3>
+      <p class="heading-h3"><?php the_field('latest_product_sub_title'); ?></p>
       <h2 class="heading-h2"><?php the_field('latest_product_title'); ?></h2>
     </div>
     <?php
@@ -62,7 +62,7 @@
               <div class="product-details">
                 <?php $latest_product_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
                 <img src="<?php echo $latest_product_img[0] ?>" alt="" class="max-w-[300px] h-[300px] object-cover rounded-tl-[50px]">
-                <h4 class="heading-h4"><?php the_title(); ?></h4>
+                <h3 class="heading-h4"><?php the_title(); ?></h3>
                 <?php the_excerpt(); ?>
                 <div class="product-price mt-[12px]">
                   <span class="text-[22px] text-[#47203E]"><?php echo get_woocommerce_currency_symbol().$product->get_regular_price(); ?></span>
@@ -84,7 +84,7 @@
 <section class="best-seller-section bg-white relative before:absolute before:w-[100%] before:h-[260px] before:bg-[#F9F8F9] before:left-0 before:right-0 before:top-[95px]">
   <div class="container flex items-center">
     <div class="best-seller-title relative pr-[30px] py-[20px] w-3/12">
-      <h3 class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]"><?php the_field('best_seller_sub_title'); ?></h3>
+      <p class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]"><?php the_field('best_seller_sub_title'); ?></p>
       <h2 class="heading-h2 pl-[18px] pb-[50px] border-l border-[#96225D]"><?php the_field('best_seller_title'); ?></h2>
     </div>
 
@@ -113,7 +113,7 @@
               <a href="<?php the_permalink(); ?>"><img src="<?php echo $best_seller_img[0] ?>" alt="" class="max-w-[300px] h-[300px] w-[100%] object-cover rounded-tl-[50px]"></a>
               <div class="hidden group-hover:flex absolute left-[50%] translate-x-[-50%] bottom-[40px]"><?php echo do_shortcode('[add_to_cart id=' . $id . ']') ?></div>
             </div>
-            <h4 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+            <h3 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <div class="star-review">
               <ul class="woocommerce">
                 <li>
@@ -149,7 +149,7 @@ $special_product_image_two = get_field('special_product_image_two');
     <div class="special-product-row grid grid-cols-2 gap-x-[40px]">
       <div style="background-image: url('<?php echo esc_url($special_product_image['url']); ?>');" class="special-product-col flex justify-end rounded-tl-[80px] rounded-none px-[30px] py-[60px] bg-[#DDE0EF] bg-no-repeat bg-contain">
         <div class="special-product-content">
-          <h3 class="text-[18px] text-[#47203E] mb-[54px] tracking-[1.35px] uppercase relative after:w-[30px] after:h-[2px] after:bg-[#96225D] after:absolute after:top-[calc(100%+20px)] after:left-0"><?php the_field('special_product_sub_title'); ?></h3>
+          <p class="text-[18px] text-[#47203E] mb-[54px] tracking-[1.35px] uppercase relative after:w-[30px] after:h-[2px] after:bg-[#96225D] after:absolute after:top-[calc(100%+20px)] after:left-0"><?php the_field('special_product_sub_title'); ?></p>
           <h2 class="text-[36px] text-[#241822] leading-[1.3em] uppercase"><?php the_field('special_product_title') ?></h2>
           <a href="<?php the_field('special_product_pre_link'); ?>" class="text-[18px] text-[#96225D] underline block text-right mt-[55px]"><?php the_field('special_product_pre_order'); ?></a>
         </div>
@@ -248,7 +248,7 @@ $special_product_image_two = get_field('special_product_image_two');
 <section class="trending-product-section py-[90px]">
   <div class="container">
     <div class="text-center">
-      <h3 class="heading-h3 uppercase"><?php the_field('trending_product_sub_title'); ?></h3>
+      <p class="heading-h3 uppercase"><?php the_field('trending_product_sub_title'); ?></p>
       <h2 class="heading-h2"><?php the_field('trending_product_title'); ?></h2>
     </div>
     <?php echo do_shortcode('[wmvp_most_viewed_products number_of_products_in_row="4" posts_per_page="4"]') ?>
@@ -286,7 +286,7 @@ $special_product_image_two = get_field('special_product_image_two');
               <?php }
             ?>
             
-            <h4 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><?php the_title(); ?></h4>
+            <h3 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><?php the_title(); ?></h3>
             <p class="mb-[27px] mt-[26px]"><?php echo wp_trim_words(get_the_excerpt(), 22); ?></p>
             <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline">Read More</a>
           </div>

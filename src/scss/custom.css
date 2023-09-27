@@ -6,6 +6,10 @@ body {
     }
 }
 
+.menu-heading-h3{
+  @apply text-lg tracking-[1.35px] text-[#96225D] mb-[12px] uppercase relative after:absolute after:top-[40px] after:left-0 after:w-[30px] after:h-[2px] after:bg-[#96225D]
+}
+
 nav.menu-navbar{background-color: rgba(71, 32, 62, 0.80);}
 .container {
     max-width: 1350px !important;
@@ -39,8 +43,15 @@ p.topbar-text{
 .menu-main-menu-container li .sub-menu a{
     @apply text-[#241822]
 }
-.menu-main-menu-container li.has-mega-menu > .sub-menu{
-    @apply px-[30px] py-[50px] rounded-br-[100px]
+.menu-main-menu-container li.has-mega-menu > ul.sub-menu{
+    @apply px-[25px] py-[40px] rounded-br-[100px] !shadow-xl;
+    
+}
+.menu-main-menu-container li.has-mega-menu > ul.sub-menu li.menu-item-has-children{
+  @apply border-l-2 border-[#ddd] pl-7;
+  &:first-child{
+    @apply border-l-0 pl-0
+  }
 }
 .wishlist_products_counter{
     @apply relative;
@@ -950,7 +961,7 @@ body.woocommerce-account .woocommerce-MyAccount-content h3{
 
 /* currency swithcer */
 .selectron23{
-  @apply !w-[160px]
+  @apply !w-[106px]
 }
 .selectron23-option img{
   @apply hidden
@@ -971,11 +982,14 @@ body .selectron23-option-title{
   @apply font-normal
 }
 body .selectron23-container[data-opened="0"] > span{
-  @apply bg-[url('../assets/images/chevron-down-svgrepo.svg')] border-0 w-4 h-4 !top-0;
-  background-size: 100%;
+  @apply bg-[url('../assets/images/down.svg')] border-0 w-4 h-4 !top-0 bg-no-repeat;
+  background-size: 7px; background-position: center center;
 }
 body .selectron23-container[data-opened="1"] > span{
   @apply border-0
+}
+.selectron23-container > span{
+  @apply !right-0
 }
 
 .is-hidden { display: none; }
@@ -1031,7 +1045,24 @@ body.woocommerce-checkout .form-row{
   @apply w-full m-0
 } 
 
-
+.gtranslate_wrapper{
+  @apply absolute top-[6px]
+}
+.gt_switcher{
+  @apply !w-[106px];
+  .gt_selected a{
+      @apply !w-[106px] !border-0 !p-0;
+  }
+ .gt_option a{
+  @apply !text-sm;
+  &:hover{
+    @apply !text-[#241822];  
+  }
+}
+}
+/* .gt_switcher .gt_option a:hover{
+  @apply !text-[#241822];
+} */
 
 /* mobile menu css */
 #mobile-menu.show-menu{
