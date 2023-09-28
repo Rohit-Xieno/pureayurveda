@@ -2,16 +2,17 @@
 <?php get_header(); ?>
 <div class="container py-24 max-w-[638px]">
   <div class="text-center">
-    <h3 class="heading-h3"><?php echo get_field('sub_heading'); ?></h3>
-    <h1 class="heading-h2 mb-0 relative pb-12 border-b border-[#C8C8C8] before:absolute before:left-[50%] before:top-[-40px] before:w-[2px] before:h-[30px] before:translate-x-[-50%] before:bg-[#96225D]"><?php echo get_field('heading'); ?></h1>
+    <h1 class="heading-h3"><?php echo get_field('sub_heading'); ?></h1>
+    <h2 class="heading-h2 mb-0 relative pb-12 border-b border-[#C8C8C8] "><?php echo get_field('heading'); ?></h2>
   </div>
   <div class="breadcrumbs pb-16">
-    <?php if (function_exists('bcn_display')) {
+		<?php woocommerce_breadcrumb(); ?>
+    <!-- </?php if (function_exists('bcn_display')) {
       bcn_display();
-    } ?>
+    } ?> -->
   </div>
-  <div class="single-product-accordion">
-		<div class="faq-search-bar text-center"><input class='input mb-5' type="search" id="searchbox" placeholder="Live search keyword.."></div>
+  <div class="single-product-accordion max-w-[640px] m-auto">
+		<div class="faq-search-bar text-center mb-10"><input class='input mb-5' type="search" id="searchbox" placeholder="Live search keyword.."></div>
 		<div class="row">
 			<div class="col">
         <?php if(have_rows('faq_repeater')) : ?>
@@ -19,9 +20,9 @@
           <?php
           $var = 0;
            while(have_rows('faq_repeater')) : the_row(); ?>
-					<div class="tab">
+					<div class="tab mb-[30px]">
 						<input type="radio" id="<?php echo('rd'.$var)?>" name="rd">
-						<label class="tab-label" for="<?php echo('rd'.$var)?>"><?php echo get_sub_field('question'); ?></label>
+						<label class="tab-label bg-[#F9F8F9]" for="<?php echo('rd'.$var)?>"><?php echo get_sub_field('question'); ?></label>
 						<div class="tab-content">
               <?php echo get_sub_field('answer'); ?>
 						</div>

@@ -520,6 +520,10 @@ body .\!max-w-screen-md{
   @apply text-[#E8E1E6] 
 }
 
+.breadcrumbs{
+  @apply flex gap-1
+}
+
 /* shop page css */
 body.woocommerce.woocommerce-shop .products .product .add_to_cart_button{
   @apply absolute top-[200px] left-[50%] translate-x-[-50%] hidden text-sm text-white py-3 px-4 max-w-[220px] w-full bg-[rgba(150,34,93,0.8)] text-center rounded-none

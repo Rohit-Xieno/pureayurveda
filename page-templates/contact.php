@@ -13,10 +13,13 @@
       </h1>
     </div>
     <div class="breadcrumbs pb-16">
-      <?php if (function_exists('bcn_display')) {
+      <?php woocommerce_breadcrumb(); ?>
+    </div>
+    <!-- <div class="breadcrumbs pb-16">
+      </?php if (function_exists('bcn_display')) {
         bcn_display();
       } ?>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -39,21 +42,21 @@
           $email_info = get_field('email_info');
         ?>
       <div class="contact-info mb-10 !pb-10 border-b border-[#ccc]">
-        <h4 class="text-[22px] tracking-[2.2px] text-[#96225D] mb-[15px]"><?php echo $address_heading; ?></h4>
+        <h3 class="text-[22px] tracking-[2.2px] text-[#96225D] mb-[15px]"><?php echo $address_heading; ?></h3>
         <ul>
           <li><?php echo $address; ?></li>
           <li><?php echo $pin; ?></li>
         </ul>
       </div>
       <div class="contact-info mb-10 !pb-10 border-b border-[#ccc]">
-        <h4 class="text-[22px] tracking-[2.2px] text-[#96225D] mb-[15px]"><?php echo $call_heading; ?></h4>
+        <h3 class="text-[22px] tracking-[2.2px] text-[#96225D] mb-[15px]"><?php echo $call_heading; ?></h3>
         <ul>
           <li><?php echo $call; ?></li>
           <li><?php echo $customer_call; ?></li>
         </ul>
       </div>
       <div class="contact-info mb-10 !pb-10">
-        <h4 class="text-[22px] tracking-[2.2px] text-[#96225D] mb-[15px]"><?php echo $email_heading; ?></h4>
+        <h3 class="text-[22px] tracking-[2.2px] text-[#96225D] mb-[15px]"><?php echo $email_heading; ?></h3>
         <p><?php echo $email_careers; ?></p>
         <p><?php echo $email_info; ?></p>
       </div>
@@ -64,8 +67,12 @@
           $form_txt = get_field('form_text');
         ?>
         <div class="text-center">
-          <img src="<?php echo esc_url($heart_img['url']); ?>" alt="<?php echo esc_attr($heart_img['alt']); ?>" class="m-auto">
-          <h2 class="mt-5 mb-10 text-lg"><?php echo $form_txt; ?></h2>
+          <?php if(!empty($heart_img)) : ?>
+            <div class="heart-img mb-5">
+              <img src="<?php echo esc_url($heart_img['url']); ?>" alt="<?php echo esc_attr($heart_img['alt']); ?>" class="m-auto">
+            </div>
+          <?php endif; ?>
+          <h2 class="mb-10 text-lg"><?php echo $form_txt; ?></h2>
         </div>
         <?php echo do_shortcode('[contact-form-7 id="601c139" title="Contact Us Form"]'); ?>          
       </div>

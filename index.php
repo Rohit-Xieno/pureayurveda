@@ -44,95 +44,8 @@
           <div class="load-more-wrapper text-center relative w-full h-[1px] bg-[#ccc] my-28">
             <a href="" class="load-more absolute top-[-12px] left-[50%] translate-x-[-50%] bg-white px-7">Load More</a>
           </div>
+          </div>
   </section>
-
-
-  <!-- Blog section end -->
-  <div class="main-blog">
-    <!-- <div class="blog-filter">
-      <div class="container">
-        <div class="inner-blog">
-          <div class="blog-heading">
-            <h2 id="SectionName">Blog</h2>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-<?php /*
-    <div class="portfolio section">
-      <div class="container">
-        <div class="filters">
-          <ul class="toolbar">
-            <li class="active" data-filter="*">All</li>
-            <?php
-            $argss = array(
-              'taxonomy' => 'category',
-              'hide_empty' => 0,
-              'include' => array(17, 18, 19, 20, 21, 22, 23),
-            );
-            $termss = get_terms($argss);
-            $counts = 1;
-            foreach ($termss as $terms) {
-              //print_r($terms);
-            ?>
-              <li data-filter=".<?php echo $terms->slug; ?>">
-                <div class="cat-img"><img src="<?php echo z_taxonomy_image_url($terms->term_id); ?>" /></div> <?php echo $terms->name; ?>
-              </li>
-            <?php } ?>
-          </ul>
-        </div>
-        <div class="filters-content">
-          <div id="portfolio">
-            <div>
-              <?php
-              $args = array(
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'posts_per_page' => 3,
-                'taxonomy' => 'category',
-                'include' => array(17, 18, 19, 20, 21, 22, 23),
-              );
-              $loop = new WP_Query($args);
-              while ($loop->have_posts()) : $loop->the_post();
-                $categories = get_the_category();
-                $cats = "";
-                foreach ($categories as $category) {
-                  $cats .= $category->slug . " ";
-                }
-              ?>
-                <div class="tile scale-anm all <?php echo $cats; //echo get_the_category(); 
-                                                ?>">
-                  <div class="item ">
-                    <div class="img-sec">
-                      <?php the_post_thumbnail(); ?>
-                    </div>
-                    <div class="cnt-sec">
-                      <div class="cat">
-                        <?php
-                        $category_object = get_the_category($loop->ID);
-                        // $category_name = $category_object[1]->name;
-                        ?>
-                        <p><?php the_category(' '); ?></p>
-                      </div>
-                      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                      <p>
-                        <?php the_excerpt(70);  ?>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              <?php
-              endwhile;
-              wp_reset_postdata();
-              ?>
-            </div>
-          </div>
-          <div id="more_posts">Load More</div>
-        </div>
-      </div>
-    </div>
-*/ ?>
 
     <section class="show-now-product pb-24">
       <div class="container">
@@ -161,10 +74,16 @@
                 <?php echo do_shortcode('[ti_wishlists_addtowishlist]'); ?>
               </div>
               <?php $best_seller_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-              <a href="<?php the_permalink(); ?>"><img src="<?php echo $best_seller_img[0] ?>" alt="" class="h-[300px] w-[100%] object-cover rounded-tl-[50px]"></a>
+              <a href="<?php the_permalink(); ?>">
+              <?php if(!empty($best_seller_img)) : ?>
+                <img src="<?php echo $best_seller_img[0] ?>" alt="" class="h-[300px] w-[100%] object-cover rounded-tl-[50px]">
+              <?php else : ?>
+                <img src="<?php echo get_template_directory_uri().'/assets/images/woocommerce-placeholder.png' ?>" alt="" class="border border-[#f2f2f2] wp-post-image h-[300px] w-[100%] object-cover rounded-tl-[50px]">
+              <?php endif; ?>
+              </a>
               <div class="hidden group-hover:flex absolute left-[50%] translate-x-[-50%] bottom-[40px]"><?php echo do_shortcode('[add_to_cart id=' . $id . ']') ?></div>
             </div>
-            <h4 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+            <h3 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <div class="star-review">
               <ul class="woocommerce">
                 <li>
@@ -185,47 +104,8 @@
             </div>
             </div>
             <?php wp_reset_query(); ?>
-        
-        <!-- Testimonial sectin start -->
-<div class="testimonial-section py-[90px] hidden">
-  
-    <div class="text-center">
-      <h3 class="heading-h3 uppercase"><?php the_field('testimonial_sub_title') ?></h3>
-      <h2 class="heading-h2"><?php the_field('testimonial_title') ?></h2>
-    </div>
-    <div class="testimonial-carousel relative">
-      <?php
-
-      $testimonial = array(
-        'posts_per_page' => -1,
-        'post_type' => 'testimonial'
-      );
-      $testimonial_query = new WP_Query($testimonial);
-      if ($testimonial_query->have_posts()) :
-      ?>
-        <div class="owl-carousel owl-theme px-[50px]" id="testimonial-shop-carousel">
-          <?php while ($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
-            <div class="item">
-              <?php $testimonial_img = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_query->ID)); ?>
-              <img src="<?php echo $testimonial_img[0] ?>" alt="customer" class="w-[60px] h-[60px] m-auto rounded-full">
-              <h4><?php the_title(); ?></h4>
-              <h6><?php the_field('designation') ?></h6>
-              <!-- <p></p> -->
-              <?php the_content(); ?>
-            </div>
-          <?php endwhile; ?>
-        </div>
-      <?php endif; ?>
-      <?php wp_reset_query(); ?>
-    </div>
-  
-</div>
-<!-- Testimonial sectin end -->
         </div>
         </div>
       </section>
-    </div>
-  </div>
-  </div>
 </main>
 <?php get_footer(); ?>
