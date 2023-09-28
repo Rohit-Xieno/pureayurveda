@@ -3,6 +3,8 @@
 
 <!-- hero section start -->
 
+<h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;"><?php the_title(); ?></h1>
+
 <section class="hero-section">
   <?php if (have_rows('hero_repeater')) : ?>
     <div id="owl-demo" class="owl-carousel owl-theme">
@@ -48,12 +50,17 @@
           $post_query->the_post();
       ?>
           <div class="item flex gap-x-[40px]">
+            
             <div class="w-3/5 product-img-wrap">
               <div class="full-product relative">
-                <a href="#" class="px-[35px] py-[13px] text-[18px] text-white bg-dark-purple-rgba inline-block rounded-br-[25px] rounded-none absolute left-0 top-0">Best Seller</a>
+                <a href="#" class="px-[35px] py-[13px] text-[18px] text-white bg-dark-purple-rgba inline-block rounded-br-[25px] rounded-none absolute left-0 top-0">Latest</a>
                 <a href="<?php the_permalink(); ?>">
                   <?php $full_product_img = wp_get_attachment_image_src(get_post_thumbnail_id($post_query->ID), 'single-post-thumbnail'); ?>
+                  <?php if(!empty($full_product_img)) : ?>
                   <img class="img-fluid w-[100%] h-[550px] object-cover" src="<?php echo $full_product_img[0]; ?> ">
+                  <?php else : ?>
+                    <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" class="img-fluid w-[100%] h-[550px] object-cover">
+                  <?php endif; ?>
                   <p class="text-[14px] text-[#241822] max-w-[230px] p-[20px] bg-opacity-[0.6] bg-white absolute right-[44px] bottom-[72px]"><?php echo wp_trim_words(get_the_excerpt(), 12); ?></p>
                 </a>
               </div>
@@ -61,7 +68,11 @@
             <div class="w-2/5 latest-product-full-width">
               <div class="product-details">
                 <?php $latest_product_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-                <img src="<?php echo $latest_product_img[0] ?>" alt="" class="max-w-[300px] h-[300px] object-cover rounded-tl-[50px]">
+                <?php if(!empty($latest_product_img)) : ?>
+                  <img src="<?php echo $latest_product_img[0] ?>" alt="" class="max-w-[300px] h-[300px] object-cover rounded-tl-[50px]">
+                <?php else : ?>
+                  <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" class="max-w-[300px] h-[300px] object-cover rounded-tl-[50px]">
+                <?php endif; ?>
                 <h3 class="heading-h4"><?php the_title(); ?></h3>
                 <?php the_excerpt(); ?>
                 <div class="product-price mt-[12px]">
@@ -91,7 +102,7 @@
     <div class="best-seller-product relative bg-white grid grid-cols-3 gap-x-[40px] gap-y-0 p-[40px]">
       <?php
       $best_seller = array(
-        'posts_per_page' => 3, //No of product to be fetched
+        'posts_per_page' => 3, //Number of product to be fetched
         'post_type' => array('product'),
         'meta_key' => 'total_sales',
         'orderby' => 'meta_value_num',
@@ -110,7 +121,13 @@
                 <?php echo do_shortcode('[ti_wishlists_addtowishlist]'); ?>
               </div>
               <?php $best_seller_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-              <a href="<?php the_permalink(); ?>"><img src="<?php echo $best_seller_img[0] ?>" alt="" class="max-w-[300px] h-[300px] w-[100%] object-cover rounded-tl-[50px]"></a>
+              <a href="<?php the_permalink(); ?>">
+              <?php if(!empty($best_seller_img)) : ?>
+                <img src="<?php echo $best_seller_img[0] ?>" alt="" class="max-w-[300px] h-[300px] w-[100%] object-cover rounded-tl-[50px]">
+              <?php else : ?>
+                <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" class="max-w-[300px] h-[300px] w-[100%] object-cover rounded-tl-[50px]">
+              <?php endif; ?>
+              </a>
               <div class="hidden group-hover:flex absolute left-[50%] translate-x-[-50%] bottom-[40px]"><?php echo do_shortcode('[add_to_cart id=' . $id . ']') ?></div>
             </div>
             <h3 class="heading-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
@@ -191,7 +208,11 @@ $special_product_image_two = get_field('special_product_image_two');
               ?>
                 <div class="item">
                   <?php $product_slider_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-                  <img src="<?php echo $product_slider_img[0] ?>" alt="">
+                  <?php if(!empty($product_slider_img)) : ?>
+                    <img src="<?php echo $product_slider_img[0] ?>" alt="">
+                  <?php else : ?>
+                    <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" />
+                  <?php endif; ?>
                 </div>
               <?php endwhile; ?>
             </div>

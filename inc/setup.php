@@ -71,4 +71,11 @@ function fetch_data () {
  </div>
 	<?php
 }
-?>
+
+
+// heading tag change h2 to h4 on product archive
+remove_action( 'woocommerce_shop_loop_item_title','woocommerce_template_loop_product_title', 10 );
+add_action('woocommerce_shop_loop_item_title', 'soChangeProductsTitle', 10 );
+function soChangeProductsTitle() {
+    echo '<h3 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) ) . '">' . get_the_title() . '</h3>';
+}

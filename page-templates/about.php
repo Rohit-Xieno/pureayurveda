@@ -8,7 +8,6 @@
     ?>
     <div class="container">
       <div class="text-center">
-
         <h1
           class="heading-h2 mb-0 relative pb-12 border-b border-[#C8C8C8] before:absolute before:left-[50%] before:top-[-40px] before:w-[2px] before:h-[30px] before:translate-x-[-50%] before:bg-[#96225D]">
           <?php echo $about_heading; ?>
@@ -19,7 +18,9 @@
           bcn_display();
         } ?>
       </div>
-      <img src="<?php echo esc_url($about_banner['url']); ?>" alt="<?php echo esc_attr($about_banner['alt']); ?>">
+      <?php if(!empty($about_banner)) : ?>
+        <img src="<?php echo esc_url($about_banner['url']); ?>" alt="<?php echo esc_attr($about_banner['alt']); ?>">
+      <?php endif; ?>
     </div>
   </section>
 
@@ -48,10 +49,12 @@
     ?>
     <div class="container">
       <div class="row flex gap-[40px] md:flex-nowrap flex-wrap items-center">
+        <?php if(!empty($ps_image)) : ?>
         <div class="md:w-[60%] w-full">
           <img src="<?php echo esc_url($ps_image['url']); ?>" alt="<?php echo esc_attr($ps_image['alt']); ?>">
         </div>
-        <div class="md:w-[40%] w-full">
+        <?php endif; ?>
+        <div class="w-full <?php echo !empty($ps_image) ? 'md:w-[40%]' : 'md:w-full'; ?>">
           <h2 class="text-[38px] text-[#241822] pb-6"><?php echo $ps_heading ?></h2>
           <p class="text-[#4a3e4a]"><?php echo $ps_text ?></p>
         </div>
@@ -66,7 +69,7 @@
     ?>
     <div class="container">
       <div class="row bg-[#f9f8f9] p-12 pb-24 text-center relative before:absolute before:border before:border-[#96225d] before:rounded-tl-[240px] before:z-10 before:w-[calc(100%+40px)] before:h-[calc(100%+40px)] before:left-[-20px] before:top-[-20px]">
-        <div class="inner-row">
+        <div class="inner-row relative z-50">
       <h2 class="text-[#96225d] text-[46px] font-light mb-6"><?php echo $oi_heading ?></h2>
       <p class="mb-10 max-w-[1120px] mx-auto"><?php echo $oi_text ?></p>
       <?php if(have_rows('oi_image')) : ?>
@@ -74,7 +77,9 @@
         <?php while(have_rows('oi_image')) : the_row(); 
           $oi_icon = get_sub_field('oi_icon');
         ?>
-        <div class="icon w-[186px] !h-[186px] rounded-full bg-white flex justify-center items-center"><img src="<?php echo esc_url($oi_icon['url']); ?>" alt="<?php echo esc_attr($oi_icon['alt']); ?>"></div>
+        <?php if(!empty($oi_icon)) : ?>
+          <div class="icon w-[186px] !h-[186px] rounded-full bg-white flex justify-center items-center"><img src="<?php echo esc_url($oi_icon['url']); ?>" alt="<?php echo esc_attr($oi_icon['alt']); ?>"></div>
+        <?php endif; ?>
         <?php endwhile; ?>
       </div>
       <?php endif; ?>
@@ -83,65 +88,7 @@
     </div>
   </section>
 
-  <!-- Testimonial sectin start -->
-<section class="testimonial-section py-[90px]">
-  <?php 
-    $testimonial_sub_title = get_field('testimonial_sub_title', 'option');
-    $testimonial_title = get_field('testimonial_title', 'option');
-  ?>
-  <div class="container">
-    <div class="text-center">
-      <h3 class="heading-h3 uppercase"><?php echo $testimonial_sub_title ?></h3>
-      <h2 class="heading-h2"><?php echo $testimonial_title ?></h2>
-    </div>
-    <div class="testimonial-carousel relative">
-      <?php
-
-      $testimonial = array(
-        'posts_per_page' => -1,
-        'post_type' => 'testimonial'
-      );
-      $testimonial_query = new WP_Query($testimonial);
-      if ($testimonial_query->have_posts()) :
-      ?>
-        <div class="owl-carousel owl-theme px-[180px]" id="testimonial-carousel">
-          <?php while ($testimonial_query->have_posts()) : $testimonial_query->the_post(); ?>
-            <div class="item">
-              <?php $testimonial_img = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_query->ID)); ?>
-              <img src="<?php echo $testimonial_img[0] ?>" alt="customer" class="w-[60px] h-[60px] m-auto rounded-full">
-              <h4><?php the_title(); ?></h4>
-              <h6><?php the_field('designation') ?></h6>
-              <!-- <p></p> -->
-              <?php the_content(); ?>
-            </div>
-          <?php endwhile; ?>
-        </div>
-      <?php endif; ?>
-      <?php wp_reset_query(); ?>
-    </div>
-  </div>
-</section>
-<!-- Testimonial sectin end -->
-<div class="popular-post">
-  <?php
-  $popularpost  = array(
-    'posts_per_page' => 5,
-    'post_type' => 'posts',
-    // 'meta_key' => 'wpb_post_views_count',
-    // 'orderby' => 'meta_value_num', 
-    'order' => 'DESC'
-);
-$query = new WP_Query( $popularpost );
-
-// The Loop
-while ( $query->have_posts() ) : $query->the_post(); 
-        print the_title(); 
-        the_excerpt(); 
-    endwhile;
-/* Restore original Post Data */
-wp_reset_postdata();
-?>
-  </div>
-
+<!-- Testimonials Section -->
+<?php get_template_part( 'partials/modules/module', 'testimonial' ); ?>
 
 <?php get_footer(); ?>

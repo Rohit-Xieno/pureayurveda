@@ -804,20 +804,6 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
 .testimonial-section .testimonial-carousel .item {
   text-align: center;
 }
-.testimonial-section .testimonial-carousel .item h4 {
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: 2.2px;
-  --tw-text-opacity: 1;
-  color: rgb(150 34 93 / var(--tw-text-opacity));
-}
-.testimonial-section .testimonial-carousel .item h6 {
-  margin-bottom: 15px;
-  font-size: 14px;
-  font-weight: 400;
-  --tw-text-opacity: 1;
-  color: rgb(170 144 164 / var(--tw-text-opacity));
-}
 .testimonial-section .testimonial-carousel .item p {
   font-weight: 400;
   letter-spacing: 1.6;
