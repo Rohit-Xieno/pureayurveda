@@ -47,7 +47,7 @@ get_header('shop'); ?>
 <section class="product-ratings-reviews-section bg-[#F9F8F9] py-[100px]">
 	<div class="container flex">
 		<div class="product-ratings-review" style="width: 40%;">
-		<h3 class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]">OVERALL RATING FOR</h3>
+		<h2 class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]">OVERALL RATING FOR</h2>
 		<?php the_title(); ?>
 		<div class="rating-custom">
     	<?php wc_get_template( 'single-product/rating.php' ); ?>

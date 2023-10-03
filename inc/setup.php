@@ -79,3 +79,43 @@ add_action('woocommerce_shop_loop_item_title', 'soChangeProductsTitle', 10 );
 function soChangeProductsTitle() {
     echo '<h3 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) ) . '">' . get_the_title() . '</h3>';
 }
+
+
+// custom breadcrumb uses on single blog page
+function get_breadcrumb() {
+	echo '<a href="'.home_url().'" rel="nofollow" class="home-breadcrumb">Home</a>';
+	if (is_category() || is_single()) {
+			echo "&nbsp;/&nbsp;";
+			// the_category(' &bull; ');
+			?>
+			<a href="<?php echo site_url('/blog') ?>" class="home-breadcrumb middle-breadcrumb-link">Blog</a>
+			<?php
+					if (is_single()) {
+							echo " &nbsp;/&nbsp; ";
+							the_title();
+					}
+	} elseif (is_page()) {
+			echo "&nbsp;&#187;&nbsp;";
+			echo the_title();
+	} elseif (is_search()) {
+			echo "&nbsp;/&nbsp;Search Results for... ";
+			echo '"<em>';
+			echo the_search_query();
+			echo '</em>"';
+	}
+}
+
+
+
+// custom search form
+function custom_search_form( $form ) {
+	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+		<div class="custom-form"><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
+		<input type="text" value="' . get_search_query() . '" name="s" id="s" />
+		<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search' ) .'" />
+	</div>
+	</form>';
+
+	return $form;
+}
+add_filter( 'get_search_form', 'custom_search_form', 40 );

@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <main id="primary" class="relative">
    <?php
    $single_post_img = get_the_post_thumbnail_url(); ?>
@@ -10,8 +11,12 @@
          </h1>
       </div>
    </div>
+   
    <div class="mx-auto container my-10 flex gap-10">
       <div class="post-content w-[60%]">
+         <div class="custom-breadcrumbs pb-10">
+            <?php get_breadcrumb(); ?>
+         </div>
          <article>
             <?php /* get_single_blog_post_breadcrumb(); */?>
             <?php while (have_posts()): the_post(); ?>
@@ -30,6 +35,7 @@
          </div>
       </div>
       <div class="single-post-sidebar w-[40%]">
+         <?php get_search_form(); ?>
          <?php dynamic_sidebar('sidebar'); ?>
 
          <?php $pa_form = get_field('pa_form'); ?>

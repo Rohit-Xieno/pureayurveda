@@ -24,8 +24,11 @@ if ($the_query->have_posts()) :
                   <?php echo do_shortcode('[ti_wishlists_addtowishlist loop=yes]'); ?>
                 </div>
                 <?php $trending_img = wp_get_attachment_image_src(get_post_thumbnail_id($the_query->ID)); ?>
-
-                <img src="<?php echo $trending_img[0] ?>" alt="" class="w-[100%] max-w-[100%] h-[350px] object-cover rounded-tl-[45px]">
+                <?php if(!empty($trending_img)) : ?>
+                  <img src="<?php echo $trending_img[0] ?>" alt="" class="w-[100%] max-w-[100%] h-[350px] object-cover rounded-tl-[45px]">
+                <?php else : ?>
+                  <img src="<?php echo get_template_directory_uri().'/assets/images/woocommerce-placeholder.png' ?>" alt="" class="woocommerce-placeholder w-[100%] max-w-[100%] h-[350px] object-cover rounded-tl-[45px]">
+                <?php endif; ?>
                 <?php $product_id = get_the_ID(); ?>
                 <?php echo '<a href="?add-to-cart=' . get_the_id($product_id) . '" class="bg-dark-purple-rgba text-[14px] text-white px-[15px] py-[10px] max-w-[226px] w-[100%] justify-center m-auto hidden group-hover:flex absolute left-0 right-0 bottom-[40px]">Add To Cart +</a>'; ?>
               </div>

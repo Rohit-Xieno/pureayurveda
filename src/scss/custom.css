@@ -523,6 +523,12 @@ body .\!max-w-screen-md{
 .breadcrumbs{
   @apply flex gap-1
 }
+.custom-breadcrumbs{
+  @apply text-[#AA90A4];
+  .home-breadcrumb{
+    @apply text-[#E8E1E6];
+  }
+}
 
 /* shop page css */
 body.woocommerce.woocommerce-shop .products .product .add_to_cart_button{
@@ -558,6 +564,55 @@ body .show-now-product .owl-carousel .owl-prev{
 body .show-now-product .owl-carousel .owl-next{
   @apply absolute top-[50%] right-0
 }
+
+/* home page trending product section */
+.trending-product-section{
+  @apply relative;
+  .onsale{
+    @apply hidden;
+  }
+  .tinv-wraper.tinv-wishlist{
+    @apply hidden absolute top-0 right-0 bg-[rgba(150,34,93,0.8)] w-[50px] h-[50px];
+    .tinvwl_add_to_wishlist_button{
+      @apply mt-0
+    }
+  }
+  .woocs_price_code{
+    @apply flex flex-row-reverse justify-end gap-[10px];  
+  }
+}
+
+body .trending-product-section ins bdi{
+  
+    @apply !text-[#47203E] text-[22px] font-normal;
+  
+}
+body .trending-product-section del bdi{
+  
+    @apply !text-[#AA90A4] text-[18px];
+  
+}
+
+body .trending-product-section a.button.custom-button.buy-now{
+  @apply !bg-transparent rounded-none underline text-[#96225D] text-[18px] font-normal p-0;
+}
+.trending-product-section ul.products li.product:hover .tinv-wraper.tinv-wishlist{     
+  @apply flex;
+}
+body .woocommerce-Address-title{
+  .edit{
+    @apply bg-[#96225D] px-4 py-2 text-white;
+  }
+}
+body .woocommerce-Address{
+  @apply border border-[#96225D] mt-10 p-6
+}
+body .woocommerce-Button.button{
+  @apply bg-[#96225D] rounded-tl-[25px] rounded-none text-white font-normal px-[35px] py-[20px] mt-5
+}
+
+
+
 
 
 /* cart page css */

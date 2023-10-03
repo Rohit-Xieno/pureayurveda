@@ -14,9 +14,10 @@
         </h1>
       </div>
       <div class="breadcrumbs pb-16">
-        <?php if (function_exists('bcn_display')) {
+        <?php woocommerce_breadcrumb(); ?>
+        <!-- </?php if (function_exists('bcn_display')) {
           bcn_display();
-        } ?>
+        } ?> -->
       </div>
       <?php if(!empty($about_banner)) : ?>
         <img src="<?php echo esc_url($about_banner['url']); ?>" alt="<?php echo esc_attr($about_banner['alt']); ?>">

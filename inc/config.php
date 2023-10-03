@@ -234,9 +234,9 @@ function wrvp_recently_viewed(){
 	$recent_title = get_field('recent_title','option');
 	echo '<div class="recently-viewed-section inverse full-bleed flex gap-10 bg-white relative before:absolute before:w-[100%] before:h-[209px] before:bg-[#F9F8F9] before:left-0 before:right-0 before:top-5 before:z-[-1]">';
 	echo '<div class="recently-viewed-title w-[25%] bg-[#F9F8F9] mt-5 pt-7 h-[209px]">';
-	echo '<h3 class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]">';
+	echo '<p class="text-[#96225D] text-[22px] tracking-[1.65px] mt-[0] mb-[15px]">';
 	echo $recent_sub_title;
-	echo '</h3>'; 
+	echo '</p>'; 
 	echo '<h2 class="heading-h2 pl-[18px] leading-[1.2em] border-l border-[#96225D]">';
 	echo $recent_title;
 	echo '</h2>';  

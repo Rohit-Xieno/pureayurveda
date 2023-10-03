@@ -38,16 +38,6 @@
             'add_a_class' => 'text-[18px] font-[300] hover:text-[#AA90A4] mb-[20px] block',
 					));
 				?>
-        <!-- <ul class="pa-footer-links mt-[80px] columns-2 text-[white] relative before:w-[30px] before:h-[2px] before:bg-[#AA90A4] before:absolute before:top-[-30px] before:left-0">
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">About</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">Shop</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">Blog</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">Contact</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">FAQ</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">Orders</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">Policy & Privacy</a></li>
-          <li class="mb-[20px]"><a href="#" class="text-[18px] font-[300] hover:text-[#AA90A4]">Terms & Conditions</a></li>
-        </ul> -->
       </div>
       <div class="lg:w-2/5 px-[15px] w-[100%]">
         <!-- <form action="" class="subscribe-form mt-[80px] relative before:w-[30px] before:h-[2px] before:bg-[#AA90A4] before:absolute before:top-[-30px] before:left-0">
@@ -57,7 +47,7 @@
         <div class="subscribe-form mt-[80px] relative before:w-[30px] before:h-[2px] before:bg-[#AA90A4] before:absolute before:top-[-30px] before:left-0">
           <?php echo do_shortcode('[contact-form-7 id="02d1e37" title="Subscribe Form"]'); ?>
         </div>
-        <p class="pa-footer-leaf inline-block relative text-[14px] text-[#AA90A4] mt-[20px] after:block after:absolute after:bg-[url(http://pureayurveda.loc/wp-content/uploads/2023/06/footer-leaf.png)] after:bg-no-repeat after:w-[76px] after:h-[80px] after:bg-contain after:right-[-30px] lg:after:top-[30px] top-0">For Newsletter Updates. Enter your email to stay in the loop on new collections, pop-up shows and more.</p>
+        <p class="pa-footer-leaf inline-block relative text-[14px] text-[#AA90A4] mt-[20px] after:block after:absolute after:bg-[url(http://pureayurveda.loc/wp-content/uploads/2023/06/footer-leaf.png)] after:bg-no-repeat after:w-[76px] after:h-[80px] after:bg-contain after:right-[-30px] lg:after:top-[30px] top-0"><?php the_field('footer_newsletter_text', 'option'); ?></p>
       </div>
     </div>
   </div>
