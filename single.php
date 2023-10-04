@@ -35,9 +35,8 @@
          </div>
       </div>
       <div class="single-post-sidebar w-[40%]">
-         <?php get_search_form(); ?>
          <?php dynamic_sidebar('sidebar'); ?>
-
+         <!-- <div id="block-2" class="widget widget_block widget_search mb-6"><form role="search" method="get" action="http://pureayurveda.loc/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-2">Search</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-2" placeholder="search here..." value="" type="search" name="s" required="">  <input type="hidden" name="post_type" value="post, product" /><button aria-label="Search" class="wp-block-search__button wp-element-button" type="submit">Search</button></div></form></div> -->
          <?php $pa_form = get_field('pa_form'); ?>
          <div class="w-<?php if ($pa_form != '')
             echo '[50%]';
