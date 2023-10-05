@@ -202,7 +202,7 @@ body .owl-carousel .owl-nav button:focus{opacity: 1;}
 
 .footer{background-size: 500px;}
 footer .subscribe-btn{
-  @apply max-w-[194px]
+  @apply max-w-[150px]
 }
 footer input[type="email"]{
   @apply bg-[#5B5259] placeholder:text-[#F9F8F9]
@@ -593,7 +593,7 @@ body .trending-product-section del bdi{
   
 }
 
-body .trending-product-section a.button.custom-button.buy-now{
+body a.button.custom-button.buy-now{
   @apply !bg-transparent rounded-none underline text-[#96225D] text-[18px] font-normal p-0;
 }
 .trending-product-section ul.products li.product:hover .tinv-wraper.tinv-wishlist{     
@@ -611,8 +611,18 @@ body .woocommerce-Button.button{
   @apply bg-[#96225D] rounded-tl-[25px] rounded-none text-white font-normal px-[35px] py-[20px] mt-5
 }
 
+body.woocommerce .related.products{ 
 
-
+.woocommerce-loop-product__title{
+  @apply !text-[22px] text-[#96225D] tracking-[1.65px] uppercase
+}
+}
+body.woocommerce .woocs_price_code{
+  @apply flex justify-end flex-row-reverse;
+}
+.onsale{
+  @apply !hidden
+}
 
 
 /* cart page css */

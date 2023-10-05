@@ -46,8 +46,8 @@
           <img src="<?php get_template_directory_uri() . '/assets/images/star.png' ?>" alt="">
         </div>
         <div class="pa-product-price">
-          <span class="text-[22px] text-[#47203E]"><?php echo get_post_meta(get_the_ID(), '_regular_price', true); ?></span>
-          <del class="text-[18px] text-[#AA90A4] ml-[10px]"><?php echo get_post_meta(get_the_ID(), '_sale_price', true); ?></del>
+          <span class="text-[22px] text-[#47203E]"><?php echo get_woocommerce_currency_symbol().$product->get_regular_price(); ?></span>
+          <del class="text-[18px] text-[#AA90A4] ml-[10px]"><?php echo get_woocommerce_currency_symbol().$product->get_sale_price(); ?></del>
         </div>
         <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline"> Buy Now </a>
       </div>
