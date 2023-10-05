@@ -22,20 +22,9 @@
 						<ul class="flex justify-end pr-[calc(100%-342px)] relative">
 							<li class="pr-[10px] relative after:absolute after:w-[1px] after:h-[16px] after:top-[6px] after:right-0 after:bg-white">
 								<?php echo do_shortcode('[woocs sd=1]'); ?>
-								<!-- <select class="form-select bg-transparent text-white" aria-label="Default select example">
-									<option selected class="text-black">Open this select menu</option>
-									<option value="1" class="text-black">USD - US Dollor</option>
-									<option value="2" class="text-black">INR - Indian Rupees</option>
-									<option value="3" class="text-black">Euro</option>
-								</select> -->
 							</li>
 							<li class="pl-[10px]">
 								<?php echo do_shortcode('[gtranslate]'); ?>
-								<!-- <select class="form-select bg-transparent text-white" aria-label="Default select example">
-									<option value="english" class="text-black">English</option>
-									<option value="french" class="text-black">French</option>
-									<option value="hindi" class="text-black">Hindi</option>
-								</select> -->
 							</li>
 						</ul>
 					</li>
@@ -69,9 +58,6 @@
 					</div>
 					</li>
 					<li class="flex flex-1 items-center relative pl-[15px] before:absolute before:w-[1px] before:h-[15px] before:bg-[#AA90A4] before:left-[2px]">
-						<!-- <form action="">
-							<input type="text" placeholder="search your product here..." class="bg-transparent focus:outline-none"><img src="</?php echo get_template_directory_uri() . '/assets/images/search.png' ?>" alt="" class="ml-auto">
-						</form> -->
 						<div id="product-search-0" class="product-search floating w-[100%]">
 							<div class="product-search-form w-[100%]">
 								<form id="product-search-form-0" class="product-search-form show-submit-button flex" action="http://pureayurveda.loc/" method="get">
@@ -109,7 +95,6 @@
 					<?php } else { ?>
 							<a href="<?php the_permalink('27') ?>" title="Login or Register" rel="home" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a>
 					<?php } ?>
-					<!-- <a href="#" class="bg-[#96225D] text-white rounded-tl-[25px] rounded-0 py-[15px] px-[37px] text-[14px] ml-[25px] hover:rounded-br-[25px] hover:rounded-none transition-all">Login/Register</a> -->
 				</div>
 			</div>
 		</div>
@@ -178,18 +163,8 @@
 							<div class="product-search-form w-[100%]">
 								<form id="product-search-form-0" class="product-search-form show-submit-button flex" action="http://pureayurveda.loc/" method="get">
 									<input id="product-search-field-0" name="s" type="text" class="product-search-field bg-transparent focus:outline-none w-[100%] py-[10px] px-[15px] h-[55px]" placeholder="search your product here..." autocomplete="off">
-									<input type="hidden" name="post_type" value="product">
-									<input type="hidden" name="title" value="1">
-									<input type="hidden" name="excerpt" value="1">
-									<input type="hidden" name="content" value="1">
-									<input type="hidden" name="categories" value="1">
-									<input type="hidden" name="attributes" value="1">
-									<input type="hidden" name="tags" value="1">
-									<input type="hidden" name="sku" value="1">
-									<input type="hidden" name="orderby" value="date-DESC">
-									<input type="hidden" name="ixwps" value="1">
+									<input type="hidden" name="post_type[]" value="product">
 									<span title="Clear" class="product-search-field-clear" style="display:none"></span>
-									<!-- <button type="submit" class="ml-auto"><img src="<?php echo get_template_directory_uri() . '/assets/images/search.png' ?>" alt="" class="ml-auto"></button> -->
 								</form>
 							</div>
 							<div id="product-search-results-0" class="product-search-results">
@@ -199,7 +174,6 @@
 			</div>
 			</div>
 				<div id="mobile-menu" class="hidden">
-					<!-- <div id="menu-close"><img src="<?php /* echo get_template_directory_uri().'/assets/images/close-md-svgrepo-com.svg' */ ?>" alt=""></div> -->
 					<?php
 					wp_nav_menu(array(
 						'menu' => 'Main Menu',

@@ -13,6 +13,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page('Shop');
 	acf_add_options_sub_page('Newsletter');
 	acf_add_options_sub_page('SingleProduct');
+	acf_add_options_sub_page('Search');
     
 	acf_add_options_page(array(
 			'page_title'    => 'Theme General Settings',
@@ -61,6 +62,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 			'page_title'    => 'Theme SingleProduct Settings',
 			'menu_title'    => 'SingleProduct',
+			'parent_slug'   => 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+			'page_title'    => 'Theme Search Settings',
+			'menu_title'    => 'Search',
 			'parent_slug'   => 'theme-general-settings',
 	));
 	

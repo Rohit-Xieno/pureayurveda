@@ -3,13 +3,29 @@
       <div class="container">
         
 <?php if (have_posts()) { ?>
-  <ul class="grid grid-cols-4 gap-x-[40px]">
+  <?php
+    if ($post->post_type == "post") : ?>
+      <!-- blog archieve -->
+      <div class="text-center">
+        <h1 class="heading-h2 mb-0 relative pb-12 border-b border-[#C8C8C8] before:absolute before:left-[50%] before:top-[-40px] before:w-[2px] before:h-[30px] before:translate-x-[-50%] before:bg-[#96225D]"><?php echo get_field('post_search_heading', 'option'); ?></h1>
+      </div>
+      <?php woocommerce_breadcrumb(); ?>
+      <?php endif; ?>
+
+      <?php if ($post->post_type == "product") : ?>
+      <!-- blog archieve -->
+      <div class="text-center">
+        <h1 class="heading-h2 mb-0 relative pb-12 border-b border-[#C8C8C8] before:absolute before:left-[50%] before:top-[-40px] before:w-[2px] before:h-[30px] before:translate-x-[-50%] before:bg-[#96225D]"><?php the_field('product_search_heading', 'option'); ?></h1>
+      </div>
+      <?php woocommerce_breadcrumb(); ?>
+      <?php endif; ?>
+  <ul class="grid grid-cols-4 gap-[40px] pt-12">
   <?php while ( have_posts() ) : the_post(); ?>
 <li>
     <?php
     if ($post->post_type == "post") { ?>
       <!-- blog archieve -->
-      <div class="home-blog-col mt-[40px]">
+      <div class="home-blog-col">
         <?php $trending_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
         <?php 
           if ($trending_img) { ?>
