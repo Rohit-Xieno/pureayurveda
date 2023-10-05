@@ -186,7 +186,8 @@ $special_product_image_two = get_field('special_product_image_two');
 <!-- product slider section start-->
 <section class="product-slider-section pb-[80px]">
   <div class="product-container max-w-[1730px] m-auto px-[15px]">
-    <div class="product-row flex relative before:absolute before:border before:border-[#96225D] before:rounded-tl-[100px] before:rounded-br-[100px] before:rounded-none before:w-[100%] before:h-[calc(100%+64px)] before:max-w-[1170px] before:m-auto before:left-[50%] before:translate-x-[-50%] before:z-[-1] before:top-[-32px] after:absolute after:bg-[url(http://localhost/pureayurveda/wp-content/uploads/2023/06/leaf-patterns.png)] after:bg-cover after:w-[240px] after:h-[100%] after:right-[0]">
+    <?php $leaf_pattern_img = get_field('product_slider_leaf_pattern'); ?>
+    <div style="background-image: url('<?php echo esc_url($leaf_pattern_img['url']); ?>');" class="product-row flex relative before:absolute before:border before:border-[#96225D] before:rounded-tl-[100px] before:rounded-br-[100px] before:rounded-none before:w-[100%] before:h-[calc(100%+64px)] before:max-w-[1170px] before:m-auto before:left-[50%] before:translate-x-[-50%] before:z-[-1] before:top-[-32px] after:absolute after:bg-cover after:w-[240px] after:h-[100%] after:right-[0]">
       <div class="product-slider-wrap flex w-[100%] relative overflow-hidden items-center bg-[#f9f8f9]">
         <div class="product-carousel w-2/5 max-w-[566px] flex relative overflow-hidden h-[100%] before:absolute before:right-0 before:z-[9] before:w-[180px] before:h-[100%] before:bg-gradient-to-tr before:from-[#F9F8F9] before:from-50% before:to-transparent before:to-50% before:rotate-[-180deg]">
           <?php

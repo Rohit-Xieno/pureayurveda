@@ -1,4 +1,5 @@
-<footer class="footer pt-[80px] pb-[45px] bg-[url(../assets/images/leaves-bg-1.png)] bg-no-repeat bg-[#241822]" id="footer">
+<?php $footer_bg_leaf = get_field('footer_bg_leaf', 'option'); ?>
+<footer style="background-image: url('<?php echo esc_url($footer_bg_leaf['url']); ?>'); " class="footer pt-[80px] pb-[45px] bg-no-repeat bg-[#241822]" id="footer">
   <div class="container">
     <div class="row flex lg:flex-nowrap flex-wrap">
       <div class="lg:w-3/12 px-[15px] md:w-[50%] w-[100%]">
@@ -47,7 +48,15 @@
         <div class="subscribe-form mt-[80px] relative before:w-[30px] before:h-[2px] before:bg-[#AA90A4] before:absolute before:top-[-30px] before:left-0">
           <?php echo do_shortcode('[contact-form-7 id="02d1e37" title="Subscribe Form"]'); ?>
         </div>
-        <p class="pa-footer-leaf inline-block relative text-[14px] text-[#AA90A4] mt-[20px] after:block after:absolute after:bg-[url(http://pureayurveda.loc/wp-content/uploads/2023/06/footer-leaf.png)] after:bg-no-repeat after:w-[76px] after:h-[80px] after:bg-contain after:right-[-30px] lg:after:top-[30px] top-0"><?php the_field('footer_newsletter_text', 'option'); ?></p>
+        <p class="pa-footer-leaf inline-block relative text-[14px] text-[#AA90A4] mt-[20px] top-0"><?php the_field('footer_newsletter_text', 'option'); ?></p>
+        <?php $newsletter_leaf = get_field('footer_newsletter_leaf', 'option') ?>
+        <?php if(!empty($newsletter_leaf)) : ?>
+        <div class="newsletter-leaf flex justify-end translate-y-[-20px]">
+          <figure class="w-[76px] h-[76px] object-contain">
+            <img src="<?php echo esc_url($newsletter_leaf['url']); ?>" alt="<?php echo esc_attr($newsletter_leaf['alt']); ?>">
+          </figure>
+        </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
