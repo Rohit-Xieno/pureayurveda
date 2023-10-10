@@ -61,7 +61,7 @@
 						<div id="product-search-0" class="product-search floating w-[100%]">
 							<div class="product-search-form w-[100%]">
 								<form id="product-search-form-0" class="product-search-form show-submit-button flex" action="http://pureayurveda.loc/" method="get">
-									<input id="product-search-field-0" name="s" type="text" class="product-search-field bg-transparent focus:outline-none w-[100%]" placeholder="search your product here..." autocomplete="off">
+									<input id="product-search-field-0" name="s" type="text" class="product-search-field bg-transparent focus:outline-none w-[100%] placeholder:text-[#AA90A4]" placeholder="search your product here..." autocomplete="off">
 									<input type="hidden" name="post_type[]" value="product">
 									<span title="Clear" class="product-search-field-clear" style="display:none"></span>
 									<button type="submit" class="ml-auto"><img src="<?php echo get_template_directory_uri() . '/assets/images/search.png' ?>" alt="" class="ml-auto"></button>

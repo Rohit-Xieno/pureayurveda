@@ -84,7 +84,7 @@ jQuery('#owl-product').owlCarousel({
 });
 
 // banner section carousel
-jQuery('#owl-demo').owlCarousel({
+jQuery('#owl-home-banner').owlCarousel({
   loop: true,
   items: 1,
   nav: false,

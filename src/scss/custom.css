@@ -122,6 +122,15 @@ a.wishlist_products_counter.top_wishlist-custom img{
 .hero-section .owl-carousel .owl-nav{
   @apply !hidden
 }
+.hero-section .owl-carousel .owl-dots{
+  @apply absolute bottom-12 left-[50%] translate-x-[-50%] flex gap-5 items-center
+}
+.hero-section .owl-carousel .owl-dots .owl-dot{
+  @apply w-[10px] h-[10px] rounded-[3px] border border-solid border-[#ffffff]
+}
+.hero-section .owl-carousel .owl-dots .owl-dot.active{
+  @apply w-[14px] h-[14px] bg-white
+}
 body{
   .pa-latest-products-section .owl-carousel{
   .owl-prev{ @apply rotate-[180deg] absolute top-[50%] left-[-70px] }
@@ -481,7 +490,7 @@ body .\!max-w-screen-md{
   @apply text-[22px] text-[#96225d] tracking-[2.2px] mb-[15px] uppercase mt-12;
 }
 .single-post-sidebar input[type="search"]{
-  @apply border-t-0 border-l-0 border-r-0 border-b border-[#241822] focus:outline-none;
+  @apply border-t-0 border-l-0 border-r-0 border-b border-[#241822] focus:outline-none pr-10;
 }
 .single-post-sidebar .wp-block-search__inside-wrapper{
   @apply relative 
@@ -593,9 +602,9 @@ body .trending-product-section del bdi{
   
 }
 
-body a.button.custom-button.buy-now{
+/* body a.button.custom-button.buy-now{
   @apply !bg-transparent rounded-none underline text-[#96225D] text-[18px] font-normal p-0;
-}
+} */
 .trending-product-section ul.products li.product:hover .tinv-wraper.tinv-wishlist{     
   @apply flex;
 }
@@ -1147,12 +1156,52 @@ body.woocommerce-checkout .form-row{
   @apply block transition-all
 }
 
+/* search page pagination */
+.navigation{
+  &.pagination{
+    @apply mt-14;
+    .nav-links{
+      @apply text-center flex gap-3 justify-center;
+      .page-numbers{
+        @apply bg-[#AA90A4] px-3 py-1 text-white;
+        &.current{
+          @apply bg-[#96225D] text-white;
+        }
+    }
+}
+}
+}
+
+.wpp-list{
+  .wpp-date{
+    @apply text-[#AA90A4];
+  }
+}
+.comment-form-comment{
+  @apply flex flex-col flex-1
+}
+.comment-form-author, .comment-form-email, .comment-form-url, .comment-form-cookies-consent, .comment-notes{
+  @apply hidden
+}
+.comment-form{
+  @apply flex items-end gap-10 flex-wrap;
+  .form-submit{
+    .submit{
+      @apply bg-[#96225D] text-lg text-white px-10 py-3 rounded-none rounded-tl-[25px] 
+    }
+  }
+}
+.comment-form-comment{
+  #comment{
+    @apply h-[160px] border-2 border-[#AA90A4] mt-4 p-3
+  }
+}
+.comment-reply-title{
+  @apply hidden
+}
 
 
-
-
-
-
+/* responsive css */
 @media(max-width: 1440px){
   .pa-latest-products-section .owl-carousel{
     @apply px-24

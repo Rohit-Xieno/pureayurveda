@@ -117,3 +117,33 @@ function searchfilter($query) {
 return $query;
 }
 add_filter('pre_get_posts','searchfilter');
+
+
+// add this function for remove default style of woocommerce
+function br_add_woocommerce_support() {
+	add_theme_support('woocommerce', array(
+	'gallery_thumbnail_image_width' => 110,
+	'thumbnail_image_width'         => 400,
+	'single_image_width'            => 760,
+));
+
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+}
+add_action( 'after_setup_theme', 'br_add_woocommerce_support' );
+// add this filter for remove default style of woocommerce
+// add_filter('woocommerce_enqueue_styles', '__return_false');
+
+
+
+
+function search_filter($query) {
+  if ( !is_admin() && $query->is_main_query() ) {
+    if ($query->is_search) {
+      $query->set('paged', ( get_query_var('paged') ) ? get_query_var('paged') : 1 );
+      $query->set('posts_per_page',8);
+    }
+  }
+}
+add_action( 'pre_get_posts', 'search_filter' );

@@ -7,7 +7,7 @@
 
 <section class="hero-section">
   <?php if (have_rows('hero_repeater')) : ?>
-    <div id="owl-demo" class="owl-carousel owl-theme">
+    <div id="owl-home-banner" class="owl-carousel owl-theme">
       <?php while (have_rows('hero_repeater')) : the_row(); 
         $hero_slider_img = get_sub_field('hero_slider_image');
       ?>
@@ -16,7 +16,15 @@
             <div class="pa-hero-content-col relative px-[35px] py-[60px] max-w-[525px] w-[100%] before:absolute before:w-[100%] before:h-[100%] before:border before:border-[#96225D] before:z-[-1] before:right-[-8px] before:bottom-[-8px] before:rounded-tl-[183px] before:rounded-none">
               <span class="text-[22px] text-white tracking-[1.65px] mb-[20px] block"><?php the_sub_field('hero_sub_title') ?></span>
               <p class="text-[46px] text-[#241822] leading-[1.2em] mb-[40px]"><?php the_sub_field('hero_title') ?></p>
-              <a href="<?php the_sub_field('hero_button_link') ?>" class="pa-button"><?php the_sub_field('hero_button_text') ?></a>
+              <?php 
+                $hero_button_link = get_sub_field('hero_button_link');
+                if($hero_button_link) :
+                  $hero_button_url = $hero_button_link['url'];
+                  $hero_button_title = $hero_button_link['title'];
+                  $hero_button_target = $hero_button_link['target'] ? $hero_button_link['target'] : '_self';
+              ?>
+              <a href="<?php echo esc_url($hero_button_url); ?>" target="<?php esc_attr($hero_button_target) ?>" class="pa-button"><?php echo esc_html($hero_button_title); ?></a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -53,7 +61,7 @@
             
             <div class="w-3/5 product-img-wrap">
               <div class="full-product relative">
-                <a href="#" class="px-[35px] py-[13px] text-[18px] text-white bg-dark-purple-rgba inline-block rounded-br-[25px] rounded-none absolute left-0 top-0">Latest</a>
+                <span class="px-[35px] py-[13px] text-[18px] text-white bg-dark-purple-rgba inline-block rounded-br-[25px] rounded-none absolute left-0 top-0">Latest</span>
                 <a href="<?php the_permalink(); ?>">
                   <?php $full_product_img = wp_get_attachment_image_src(get_post_thumbnail_id($post_query->ID), 'single-post-thumbnail'); ?>
                   <?php if(!empty($full_product_img)) : ?>
@@ -164,24 +172,51 @@ $special_product_image_two = get_field('special_product_image_two');
 <section class="special-product-section py-[90px]">
   <div class="container">
     <div class="special-product-row grid grid-cols-2 gap-x-[40px]">
-      <div style="background-image: url('<?php echo esc_url($special_product_image['url']); ?>');" class="special-product-col flex justify-end rounded-tl-[80px] rounded-none px-[30px] py-[60px] bg-[#DDE0EF] bg-no-repeat bg-contain">
-        <div class="special-product-content">
-          <p class="text-[18px] text-[#47203E] mb-[54px] tracking-[1.35px] uppercase relative after:w-[30px] after:h-[2px] after:bg-[#96225D] after:absolute after:top-[calc(100%+20px)] after:left-0"><?php the_field('special_product_sub_title'); ?></p>
-          <h2 class="text-[36px] text-[#241822] leading-[1.3em] uppercase"><?php the_field('special_product_title') ?></h2>
-          <a href="<?php the_field('special_product_pre_link'); ?>" class="text-[18px] text-[#96225D] underline block text-right mt-[55px]"><?php the_field('special_product_pre_order'); ?></a>
-        </div>
-      </div>
-      <div style="background-image: url('<?php echo esc_url($special_product_image_two['url']); ?>');" class="special-product-col relative flex justify-end rounded-tr-[80px] rounded-none px-[30px] py-[60px] bg-[#DDE0EF] bg-no-repeat bg-cover">
-        <div class="special-product-content max-w-[340px] w-[100%] bg-[rgba(255,255,255,0.3)] backdrop-blur-[50px] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 px-[30px] py-[60px]">
-          <h3 class="text-[36px] text-[#47203E] text-center mb-[54px] tracking-[1.35px] uppercase relative after:w-[2px] after:h-[30px] after:bg-[#96225D] after:absolute after:top-[calc(100%+1px)] after:left-[50%] after:translate-x-[-50%]"><?php the_field('special_product_heading') ?></h3>
-          <p class="text-center text-[14px] text-white"><?php the_field('special_product_content') ?></p>
-          <a href="<?php the_field('special_product_buy_link'); ?>" class="text-[18px] text-[#96225D] underline block text-center mt-[55px]"><?php the_field('special_product_buy_now'); ?></a>
-        </div>
-      </div>
-    </div>
+      <?php 
+        $specific_category = get_field('specific_category');
+        if($specific_category) :
+          foreach($specific_category as $post):
+            setup_postdata($post);
+            $product_cat_img_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+            echo '<div style="background-image: url(' . $product_cat_img_url . ');" class="special-product-col flex justify-end rounded-tl-[80px] rounded-none px-[30px] py-[60px] bg-[#DDE0EF] bg-no-repeat bg-cover">'
+            ?>
+          <div class="special-product-content">
+            <p class="text-[18px] text-[#47203E] mb-[54px] tracking-[1.35px] uppercase relative after:w-[30px] after:h-[2px] after:bg-[#96225D] after:absolute after:top-[calc(100%+20px)] after:left-0"><?php the_field('special_product_sub_title'); ?></p>
+            <h2 class="text-[36px] text-[#241822] leading-[1.3em] uppercase"><?php the_title(); ?></h2>
+            <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline block text-right mt-[55px]">Pre-Order</a>
+          </div>
+        <?php echo '</div>' ?>
+      <?php endforeach; ?>
+      
+      <?php wp_reset_postdata(); endif; ?>
+      <?php /* other part */ ?>
+      <?php
+        $specific_product = get_field('specific_product');
+        if( $specific_product ): ?>
+        <ul>
+        <?php foreach( $specific_product as $post ): 
+            // Setup this post for WP functions (variable must be named $post).
+            setup_postdata($post); ?>
+            <li>
+                <?php $product_img_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                echo '<div style="background-image: url(' . $product_img_url . ');" class="special-product-col relative flex justify-end rounded-tr-[80px] rounded-none px-[30px] py-0 bg-[#DDE0EF] bg-no-repeat bg-cover">' ?>
+                <div class="special-product-content max-w-[340px] w-[100%] bg-[rgba(255,255,255,0.3)] backdrop-blur-[50px] mx-auto left-[50%]  top-0 bottom-0 px-[30px] py-[60px]">
+                  <h3 class="text-[36px] text-[#47203E] text-center mb-[54px] tracking-[1.35px] uppercase relative after:w-[2px] after:h-[30px] after:bg-[#96225D] after:absolute after:top-[calc(100%+1px)] after:left-[50%] after:translate-x-[-50%]"><?php the_title(); ?></h3>
+                  <p class="text-center text-[14px] text-white"><?php echo wp_trim_words(get_the_excerpt(), 12); ?></p>
+                  <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline block text-center mt-[55px]">Buy Now</a>
+                </div>
+                <?php echo '</div>' ?>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+        <?php 
+        // Reset the global post object so that the rest of the page works correctly.
+        wp_reset_postdata(); ?>
+    <?php endif; ?>
   </div>
 </section>
 <!-- Special Products section end -->
+
 
 <!-- product slider section start-->
 <section class="product-slider-section pb-[80px]">

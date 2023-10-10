@@ -26,6 +26,7 @@
     if ($post->post_type == "post") { ?>
       <!-- blog archieve -->
       <div class="home-blog-col">
+        <a href="<?php the_permalink(); ?>">
         <?php $trending_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
         <?php 
           if ($trending_img) { ?>
@@ -35,7 +36,8 @@
             <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" class="w-[100%] h-56 rounded-none object-cover">
           <?php }
         ?>
-        <h3 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><?php the_title(); ?></h3>
+        </a>
+        <h3 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
         <p class="mb-[27px] mt-[26px]"><?php echo wp_trim_words(get_the_excerpt(), 22); ?></p>
         <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline">Read More</a>
       </div>
@@ -75,6 +77,11 @@
 <?php endwhile; ?>
 </ul> 
 <?php } else { echo "not found"; } ?>
+<?php the_posts_pagination( array(
+	'mid_size'  => 6,
+	'prev_text' => __( 'Prev', 'textdomain' ),
+	'next_text' => __( 'Next', 'textdomain' ),
+) ); ?>
       </div>
 </section>
 <?php get_footer(); ?>
