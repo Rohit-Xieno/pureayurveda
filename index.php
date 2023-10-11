@@ -5,6 +5,7 @@
     <div class="container relative z-10">
       <div class="text-center">
         <h1 class="text-[46px] text-[#241822] font-light pb-[54px] mb-[10px] tracking-[1.35px] uppercase border-b border-[#C8C8C8] relative before:w-[2px] before:h-[30px] before:bg-[#96225D] before:absolute before:top-[-40px] before:left-[50%] before:translate-x-[-50%]"><?php wp_title(''); ?></h1>
+        <h2 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">Sub Title</h2>
       </div>
       <?php woocommerce_breadcrumb(); ?>
       <?php
@@ -30,7 +31,7 @@
               ?>
               
               <div class="blog-content">
-                <h4 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                <h3 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p class="mb-[27px] mt-[26px]"><?php echo wp_trim_words(get_the_excerpt(), 22); ?></p>
                 <a href="<?php the_permalink(); ?>" class="text-[18px] text-[#96225D] underline read-more">Read More</a>
               </div>

@@ -333,6 +333,7 @@ $special_product_image_two = get_field('special_product_image_two');
         while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>
           <div class="home-blog-col mt-[40px]">
+            <a href="<?php the_permalink(); ?>">
             <?php $blog_img = wp_get_attachment_image_src(get_post_thumbnail_id($blog_query->ID), 'single-post-thumbnail'); ?>
             <?php 
               if ($blog_img) { ?>
@@ -342,6 +343,7 @@ $special_product_image_two = get_field('special_product_image_two');
                 <img src="<?php echo get_template_directory_uri().'/assets/images/dummy.png' ?>" alt="" class="w-[100%] h-56 rounded-none object-cover">
               <?php }
             ?>
+            </a>
             
             <h3 class="heading-h4 leading-[1.3em] relative after:absolute after:w-[30px] after:h-[2px] after:bg-[#AA90A4] after:top-[calc(100%+10px)] after:left-0"><?php the_title(); ?></h3>
             <p class="mb-[27px] mt-[26px]"><?php echo wp_trim_words(get_the_excerpt(), 22); ?></p>

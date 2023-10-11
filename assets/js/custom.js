@@ -150,7 +150,7 @@ if (columnTwo) {
 }
 if (columnFour) {
 columnFour.addEventListener('click', function(){
-  shopProducts.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
+  shopProducts.style.gridTemplateColumns = '1fr 1fr 1fr';
   columnFour.classList.add('view-button-active')
   columnTwo.classList.remove('view-button-active')
 });

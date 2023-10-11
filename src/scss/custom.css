@@ -1200,6 +1200,70 @@ body.woocommerce-checkout .form-row{
   @apply hidden
 }
 
+/* trending section css */
+body {
+  .trending-product-section {
+    .woocommerce-loop-product__title {
+      @apply !text-[22px] text-[#96225D] tracking-[2.2px] uppercase;
+    }
+
+    .woocs_price_code {
+      @apply items-center;
+    }
+
+    .price {
+      ins {
+        @apply !no-underline;
+        text-decoration: none !important;
+      }
+    }
+
+    .button.custom-button.buy-now {
+      @apply bg-transparent p-0 text-lg underline text-[#96225D] font-normal
+    }
+  }
+}
+
+/* shop page css */
+.products-with-filtes{
+  .button.custom-button.buy-now{
+    @apply bg-transparent p-0 text-lg underline text-[#96225D] font-normal;
+  }
+  .tinv-wraper.tinv-wishlist{
+    @apply bg-[rgba(150,34,93,0.8)] w-[50px] h-[50px] absolute right-0 top-0 hidden;
+    .tinvwl_add_to_wishlist_button {
+      @apply mt-0
+    }
+  }
+}
+
+
+.products-with-filtes ul.products li.product, .recently-viewed-section ul.products li.product{
+  @apply relative;
+}
+.products-with-filtes ul.products li.product:hover .tinv-wraper.tinv-wishlist, .recently-viewed-section ul.products li.product:hover .tinv-wraper.tinv-wishlist{
+  @apply flex;
+}
+
+.recently-viewed-section{
+  .button.custom-button.buy-now{
+    @apply bg-transparent p-0 text-lg underline text-[#96225D] font-normal;
+  }
+  .tinv-wraper.tinv-wishlist{
+    @apply bg-[rgba(150,34,93,0.8)] w-[50px] h-[50px] absolute right-0 top-0 hidden;
+    .tinvwl_add_to_wishlist_button {
+      @apply mt-0
+    }
+  }
+}
+
+.recently-viewed-section{
+  .button.custom-button.buy-now{
+    @apply bg-transparent p-0 text-lg underline text-[#96225D] font-normal;
+  }
+}
+  
+
 
 /* responsive css */
 @media(max-width: 1440px){

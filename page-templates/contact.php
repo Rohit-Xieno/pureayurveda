@@ -26,6 +26,7 @@
 
 <section class="contact-wrap pb-28">
   <div class="container">
+  <h2 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">Sub Title</h2>
     <div class="row flex gap-10 max-w-[1100px] m-auto">
       <div class="contact-info-wrap w-[30%]">
         <?php 
